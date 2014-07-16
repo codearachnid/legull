@@ -4,8 +4,8 @@ Plugin Name: Legull
 Plugin URI:
 Description: 
 Version: 1.0
-Author: Timothy Wood (@codearachnid), Chris Gatewood
-Author URI: http://www.imaginesimplicity.com
+Author: Legull LLC, Timothy Wood (@codearachnid), Chris Gatewood
+Author URI: http://www.legull.com
 Text Domain: legull
 */
 

@@ -179,7 +179,7 @@ class Legull extends AdminPageFramework {
 			),
 			array(
 				'section_id' => 'misc',
-				'field_id'	=>	'has_18',
+				'field_id'	=>	'has_over18',
 				'title'	=>	__( 'Over 18', 'legull' ),
 				'tip'	=>	__( 'The description key can be omitted though.', 'legull' ),
 				'description'	=>	__( 'Does this site require visitors to be over the age of 18?', 'legull' ),	//' syntax fixer

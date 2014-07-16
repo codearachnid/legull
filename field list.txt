@@ -4,7 +4,7 @@ owner_name: site owner name
 owner_email: contact email
 owner_locality: site ownership city, state/provence
 entity_type: individual/business (llc, scorp, partnership, sole)
-has_18: true/false requires 18 years of age or more
+has_over18: true/false requires 18 years of age or more
 has_advertising: true/false if site uses advertising
 has_advertising_network: true/false 
 has_advertising_adsense: true/false 
@@ -15,7 +15,6 @@ submit data - bool
 	contact info - bool
 has_ecommerce: true/false
 has_arbitration: true/false
-
 has_info_track: true/false
 has_personalization: true/false
 has_anonymous: true/false
