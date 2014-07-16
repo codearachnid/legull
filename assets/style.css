@@ -1,0 +1,15 @@
+.legull_page_legull_addons #poststuff .admin-page-framework-content .addon{
+	width: 300px;
+	float:left;
+	margin:0 1em 1em 0!important;
+}
+.legull_page_legull_addons #poststuff .admin-page-framework-content .addon h3{
+	font-size: 14px;
+	padding: 8px 12px;
+	margin: 0;
+	line-height: 1.4;
+}
+
+.legull_page_legull_addons #poststuff .admin-page-framework-content .addon .inside{
+
+}

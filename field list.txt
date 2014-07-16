@@ -1,0 +1,26 @@
+updated: generated date of doc
+siteurl: site url
+owner_name: site owner name
+owner_email: contact email
+owner_locality: site ownership city, state/provence
+entity_type: individual/business (llc, scorp, partnership, sole)
+has_18: true/false requires 18 years of age or more
+has_advertising: true/false if site uses advertising
+has_advertising_network: true/false 
+has_advertising_adsense: true/false 
+has_cookies: true/false 
+has_anonymous: true/false 
+submit data - bool
+	survey - bool
+	contact info - bool
+has_ecommerce: true/false
+has_arbitration: true/false
+
+has_info_track: true/false
+has_personalization: true/false
+has_anonymous: true/false
+has_SSL: true/false
+has_purchased_data: true/false
+has_data_buyer: true/false
+has_california: true/false
+
