@@ -1,3 +1,9 @@
+body.legull_page_legull_dashboard .admin-page-framework-sectionset,
+body.post-type-legull_documents .tablenav .actions #author,
+body.post-type-legull_documents .add-new-h2,
+body.post-type-legull_documents .view-switch{
+	display: none;
+}
 .legull_page_legull_addons #poststuff .admin-page-framework-content .addon{
 	width: 300px;
 	float:left;

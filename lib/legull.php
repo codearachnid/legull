@@ -1,13 +1,36 @@
 <?php
 
 class Legull extends AdminPageFramework {
+	function custom_admin_notices(){
+		$_sID = md5( trim( 'The options have been updated.' ) );
+		$_iUserID  = get_current_user_id();
+        $_aNotices = $this->oUtil->getTransient( "apf_notices_{$_iUserID}" );
+		if( isset( $_aNotices[ $_sID ] ) ){
+			$_aNotices[ $_sID ]['sMessage'] .= ' <h2><a href="#" onclick="legull_ajax_generate_docs(event);" class="legull_ajax_generate_docs add-new-h2">' . __('Generate Documents', 'legull') . '</a></h2>';
+			set_transient( "apf_notices_{$_iUserID}", $_aNotices );
+		}
+	}
 	function setUp() {
+
+		// add_action( 'admin_notices', array( $this, 'custom_admin_notices' ), 99 );
+		if ( is_network_admin() ) {
+            add_action( 'network_admin_notices', array( $this, 'custom_admin_notices' ), 5 );
+        } else {
+            add_action( 'admin_notices', array( $this, 'custom_admin_notices' ), 5 );
+        }
+		
+
 	    $this->setRootMenuPage( __( 'Legull', 'legull' ), LEGULL_URL . 'assets/icon.png' );
 	    $this->addSubMenuItems(
 	    	array(
 	    		'title' => __( 'Getting Started', 'legull' ),
 	            'page_slug' => 'legull_dashboard',
 	            'order' => 10
+	    		),
+	    	array(
+	    		'title' => __( 'Documents', 'legull' ),
+	            'href' => get_admin_url() . 'edit.php?post_type=' . LEGULL_CPT,
+	            'order' => 15
 	    		),
 	    	array(
 	            'title' => __( 'Settings', 'legull' ),

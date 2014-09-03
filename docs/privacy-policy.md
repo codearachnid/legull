@@ -1,3 +1,4 @@
+[legull_var name="title"]Privacy Policy[/legull_var]
 #Privacy Policy
 
 ##Introduction

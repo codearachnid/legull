@@ -1,5 +1,6 @@
+<h2>List Add-Ons <a href="https://wp.dev/wp-admin/plugin-install.php" class="add-new-h2">Add New</a></h2>
 <div id="poststuff">
-	list of addons | upload addon
+	
 	<div class="postbox-container">
 	<?php foreach( Legull_Conf::retrieve()->addons as $addon ) : ?>
 		<div class="postbox addon">
@@ -7,9 +8,8 @@
 				<span><?php echo $addon['name']; ?></span>
 			</h3>
 			<div class="inside">
-				<h4>Description:</h4>
 				<p><?php echo $addon['description']; ?></p>
-				<a href="<?php echo $addon['remote_url']; ?>" target="_blank" class="button">Download</a>
+				<a href="<?php echo $addon['remote_url']; ?>" target="_blank" class="button"><?php _e('More Info'); ?></a>
 			</div>
 		</div>
 	<?php endforeach; ?>

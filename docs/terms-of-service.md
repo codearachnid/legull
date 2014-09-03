@@ -1,3 +1,4 @@
+[legull_var name="title"]Terms of Service[/legull_var]
 #Terms of Service
 
 ##Introduction
