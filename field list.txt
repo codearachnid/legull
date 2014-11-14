@@ -22,4 +22,27 @@ has_SSL: true/false
 has_purchased_data: true/false
 has_data_buyer: true/false
 has_california: true/false
-
+has_usergenerated: true/false
+has_ecomm_digital: true/false
+has_ecomm_physical: true/false
+has_subscription: true/false
+has_no_scrape: true/false
+has_social: true/false
+has_https: true/false
+has_password: true/false
+privacy_email: contact email for privacy matters
+privacy_address: contact address for privacy matters
+owner_state: site ownership state
+has_returns
+no_returns
+returns_address
+returns_days
+support_email
+support_phone
+no_refunds
+has_refund
+sitename
+DMCA_address: DMCA agent's address
+DMCA_telephone: DMCA agent's phone
+DMCA_email: DMCA agent's email
+has_3ps: site has third party sellers
