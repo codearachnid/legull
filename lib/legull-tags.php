@@ -7,6 +7,9 @@ function legull_enqueue_scripts(){
 }
 
 function legull_generate_documents_to_import(){
+	global $shortcode_tags;
+	$tagnames = array_keys($shortcode_tags);
+	$tagregexp = join( '|', array_map('preg_quote', $tagnames) );
 	$docs = apply_filters( 'legull_copy_documents_to_uploads/list', glob( LEGULL_PATH . "docs/*.md") );
 	include_once( LEGULL_PATH . 'lib/parsedown.php' );
 	$Parsedown = new Parsedown();
@@ -28,9 +31,15 @@ function legull_generate_documents_to_import(){
 		// setup defaults
 		$post_title = $import_file;
 
+		if( has_shortcode( $content, 'legull_part' ) ){
+			$legull_part_regex_pattern = str_replace($tagregexp, 'legull_part', get_shortcode_regex());
+			$content = preg_replace_callback( '/'. $legull_part_regex_pattern .'/s', 'legull_shortcode_part_include', $content );
+		}
+
 		if( has_shortcode( $content, 'legull_var' ) ) {
-			$pattern = get_shortcode_regex();
-			preg_match_all( '/'. $pattern .'/s', $content, $matches );
+			// $pattern = get_shortcode_regex();
+			$legull_var_regex_pattern = str_replace($tagregexp, 'legull_var', get_shortcode_regex());
+			preg_match_all( '/'. $legull_var_regex_pattern .'/s', $content, $matches );
 
 			// include space because attributes are not trimmed
 			// set page title/name
@@ -40,9 +49,12 @@ function legull_generate_documents_to_import(){
 
 			// clean the content from [legull_var]
 			$content = legull_strip_shortcode( $content, 'legull_var' );
+			// $content = legull_strip_shortcode( $content, 'legull_part' );
 		}
 
-		if( has_shortcode( $content, 'legull_include' ) ) {
+		// if( has_shortcode( $content, 'legull_part' ) ) {
+		// 	$pattern = get_shortcode_regex();
+		// 	$content = preg_replace_callback( '/'. $pattern .'/s', 'legull_shortcode_part_include', $content );
 			// $pattern = get_shortcode_regex();
 			// preg_match_all( '/'. $pattern .'/s', $content, $matches );
 
@@ -54,7 +66,7 @@ function legull_generate_documents_to_import(){
 
 			// // clean the content from [legull_var]
 			// $content = legull_strip_shortcode( $content, 'legull_var' );
-		}
+		// }
 		
 
 		$import_post['post_title'] = $post_title;
@@ -64,6 +76,19 @@ function legull_generate_documents_to_import(){
 		update_post_meta( $document_id, 'legull_file', $import_file );
 	}
 	return true;
+}
+
+function legull_shortcode_part_include( $matches ){
+	// $matches = apply_filters( 'legull_shortcode_part_include/matches', $matches );
+	$content = '';
+	if( !empty( $matches[5] ) ){
+		$part_path = LEGULL_PATH . "docs/part";
+		$file = apply_filters( 'legull_shortcode_part_include/file', $part_path . '/' . $matches[5] . '.md', $part_path, $matches[5] . '.md' );
+		if( !empty($file) && file_exists($file) ){
+			$content = file_get_contents( $file );
+		}
+	}	
+	return apply_filters( 'legull_shortcode_part_include/content', $content );
 }
 
 function legull_seek_option($haystack, $needle){

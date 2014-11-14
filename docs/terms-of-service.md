@@ -37,6 +37,7 @@ The Site shall not be liable for any damages incurred as a result of any loss, d
 ###Third party products, links, and actions.
 The Site may include or offer third party products or services.  The Site may also have other users or members who interact with each other, through the Site, elsewhere online, or in person.  These third party products and any linked sites have separate and independent terms of service and privacy policies.  We have no control or responsibility for the content and activities of these linked sites, sellers, and third parties in general, regardless of whether you first were introduced or interacted with such businesses, services, products, and people through the Site, and therefore you agree that we are not liable for any of them. We do, however, welcome any feedback about these sites, sellers, other users or members, and third parties.
 
+[legull_part]subscriptions[/legull_part]
 
 <!-- Changes (show for all uses) -->
 ##Changes to the Site and the Services
