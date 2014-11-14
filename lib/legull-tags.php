@@ -137,6 +137,9 @@ function legull_get_var( $field_id ){
 			$value = date( 'F jS, Y', strtotime( legull_get_value( $field_id ) ) );
 			break;
 		case 'siteurl':
+			$link = legull_get_value( $field_id, 'ownership' );
+			$value = sprintf('<a href="%s">%s</a>', $link, $link );
+			break;
 		case 'owner_name':
 		case 'owner_email':
 		case 'owner_locality':
