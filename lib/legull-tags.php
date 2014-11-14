@@ -10,6 +10,7 @@ function legull_generate_documents_to_import(){
 	global $shortcode_tags;
 	$tagnames = array_keys($shortcode_tags);
 	$tagregexp = join( '|', array_map('preg_quote', $tagnames) );
+	$shortcode_regex = get_shortcode_regex();
 	$docs = apply_filters( 'legull_copy_documents_to_uploads/list', glob( LEGULL_PATH . "docs/*.md") );
 	include_once( LEGULL_PATH . 'lib/parsedown.php' );
 	$Parsedown = new Parsedown();
@@ -31,14 +32,21 @@ function legull_generate_documents_to_import(){
 		// setup defaults
 		$post_title = $import_file;
 
-		if( has_shortcode( $content, 'legull_part' ) ){
-			$legull_part_regex_pattern = str_replace($tagregexp, 'legull_part', get_shortcode_regex());
+		$look_for_shortcode = 'legull_part';
+		if( has_shortcode( $content, $look_for_shortcode ) ){
+			$legull_part_regex_pattern = str_replace($tagregexp, $look_for_shortcode, $shortcode_regex );
 			$content = preg_replace_callback( '/'. $legull_part_regex_pattern .'/s', 'legull_shortcode_part_include', $content );
 		}
 
-		if( has_shortcode( $content, 'legull_var' ) ) {
-			// $pattern = get_shortcode_regex();
-			$legull_var_regex_pattern = str_replace($tagregexp, 'legull_var', get_shortcode_regex());
+		$look_for_shortcode = 'legull_condition';
+		if( has_shortcode( $content, $look_for_shortcode ) ){
+			$legull_part_regex_pattern = str_replace($tagregexp, $look_for_shortcode, $shortcode_regex );
+			$content = preg_replace_callback( '/'. $legull_part_regex_pattern .'/s', 'legull_shortcode_condition', $content );
+		}
+
+		$look_for_shortcode = 'legull_var';
+		if( has_shortcode( $content, $look_for_shortcode ) ){
+			$legull_var_regex_pattern = str_replace($tagregexp, $look_for_shortcode, $shortcode_regex );
 			preg_match_all( '/'. $legull_var_regex_pattern .'/s', $content, $matches );
 
 			// include space because attributes are not trimmed
@@ -49,25 +57,7 @@ function legull_generate_documents_to_import(){
 
 			// clean the content from [legull_var]
 			$content = legull_strip_shortcode( $content, 'legull_var' );
-			// $content = legull_strip_shortcode( $content, 'legull_part' );
 		}
-
-		// if( has_shortcode( $content, 'legull_part' ) ) {
-		// 	$pattern = get_shortcode_regex();
-		// 	$content = preg_replace_callback( '/'. $pattern .'/s', 'legull_shortcode_part_include', $content );
-			// $pattern = get_shortcode_regex();
-			// preg_match_all( '/'. $pattern .'/s', $content, $matches );
-
-			// // include space because attributes are not trimmed
-			// // set page title/name
-			// if( in_array( ' name="title"', $matches[3] ) ){
-			// 	$post_title = $matches[5][0];
-			// }
-
-			// // clean the content from [legull_var]
-			// $content = legull_strip_shortcode( $content, 'legull_var' );
-		// }
-		
 
 		$import_post['post_title'] = $post_title;
 		$import_post['post_name'] = $post_title;
@@ -91,9 +81,26 @@ function legull_shortcode_part_include( $matches ){
 	return apply_filters( 'legull_shortcode_part_include/content', $content );
 }
 
+function legull_shortcode_condition( $matches ){
+	// $matches = apply_filters( 'legull_shortcode_part_include/matches', $matches );
+	$content = '';
+	if( preg_match("/(.*)=[\"|'](.*)[\"|']/", $matches[3], $condition) && $content = $matches[5] ){
+		$condition_value = legull_get_var( trim($condition[2]) );
+		if( 
+			( trim($condition[1]) == 'is' && $condition_value == 1 ) ||
+			( trim($condition[1]) == 'isnot' && $condition_value == 0 )
+		){
+			$content = $matches[5];		
+		} else {
+			$content = '';
+		}
+	}	
+	return apply_filters( 'legull_shortcode_condition/content', $content );
+}
+
 function legull_seek_option($haystack, $needle){
 	$output='';
-  foreach($haystack as $key => $value){
+  foreach( (array) $haystack as $key => $value){
     if($key == $needle){
       $output = $value;
     }elseif(is_array($value)){
@@ -103,39 +110,57 @@ function legull_seek_option($haystack, $needle){
   return $output;
 }
 
-function legull_get_var( $field_id ){
-	global $legull;
+function legull_get_value( $field_id, $section = null ){
+	$response = null;
+	if (defined('DOING_AJAX') && DOING_AJAX) {
+		$options = get_option( 'Legull' );
+		$response = legull_seek_option( $options, $field_id );
+	} else {
+		global $legull;
+		if( $section == null ){
+			$response = $legull->getValue($field_id);
+		} else {
+			$response = $legull->getValue( $section, $field_id );
+		}
+	}
+	return $response;
+}
 
+function legull_get_var( $field_id ){
 	$value = null;
 	switch( $field_id ){
 		case 'last_updated':
 			// Todo figure out why date isn't processing
-			$value = date( 'F jS, Y', strtotime( $legull->getValue($field_id) ) );
+			$value = date( 'F jS, Y', strtotime( legull_get_value( $field_id ) ) );
 			break;
 		case 'siteurl':
 		case 'owner_name':
 		case 'owner_email':
 		case 'owner_locality':
 		case 'entity_type':
-			$value = $legull->getValue('ownership',$field_id);
+			$value = legull_get_value( $field_id, 'ownership' );
+			break;
+		case 'has_arbitration':
+			$value = legull_get_value( $field_id, 'misc' );
 			break;
 	}
 	return $value;
 }
 
-function legull_shortcode_legull( $atts, $content = null ){
+function legull_shortcode( $atts, $content = null ){
 	$a = shortcode_atts( array(
 	    'display' => ''
 	), $atts );
 	return legull_get_var($a['display']);
 }
-add_shortcode( 'legull', 'legull_shortcode_legull' );
+add_shortcode( 'legull', 'legull_shortcode' );
 
 function legull_shortcode_fake(){
 	return '';
 }
 add_shortcode( 'legull_var', 'legull_shortcode_fake' );
 add_shortcode( 'legull_part', 'legull_shortcode_fake' );
+add_shortcode( 'legull_condition', 'legull_shortcode_fake' );
 
 function legull_strip_shortcode($content, $shortcode){
     global $shortcode_tags;
