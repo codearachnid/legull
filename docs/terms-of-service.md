@@ -5,9 +5,9 @@
 
 Site Terms of Service, an Enforceable Legal Agreement.
 As of [legull field="updated"]
-These Terms of Service and our privacy policy (together the “Terms”) govern all use of <URLfield> and that site’s services (together the “Site” or “Services”).  The Site is owned by <Ownerfield>, a <entitytype>.
+These Terms of Service and our privacy policy (together the “Terms”) govern all use of <URLfield> and that site’s services (together the “Site” or “Services”).  The Site is owned by <Ownerfield>, a <entitytype>.
 
-The owners and contributors to the Site will be referred to as “we,” “us,” or “our” in these Terms.  By using the Site or its Services, and/or by clicking anywhere on this Site to agree to these Terms, you are deemed to be a “user” for purposes of the Terms.  You and every other user (“you” or “User” as applicable) are bound by these Terms.  You and each user also agree to the Terms by using the Services.  If any User does not agree to the Terms or the Privacy Policy, such User may not access the Site or use the Services.  In these Terms, the word “Site” includes the site referenced above, its owner(s), contributors, suppliers, licensors, and other related parties.
+The owners and contributors to the Site will be referred to as “we,” “us,” or “our” in these Terms.  By using the Site or its Services, and/or by clicking anywhere on this Site to agree to these Terms, you are deemed to be a “user” for purposes of the Terms.  You and every other user (“you” or “User” as applicable) are bound by these Terms.  You and each user also agree to the Terms by using the Services.  If any User does not agree to the Terms or the Privacy Policy, such User may not access the Site or use the Services.  In these Terms, the word “Site” includes the site referenced above, its owner(s), contributors, suppliers, licensors, and other related parties.
 
 
 Prohibitions - ALL
@@ -30,8 +30,8 @@ THE SITE SHALL NOT BE LIABLE FOR INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, E
 NOTWITHSTANDING ANY DAMAGES THAT USER MAY SUFFER FOR ANY REASON, THE ENTIRE LIABILITY OF THE SITE IN CONNECTION WITH THE SITE OR SERVICES, AND ANY PARTY’S EXCLUSIVE REMEDY, SHALL BE LIMITED TO THE AMOUNT, IF ANY, ACTUALLY PAID BY USER TO THE SITE OWNER DURING THE 12 MONTHS PRIOR TO THE EVENT THAT USER CLAIMS CAUSED THE DAMAGES.
 The Site shall not be liable for any damages incurred as a result of any loss, disclosure, or third party use of information, regardless of whether such disclosure or use is with or without User’s knowledge or consent.  The Site shall have no liability for any damages related to:  User’s actions or failures to act, the acts or omissions of any third party, including but not limited to any telecommunications service provider, or events or causes beyond the Site’s reasonable control.  The Site has no obligations whatever, and shall have no liability to, any third party who is not a User bound by these Terms.  Limitations, exclusions, and disclaimers in these Terms shall apply to the maximum extent permitted by applicable law, even if any remedy fails its essential purpose.
 
-Third party products and links.
-The Site may include or offer third party products or services.  These third party products and any linked sites have separate and independent terms of service and privacy policies.  We have no control or responsibility for the content and activities of these linked sites and/or sellers, and therefore you agree that we are not liable for any of them. We do, however, welcome any feedback about these sites.
+Third party products, links, and actions.
+The Site may include or offer third party products or services.  The Site may also have other users or members who interact with each other, through the Site, elsewhere online, or in person.  These third party products and any linked sites have separate and independent terms of service and privacy policies.  We have no control or responsibility for the content and activities of these linked sites, sellers, and third parties in general, regardless of whether you first were introduced or interacted with such businesses, services, products, and people through the Site, and therefore you agree that we are not liable for any of them. We do, however, welcome any feedback about these sites, sellers, other users or members, and third parties.
 
 
 Changes - ALL
@@ -41,7 +41,7 @@ The owners and contributors to the Site will work to improve the Site for our us
 
 Indemnity -- ALL
 Indemnity.
-If your activity, or any activity on your behalf creates potential or actual liability for us, or for any of our users, partners, or contributors, you agree to indemnify and hold us and any such user, partner, contributor, or any agent harmless from and against all claims, costs of defense and judgment, liabilities, legal fees, damages, losses, and other expenses in relation to any claims or actions arising out of or relating to your use of the Site, or any breach by you of these Terms of Use.
+If your activity or any activity on your behalf creates potential or actual liability for us, or for any of our users, partners, or contributors, you agree to indemnify and hold us and any such user, partner, contributor, or any agent harmless from and against all claims, costs of defense and judgment, liabilities, legal fees, damages, losses, and other expenses in relation to any claims or actions arising out of or relating to your use of the Site, or any breach by you of these Terms of Use.
 
 
 Intellectual Property - ALL
@@ -49,7 +49,7 @@ Intellectual Property
 This site and some delivery modes of our product are built on the WordPress platform.  For information about intellectual property rights, including General Public License (“GPL”) terms under which the WordPress software is licensed, see here  http://wordpress.org/about/gpl/
 The Site grants User a revocable, non-transferable, and non-exclusive license to use the Site solely in connection with the Site and the Services, under these Terms.
 User shall not sublicense or otherwise transfer any rights or access to the Site or related Services to any other person.  User shall not copy any text, images, video or audio recording, or any other content from the Site.
-The names and logos used by the Site, and all other trademarks, service marks, and trade names used in connection with the Services are owned by the Site or its licensors and may not be used by User without written consent of the rights owners.  Use of the Site does not in itself give any user any license, consent, or permission.
+The names and logos used by the Site, and all other trademarks, service marks, and trade names used in connection with the Services are owned by the Site or its licensors and may not be used by User without written consent of the rights owners.  Use of the Site does not in itself give any user any license, consent, or permission, unless and then only to the extent granted explicitly in these Terms.
 All rights not expressly granted in these Terms are reserved by the Site.
 
 
@@ -60,8 +60,8 @@ Any information that you provide to the Site is subject to the Site’s Privacy 
 
 Registration, Usernames, and Security - ALL
 Usernames, Passwords, and Profiles
-If prompted, Users must provide a valid email address to the Site, at which the User can receive messages. User must also update the Site if that email address changes. The Site reserves the right to terminate any User account and/or User access to the Site if a valid email is requested but is not provided by the User.
-If the Site prompts or allows a User to create a username or profile, Users agree not to pick a username or provide any profile information that would impersonate someone else or that is likely to cause confusion with any other person or entity.  The Site reserves the right to cancel a User account or to change a username or profile data at any time.  Similarly, if the Site prompts or allows a User to create an avatar or upload a picture, User agrees not to use any image that impersonates some other person or entity, or that is otherwise likely to cause confusion.
+If prompted, Users must provide a valid email address to the Site, at which email address the User can receive messages. User must also update the Site if that email address changes. The Site reserves the right to terminate any User account and/or User access to the Site if a valid email is requested but is not provided by the User.
+If the Site prompts or allows a User to create a username or profile, Users agree not to pick a username or provide any profile information that would impersonate someone else or that is likely to cause confusion with any other person or entity.  The Site reserves the right to cancel a User account or to change a username or profile data at any time.  Similarly, if the Site allows comments or user input, or prompts or allows a User to create an avatar or upload a picture, User agrees not to use any image that impersonates some other person or entity, or that is otherwise likely to cause confusion.
 You are responsible for protecting your username and password for the Site, and you agree not to disclose it to any third party. We recommend that you use a password that is more than eight characters long.  You are responsible for all activity on your account, whether or not you authorized it.  You agree to inform us of unauthorized use of your account, by email to <emailfield>.  You acknowledge that if you wish to protect your interactions with the Site, it is your responsibility to use a secure encrypted connection, virtual private network, or other appropriate measures.  The Site’s own security measures are reasonable in terms of their level of protection, but are not helpful if the interactions of you or any other User with Site are not secure or private.
 
 
@@ -95,5 +95,4 @@ If you have any questions about these Terms, please address them to <emailfield>
 
 Last Updated - ALL
 These terms were last updated on <datefield>
-
 
