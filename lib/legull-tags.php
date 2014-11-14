@@ -42,7 +42,7 @@ function legull_generate_documents_to_import(){
 			$content = legull_strip_shortcode( $content, 'legull_var' );
 		}
 
-		if( has_shortcode( $content, 'legull' ) ) {
+		if( has_shortcode( $content, 'legull_include' ) ) {
 			// $pattern = get_shortcode_regex();
 			// preg_match_all( '/'. $pattern .'/s', $content, $matches );
 
@@ -78,37 +78,39 @@ function legull_seek_option($haystack, $needle){
   return $output;
 }
 
-function legull_shortcode_legull( $atts, $content = null ){
+function legull_get_var( $field_id ){
 	global $legull;
-	$a = shortcode_atts( array(
-	    'field' => ''
-	), $atts );
 
-print_r($legull->getValue('ownership','owner_name'));
-	// getValue();
-	$options = (array) get_option('Legull');
-	// if( !empty($options)){
-	// 	// $pluck = wp_list_pluck($options, $a['field']);
-	// 	echo '<pre>';
-	// 	echo legull_seek_option($options, $a['field']);
-	// 	// print_r($a['field']);
-	// 	// print_r($pluck);
-	// 	// print_r($options);
-	// 	echo '</pre>';
-	// }
-	// print_r($a);
-	return legull_seek_option($options, $a['field']);
-	// return array( $a['field'] => 'sweet' );
+	$value = null;
+	switch( $field_id ){
+		case 'last_updated':
+			// Todo figure out why date isn't processing
+			$value = date( 'F jS, Y', strtotime( $legull->getValue($field_id) ) );
+			break;
+		case 'siteurl':
+		case 'owner_name':
+		case 'owner_email':
+		case 'owner_locality':
+		case 'entity_type':
+			$value = $legull->getValue('ownership',$field_id);
+			break;
+	}
+	return $value;
+}
+
+function legull_shortcode_legull( $atts, $content = null ){
+	$a = shortcode_atts( array(
+	    'display' => ''
+	), $atts );
+	return legull_get_var($a['display']);
 }
 add_shortcode( 'legull', 'legull_shortcode_legull' );
 
-function legull_shortcode_legull_var( $atts, $content = null ){
-	$a = shortcode_atts( array(
-	    'title' => 'default'
-	), $atts );
-	return array( $a['title'] => $content );
+function legull_shortcode_fake(){
+	return '';
 }
-add_shortcode( 'legull_var', 'legull_shortcode_legull_var' );
+add_shortcode( 'legull_var', 'legull_shortcode_fake' );
+add_shortcode( 'legull_part', 'legull_shortcode_fake' );
 
 function legull_strip_shortcode($content, $shortcode){
     global $shortcode_tags;

@@ -2,7 +2,6 @@
 
 add_action( 'wp_ajax_legull_generate_documents', 'legull_ajax_generate_documents' );
 
-
 function legull_ajax_generate_documents() {
 	global $wpdb;
 

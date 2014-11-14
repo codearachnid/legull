@@ -71,7 +71,7 @@ class Legull extends AdminPageFramework {
 
 	    $this->addSettingFields(
 	    	array(
-				'field_id'	=>	'updated',
+				'field_id'	=>	'last_updated',
 				'type'	=>	'hidden',
 				'value'	=>	current_time( 'timestamp' )
 			),
