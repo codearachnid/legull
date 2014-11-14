@@ -164,30 +164,23 @@ class Legull_CustomPostType extends AdminPageFramework_PostType {
      * 
      * Alternatively, you may use the 'content_{instantiated class name}' method,
      */
-    public function content( $sContent ) { 
-                    
-        // 1. To retrieve the meta box data - get_post_meta( $post->ID ) will return an array of all the meta field values.
-        // or if you know the field id of the value you want, you can do $value = get_post_meta( $post->ID, $field_id, true );
-        $_iPostID   = $GLOBALS['post']->ID;
-        $_aPostData = array();
-        foreach( ( array ) get_post_custom_keys( $_iPostID ) as $sKey ) {    // This way, array will be unserialized; easier to view.
-            $_aPostData[ $sKey ] = get_post_meta( $_iPostID, $sKey, true );
-        }    
-        
-        // 2. To retrieve the saved options in the setting pages created by the framework - use the get_option() function.
-        // The key name is the class name by default. The key can be changed by passing an arbitrary string 
-        // to the first parameter of the constructor of the AdminPageFramework class.     
-        $_aSavedOptions = get_option( 'APF_Demo' );
-
-        if( WP_DEBUG ){
-            $sContent .= "<h3>" . __( 'Saved Meta Field Values', 'legull' ) . "</h3>" 
-            . $this->oDebug->getArray( $_aPostData )
-            . "<h3>" . __( 'Saved Setting Options', 'legull' ) . "</h3>" 
-            . $this->oDebug->getArray( $_aSavedOptions );
-        }
+    // public function content( $sContent ) { 
+                 
+    //     if( WP_DEBUG ){
+    //          $_iPostID   = $GLOBALS['post']->ID;
+    //         $_aPostData = array();
+    //         foreach( ( array ) get_post_custom_keys( $_iPostID ) as $sKey ) {    // This way, array will be unserialized; easier to view.
+    //             $_aPostData[ $sKey ] = get_post_meta( $_iPostID, $sKey, true );
+    //         }    
+    //         $_aSavedOptions = get_option( 'APF_Demo' );
+    //         $sContent .= "<h3>" . __( 'Saved Meta Field Values', 'legull' ) . "</h3>" 
+    //         . $this->oDebug->getArray( $_aPostData )
+    //         . "<h3>" . __( 'Saved Setting Options', 'legull' ) . "</h3>" 
+    //         . $this->oDebug->getArray( $_aSavedOptions );
+    //     }
             
-        return $sContent;
+    //     return $sContent;
 
-    }    
+    // }    
     
 }
