@@ -13,6 +13,7 @@ Text Domain: legull
 // $Parsedown = new Parsedown();
 // echo $Parsedown->text('Hello _Parsedown_!'); # prints: <p>Hello <em>Parsedown</em>!</p>
 
+global $legull;
 define('LEGULL_PATH', trailingslashit( dirname( __FILE__ ) ) );
 define('LEGULL_URL', plugins_url( '/', __FILE__) );
 define('LEGULL_CPT', 'legull_documents' );
@@ -28,9 +29,12 @@ function legull_plugin_loaded(){
 	if( !class_exists( 'Legull_Conf' ) )
 		include_once( LEGULL_PATH . 'lib/legull-conf.php' );
 
+	// if( !class_exists( 'Legull_Var' ) )
+	// 	include_once( LEGULL_PATH . 'lib/legull-var.php' );
+
 	if( !class_exists( 'Legull' ) )
 		include_once( LEGULL_PATH . 'lib/legull.php' );	
-	new Legull;
+	$legull = new Legull;
 
 	include( LEGULL_PATH . 'lib/legull-cpt.php' );
 		new Legull_CustomPostType( LEGULL_CPT, null, __FILE__ );
