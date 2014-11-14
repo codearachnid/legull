@@ -43,11 +43,9 @@ The Site may include or offer third party products or services.  The Site may al
 ##Changes to the Site and the Services
 The owners and contributors to the Site will work to improve the Site for our users, and to further our business interests in the Site. We reserve the right to add, change, and remove features, content, and data, including the right to add or change any pricing terms.  You agree that we will not be liable for any such changes.  Neither your use of the Site nor these terms give you any right, title, or protectable legal interest in the Site or its content.
 
-
 <!-- Indemnity (show for all uses) -->
 ##Indemnity.
 If your activity or any activity on your behalf creates potential or actual liability for us, or for any of our users, partners, or contributors, you agree to indemnify and hold us and any such user, partner, contributor, or any agent harmless from and against all claims, costs of defense and judgment, liabilities, legal fees, damages, losses, and other expenses in relation to any claims or actions arising out of or relating to your use of the Site, or any breach by you of these Terms of Use.
-
 
 <!-- Intellectual Property (show for all uses) -->
 ##Intellectual Property
@@ -73,7 +71,6 @@ If the Site prompts or allows a User to create a username or profile, Users agre
 
 You are responsible for protecting your username and password for the Site, and you agree not to disclose it to any third party. We recommend that you use a password that is more than eight characters long.  You are responsible for all activity on your account, whether or not you authorized it.  You agree to inform us of unauthorized use of your account, by email to <emailfield>.  You acknowledge that if you wish to protect your interactions with the Site, it is your responsibility to use a secure encrypted connection, virtual private network, or other appropriate measures.  The Site’s own security measures are reasonable in terms of their level of protection, but are not helpful if the interactions of you or any other User with Site are not secure or private.
 
-
 <!-- Disputes (show for all uses) -->
 ##Disputes
 We are based in [legull display="owner_locality"] and you are contracting to use our Site.  These Terms and all matters arising from your use of the Site are governed by and will be construed according to the laws of <sitestatefield>, without regard to any choice of laws rules of any jurisdiction.  The federal courts and state courts that have geographical jurisdiction over disputes arising at our office location in the <siteZIPfield> zip code will be the only permissible venues for any and all disputes arising out of or in connection with these Terms or the Site and Service.
@@ -83,11 +80,10 @@ We are based in [legull display="owner_locality"] and you are contracting to use
 Notwithstanding anything that may be contrary within the “Disputes” provisions above, all matters, and all arbitrable claims within a multi-claim matter, including all claims for monetary damages, shall be decided by a single arbitrator to be selected by us, which arbitrator shall hold hearings in or near [legull field="owner_locality"], under the rules of the American Arbitration Association.
 [/legull_condition]
 
-
-##Advertising – USER OPTION at Advertising YES/NO
+[legull_condition is="has_advertising"]
 ##Advertising
 The Site may include advertisements, which may be targeted for relevance to the Site, queries made, or other information to improve relevance to the Site’s users.  The types and extent of advertising on the Site will change over time.  In consideration for User access to and use of the Site, User agrees that the Site and third party providers and partners may place advertising anywhere on the Site.  For the remaining terms that will apply to our advertising practices, including use of your information, see our Privacy Policy.
-
+[/legull_condition]
 
 ##General
 These Terms, including the incorporated Privacy Policy, supersede all oral or written communications and understandings between User and the Site.
