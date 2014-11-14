@@ -1,15 +1,29 @@
-updated: generated date of doc
-siteurl: site url
-owner_name: site owner name
-owner_email: contact email
-owner_locality: site ownership city, state/provence
-entity_type: individual/business (llc, scorp, partnership, sole)
-has_over18: true/false requires 18 years of age or more
-has_advertising: true/false if site uses advertising
-has_advertising_network: true/false 
-has_advertising_adsense: true/false 
-has_cookies: true/false 
-has_anonymous: true/false 
+#Plugin field list
+
+
+- [x] `last_updated` auto generated date of documents when settings are saved
+
+###Ownership
+
+- [x] `siteurl` (text) site url
+- [x] `owner_name` (text) site owner name
+- [x] `owner_email` (text) site owner contact email
+- [x] `owner_locality` (text) site ownership city, state/provence
+- [x] `entity_type` (select) individual, corporation, llc, partnership, sole
+
+###Advertising
+
+- [x] `has_advertising` (true/false) if site uses advertising
+- [x] `has_advertising_network` (true/false)
+- [x] `has_advertising_adsense` (true/false)
+
+###Tracking & Collection
+###Misc
+- [x] `has_over18` (true/false) requires 18 years of age or more
+- [x] `has_cookies` (true/false) 
+- [x] `has_anonymous` (true/false) 
+
+
 submit data - bool
 	survey - bool
 	contact info - bool
@@ -46,3 +60,6 @@ DMCA_address: DMCA agent's address
 DMCA_telephone: DMCA agent's phone
 DMCA_email: DMCA agent's email
 has_3ps: site has third party sellers
+
+
+- [x] comes standard
