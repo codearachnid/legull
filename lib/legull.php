@@ -223,7 +223,7 @@ class Legull extends AdminPageFramework {
 				'field_id'	=>	'has_SSL',
 				'title'	=>	__( 'SSL', 'legull' ),
 				'tip'	=>	__( 'The description key can be omitted though.', 'legull' ),
-				'description'	=>	__( 'Does this site use SSL?', 'legull' ),	//' syntax fixer
+				'description'	=>	__( 'Does this site use SSL? (https://)', 'legull' ),	//' syntax fixer
 				'type'	=>	'checkbox',
 				'label'	=>	__( 'YES', 'legull' ),
 				'default'	=>	false,
