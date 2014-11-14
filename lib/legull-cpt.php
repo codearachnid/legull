@@ -37,9 +37,9 @@ class Legull_CustomPostType extends AdminPageFramework_PostType {
                 'taxonomies' => array( '' ),
                 'has_archive' =>    true,
                 'show_admin_column' =>    true, // this is for custom taxonomies to automatically add the column in the listing table.
-                'menu_icon' => $this->oProp->bIsAdmin ? plugins_url( 'asset/image/wp-logo_16x16.png', APFDEMO_FILE ) : null, // do not call the function in the front-end.
+                'menu_icon' => $this->oProp->bIsAdmin ? LEGULL_URL . '/asset/icon-32.png' : null, // do not call the function in the front-end.
                 // ( framework specific key ) this sets the screen icon for the post type for WordPress v3.7.1 or below.
-                'screen_icon' => dirname( APFDEMO_FILE  ) . '/asset/image/wp-logo_32x32.png', // a file path can be passed instead of a url, plugins_url( 'asset/image/wp-logo_32x32.png', APFDEMO_FILE )
+                'screen_icon' => LEGULL_URL . '/asset/icon-32.png', // a file path can be passed instead of a url, plugins_url( 'asset/image/wp-logo_32x32.png', APFDEMO_FILE )
             )    
         );
 
@@ -178,11 +178,15 @@ class Legull_CustomPostType extends AdminPageFramework_PostType {
         // The key name is the class name by default. The key can be changed by passing an arbitrary string 
         // to the first parameter of the constructor of the AdminPageFramework class.     
         $_aSavedOptions = get_option( 'APF_Demo' );
-            
-        return "<h3>" . __( 'Saved Meta Field Values', 'legull' ) . "</h3>" 
+
+        if( WP_DEBUG ){
+            $sContent .= "<h3>" . __( 'Saved Meta Field Values', 'legull' ) . "</h3>" 
             . $this->oDebug->getArray( $_aPostData )
             . "<h3>" . __( 'Saved Setting Options', 'legull' ) . "</h3>" 
             . $this->oDebug->getArray( $_aSavedOptions );
+        }
+            
+        return $sContent;
 
     }    
     
