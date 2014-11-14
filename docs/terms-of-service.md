@@ -5,7 +5,7 @@
 
 Site Terms of Service, an Enforceable Legal Agreement.
 As of [legull field="updated"]
-These Terms of Service and our privacy policy (together the “Terms”) govern all use of <URLfield> and that site’s services (together the “Site” or “Services”).  The Site is owned by <Ownerfield>, a <entitytype>.
+These Terms of Service and our privacy policy (together the “Terms”) govern all use of [legull field="siteurl"] and that site’s services (together the “Site” or “Services”).  The Site is owned by [legull field="owner_name"], a [legull field="entity_type"].
 
 The owners and contributors to the Site will be referred to as “we,” “us,” or “our” in these Terms.  By using the Site or its Services, and/or by clicking anywhere on this Site to agree to these Terms, you are deemed to be a “user” for purposes of the Terms.  You and every other user (“you” or “User” as applicable) are bound by these Terms.  You and each user also agree to the Terms by using the Services.  If any User does not agree to the Terms or the Privacy Policy, such User may not access the Site or use the Services.  In these Terms, the word “Site” includes the site referenced above, its owner(s), contributors, suppliers, licensors, and other related parties.
 
@@ -69,10 +69,10 @@ Disputes - ALL
 Disputes
 We are based in <sitecityfield>, <sitestatefield> and you are contracting to use our Site.  These Terms and all matters arising from your use of the Site are governed by and will be construed according to the laws of <sitestatefield>, without regard to any choice of laws rules of any jurisdiction.  The federal courts and state courts that have geographical jurisdiction over disputes arising at our office location in the <siteZIPfield> zip code will be the only permissible venues for any and all disputes arising out of or in connection with these Terms or the Site and Service.
 
-[legull condition="has_arbitration"]
+[legull_condition is="has_arbitration"]
 ### ARBITRATION
 Notwithstanding anything that may be contrary within the “Disputes” provisions above, all matters, and all arbitrable claims within a multi-claim matter, including all claims for monetary damages, shall be decided by a single arbitrator to be selected by us, which arbitrator shall hold hearings in or near [legull field="owner_locality"], under the rules of the American Arbitration Association.
-[/legull]
+[/legull_condition]
 
 
 Advertising – USER OPTION at Advertising YES/NO
