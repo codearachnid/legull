@@ -90,8 +90,8 @@ function legull_shortcode_condition( $matches ){
 	if( preg_match("/(.*)=[\"|'](.*)[\"|']/", $matches[3], $condition) && $content = $matches[5] ){
 		$condition_value = legull_get_var( trim($condition[2]) );
 		if( 
-			( trim($condition[1]) == 'is' && $condition_value == 1 ) ||
-			( trim($condition[1]) == 'isnot' && $condition_value == 0 )
+			( trim($condition[1]) == 'is' && $condition_value) ||
+			( trim($condition[1]) == 'isnot' && !$condition_value)
 		){
 			$content = $matches[5];		
 		} else {
@@ -146,8 +146,11 @@ function legull_get_var( $field_id ){
 		case 'entity_type':
 			$value = legull_get_value( $field_id, 'ownership' );
 			break;
+		case 'has_over18':
 		case 'has_arbitration':
-			$value = legull_get_value( $field_id, 'misc' );
+		case 'has_SSL':
+			$boolean = legull_get_value( $field_id, 'misc' );
+			$value = $boolean == 1 ? true : false;
 			break;
 	}
 	return $value;
