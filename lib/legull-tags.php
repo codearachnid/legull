@@ -1,6 +1,8 @@
 <?php
 
 function legull_enqueue_scripts(){
+	wp_enqueue_script( 'jquery-readmore', LEGULL_URL . 'assets/readmore.min.js', array('jquery'), '1.0', true );
+	wp_enqueue_script( 'legull', LEGULL_URL . 'assets/script.js', array('jquery'), '1.0', true );
 	wp_enqueue_style( 'legull', LEGULL_URL . 'assets/style.css' );
 }
 
