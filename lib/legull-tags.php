@@ -1,6 +1,9 @@
 <?php
 
 function legull_enqueue_scripts(){
+	// add_thickbox();
+	wp_enqueue_script('jquery-ui-dialog');
+	wp_enqueue_style("wp-jquery-ui-dialog");
 	wp_enqueue_script( 'jquery-readmore', LEGULL_URL . 'asset/readmore.min.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'legull', LEGULL_URL . 'asset/script.js', array('jquery'), '1.0', true );
 	wp_enqueue_style( 'legull', LEGULL_URL . 'asset/style.css' );

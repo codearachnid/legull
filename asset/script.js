@@ -1,3 +1,4 @@
+var $info;
 var legull_ajax_generate_doc_request = true;
 function legull_ajax_generate_docs(e){
 	e.preventDefault();
@@ -8,12 +9,29 @@ function legull_ajax_generate_docs(e){
 		}, function(response) {
 			response = JSON.parse( response );
 			legull_ajax_generate_doc_request = true;
-			alert('Got this from the server: ' + response.status);
+			if( response.status )
+				$info.dialog('open');
 		});
 	}
 }
 
 jQuery(document).ready(function($){
+	$info = $("#LegullGenerateSuccess");
+    $info.dialog({                   
+        'dialogClass'   : 'wp-dialog',           
+        'modal'         : true,
+        'autoOpen'      : false, 
+        'closeOnEscape' : true,      
+        'buttons'       : {
+            "Close": function() {
+                $(this).dialog('close');
+            }
+        }
+    });
+    $("#open-modal").click(function(event) {
+        event.preventDefault();
+        $info.dialog('open');
+    });
 	$('#legull_ajax_generate_docs').on( "click", function(e){
 		e.preventDefault();
 		legull_ajax_generate_docs(e);
