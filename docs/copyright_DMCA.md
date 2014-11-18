@@ -1,4 +1,4 @@
-[legull_condition is="has_usergenerated"]
+[legull_condition is="has_DMCA_agent"]
 ##Copyright Policy
 
 
@@ -20,10 +20,10 @@ To give an effective DMCA Notice of Alleged Infringement ("Notice”) regarding 
 Deliver this Notice, with items 1-4 completed, to our Designated Copyright Agent:
 
 [sitename] Copyright Agent
-[DMCA address]
-[DMCA Telephone]
-Email: [DMCA email]
-
+[DMCA_address]
+[DMCA_telephone]
+Email: [DMCA_email]
+[/legull_condition]
 
 Please Note:  In our discretion, we will disable and/or terminate the accounts of users who repeatedly infringe or are repeatedly charged with infringing the copyrights or other intellectual property rights of others.
 [/legull_condition]
