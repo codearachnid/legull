@@ -89,6 +89,14 @@ class Legull extends AdminPageFramework {
 				'description'	=>	__( 'What is the URL (web address) of the site these terms will be applied?', 'legull' ),
 			),	
 			array(
+				'field_id'	=>	'sitename',
+				'title'	=>	__( 'Site Name', 'legull' ),
+				'type'	=>	'text',
+				// 'help'	=>	__( 'What is the URL (web address) of the site these terms will be applied? This value is driven by the <code>Site Address (URL)</code> in Settings > General.', 'legull' ),
+				'value'	=>	get_option('siteurl'),
+				'description'	=>	__( 'What is the URL (web address) of the site these terms will be applied?', 'legull' ),
+			),	
+			array(
 				'field_id'	=>	'owner_name',
 				'title'	=>	__( 'Owner Name', 'legull' ),
 				'type'	=>	'text',
