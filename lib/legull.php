@@ -59,33 +59,27 @@ class Legull extends AdminPageFramework {
 
 	}
 
-	public function load_Legull( $oAdminPage ) {
-		// echo 'load_Legull';
-		// print_r($oAdminPage);
+	public function load_legull_dashboard( $oAdminPage ) {
 	    $this->addSettingSections(	
 			'legull_dashboard',
 			array(
 				'section_id'	=>	'ownership',
-				'page_slug'		=> 'legull_dashboard',
 				'section_tab_slug'	=>	'settings_tabbed_sections',
 				'title'			=>	__( 'Ownership', 'legull' ),
 				'description'	=>	__( 'Tell this site\'s users who owns the site, and provide a few basic details.', 'legull' ),
 			),
 			array(
 				'section_id'	=>	'advertising',
-				'page_slug'		=> 'legull_dashboard',
 				'title'			=>	__( 'Advertising', 'legull' ),
 				'description'	=>	__( 'Help the site\'s visitors understand its advertising practices.', 'legull' ),
 			),
 			array(
 				'section_id'	=>	'tracking',
-				'page_slug'		=> 'legull_dashboard',
 				'title'			=>	__( 'Tracking & Collection', 'legull' ),
 				'description'	=>	__( 'Explain how this site monitors its users, and what data it collects.', 'legull' ),
 			),
 			array(
 				'section_id'	=>	'misc',
-				'page_slug'		=> 'legull_dashboard',
 				'title'			=>	__( 'Misc', 'legull' ),
 				'description'	=>	__( 'Inform this site\'s users about a few more general topics and terms.', 'legull' ),
 			)
@@ -271,17 +265,14 @@ class Legull extends AdminPageFramework {
 		include LEGULL_PATH . 'template/generate-documents.php';
 	}
 
-	// public function do_form_legull_dashboard() {
-	//     include LEGULL_PATH . 'template/dashboard.php';
-	// }
+	public function do_form_legull_dashboard() {
+	    include LEGULL_PATH . 'template/dashboard.php';
+	}
 
-	// public function do_legull_dashboard() {
-	//     submit_button();
-	// }
+	public function do_legull_dashboard() {
+	    submit_button();
+	}
 
-	// public function do_legull_settings() {
-	// 	submit_button();
-	// }
 
 	public function do_legull_addons() {
 		include LEGULL_PATH . 'template/addons.php';
