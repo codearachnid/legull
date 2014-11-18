@@ -53,7 +53,7 @@ The following list of fields signify the amount and type of data this plugin tra
 
 ###User-Generated Content and DMCA
 
-- [ ] `has_usergenerated` (true/false)  Will this site allow user-generated content of any kind?  ADD-ON TRIGGER
+- [ ] `has_usergenerated` (true/false)  Will this site allow user-generated content of any kind?
 - [ ] `has_3p_content` (true/false) Has 3rd party content : Will this site allow users to add comments or content of any kind?
 - [ ] `has_DMCA_agent` (true/false) ask if has_3p_content = true : In the U.S., safe harbor protection from copyright liability for site content added by your users can be had by designating and registering with the Copyright Office a Digital Millenium Copyright Act agent for notice and takedown procedures. Will this site have a designated DMCA agent?
 - [ ] `DMCA_address` (text) ask if has_DMCA_agent = true : What will be the postal mailing address of your DMCA agent?
