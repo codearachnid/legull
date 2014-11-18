@@ -9,6 +9,50 @@ function legull_enqueue_scripts(){
 	wp_enqueue_style( 'legull', LEGULL_URL . 'asset/style.css' );
 }
 
+function  legull_icon($size=16, $base64=false){
+	if( $base64 ){
+		$file = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUxMiA1MTIiIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik00MDcuNjU4LDI1Ny4xOTFDNDQyLjA0NSwyMTEuODM4LDQzOC4yOTcsMTUxLjk3LDQ4MSw1My4yMzJDMjU0LjQwNyw1MC4yNDQsMTU2LjE2MywyMDYuNTQsMTE0LjM2MiwzNjMuMzcgIEwzMSw0NTguODExbDU5LjM4OS0xNi41NDZsNDcuODMzLTYzLjc4NmMxMzAuMzYzLTE2LjYzMSwyMzguMTc3LTg4Ljg3MywyMzguMTc3LTg4Ljg3M2wtNzAuMTU2LTUxLjQ5NyAgQzMwNi4yNDIsMjM4LjEwOCwzNjAuOTgsMjM0LjE5LDQwNy42NTgsMjU3LjE5MXogTTE3MC43NjQsMzI5Ljk0bC0xLjE5OC0xLjMyNGMxOC41ODktMjkuMjAxLDExOC43NS0xNzguOTI5LDI1NC4wNDYtMjM3LjY5OSAgQzM1OS4yMDUsMTI0Ljk2NywyMjUuNjg2LDI1OC44MjYsMTcwLjc2NCwzMjkuOTR6IiBmaWxsPSIjNEQ0RDREIi8+PC9zdmc+';
+	} else {
+		$file = LEGULL_URL . "asset/icon-{$size}.png";
+	}
+	return $file;
+}
+
+/**
+ * Remove an anonymous object filter.
+ *
+ * @param  string $tag    Hook name.
+ * @param  string $class  Class name
+ * @param  string $method Method name
+ * @return void
+ */
+function legull_remove_anonymous_object_filter( $tag, $class, $method ){
+    $filters = $GLOBALS['wp_filter'][ $tag ];
+
+    if ( empty ( $filters ) )
+    {
+        return;
+    }
+
+    foreach ( $filters as $priority => $filter )
+    {
+        foreach ( $filter as $identifier => $function )
+        {
+            if ( is_array( $function)
+                and is_a( $function['function'][0], $class )
+                and $method === $function['function'][1]
+            )
+            {
+                remove_filter(
+                    $tag,
+                    array ( $function['function'][0], $method ),
+                    $priority
+                );
+            }
+        }
+    }
+}
+
 function legull_generate_documents_to_import(){
 	global $shortcode_tags;
 	$tagnames = array_keys($shortcode_tags);

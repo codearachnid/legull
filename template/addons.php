@@ -1,4 +1,4 @@
-<h2>List Add-Ons <a href="https://wp.dev/wp-admin/plugin-install.php" class="add-new-h2">Add New</a></h2>
+<h2>List Add-Ons</h2>
 <div id="poststuff">
 	
 	<div class="postbox-container">
