@@ -87,7 +87,7 @@ class Legull_CustomPostType extends AdminPageFramework_PostType {
             $this->setAuthorTableFilter( true );     
             $this->setFooterInfoLeft( '<br />Custom Text on the left hand side.' );
             $this->setFooterInfoRight( '<br />Custom text on the right hand side' );     
-            add_filter( 'request', array( $this, 'replyToSortCustomColumn' ) );
+            // add_filter( 'request', array( $this, 'replyToSortCustomColumn' ) );
             
         }    
         
@@ -121,28 +121,28 @@ class Legull_CustomPostType extends AdminPageFramework_PostType {
         
     }
     
-    /**
-     * Custom callback methods
-     */
+    // /**
+    //  * Custom callback methods
+    //  */
     
-    /**
-     * Modifies the way how the sample column is sorted. This makes it sorted by post ID.
-     * 
-     * @see http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters
-     */
-    public function replyToSortCustomColumn( $aVars ){
+    // /**
+    //  * Modifies the way how the sample column is sorted. This makes it sorted by post ID.
+    //  * 
+    //  * @see http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters
+    //  */
+    // public function replyToSortCustomColumn( $aVars ){
 
-        if ( isset( $aVars['orderby'] ) && 'doc_status' == $aVars['orderby'] ){
-            $aVars = array_merge( 
-                $aVars, 
-                array(
-                    'meta_key' => 'metabox_text_field',
-                    'orderby' => 'meta_value',
-                )
-            );
-        }
-        return $aVars;
-    }    
+    //     if ( isset( $aVars['orderby'] ) && 'doc_status' == $aVars['orderby'] ){
+    //         $aVars = array_merge( 
+    //             $aVars, 
+    //             array(
+    //                 'meta_key' => 'metabox_text_field',
+    //                 'orderby' => 'meta_value',
+    //             )
+    //         );
+    //     }
+    //     return $aVars;
+    // }    
     
     /**
      * Modifies the output of the post content.
