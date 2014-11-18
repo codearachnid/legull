@@ -1,9 +1,11 @@
 /*body.legull_page_legull_dashboard .admin-page-framework-sectionset,*/
 body.legull_page_legull_dashboard #admin-page-framework-page-load-stats,
-body.post-type-legull_documents #admin-page-framework-page-load-stats,
-body.post-type-legull_documents .tablenav .actions #author,
-body.post-type-legull_documents .add-new-h2,
-body.post-type-legull_documents .view-switch{
+body.legull_page_legull_generate #admin-page-framework-page-load-stats,
+body.legull_page_legull_addons #admin-page-framework-page-load-stats,
+body.post-type-legull_terms #admin-page-framework-page-load-stats,
+body.post-type-legull_terms .tablenav .actions #author,
+body.post-type-legull_terms .add-new-h2,
+body.post-type-legull_terms .view-switch{
 	display: none;
 }
 .legull_page_legull_addons #poststuff .admin-page-framework-content .addon{
