@@ -69,25 +69,25 @@ class Legull extends AdminPageFramework {
 				'page_slug'		=> 'legull_dashboard',
 				'section_tab_slug'	=>	'settings_tabbed_sections',
 				'title'			=>	__( 'Ownership', 'legull' ),
-				'description'	=>	__( 'This is the first item of the tabbed section.', 'legull' ),
+				'description'	=>	__( 'Tell this site\'s users who owns the site, and provide a few basic details.', 'legull' ),
 			),
 			array(
 				'section_id'	=>	'advertising',
 				'page_slug'		=> 'legull_dashboard',
 				'title'			=>	__( 'Advertising', 'legull' ),
-				'description'	=>	__( 'This is the first item of the tabbed section.', 'legull' ),
+				'description'	=>	__( 'Help the site\'s visitors understand its advertising practices.', 'legull' ),
 			),
 			array(
 				'section_id'	=>	'tracking',
 				'page_slug'		=> 'legull_dashboard',
 				'title'			=>	__( 'Tracking & Collection', 'legull' ),
-				'description'	=>	__( 'This is the first item of the tabbed section.', 'legull' ),
+				'description'	=>	__( 'Explain how this site monitors its users, and what data it collects.', 'legull' ),
 			),
 			array(
 				'section_id'	=>	'misc',
 				'page_slug'		=> 'legull_dashboard',
 				'title'			=>	__( 'Misc', 'legull' ),
-				'description'	=>	__( 'This is the first item of the tabbed section.', 'legull' ),
+				'description'	=>	__( 'Inform this site\'s users about a few more general topics and terms.', 'legull' ),
 			)
 		);
 
