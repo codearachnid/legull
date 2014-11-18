@@ -7,7 +7,13 @@ class Legull extends AdminPageFramework {
 		$_iUserID  = get_current_user_id();
         $_aNotices = $this->oUtil->getTransient( "apf_notices_{$_iUserID}" );
 		if( isset( $_aNotices[ $_sID ] ) ){
-			$_aNotices[ $_sID ]['sMessage'] = __('Your site details have been saved.','legull');
+			$screen = get_current_screen();
+			// is edit list notify user docs have been generated
+			if( $screen->id == 'edit-' . LEGULL_CPT ){
+				$_aNotices[ $_sID ]['sMessage'] = __('Your site terms have been generated.','legull');	
+			} else {
+				$_aNotices[ $_sID ]['sMessage'] = __('Your site details have been saved.','legull');	
+			}
 			set_transient( "apf_notices_{$_iUserID}", $_aNotices );
 		}
 	}
@@ -17,11 +23,11 @@ class Legull extends AdminPageFramework {
 		if( !empty($this->oForm->sCurrentPageSlug)){
 			switch ($this->oForm->sCurrentPageSlug) {
 				case 'legull_dashboard': // submitting the site details
-					$redirect_to = get_admin_url() . 'admin.php?page=legull_generate';
+					// $redirect_to = get_admin_url() . 'admin.php?page=legull_generate';
 					break;
-				// case 'legull_generate': // generate terms
-				// 	$redirect_to = get_admin_url() . 'admin.php?page=legull_generate';
-				// 	break;
+				case 'legull_generate': // generate terms
+					$redirect_to = get_admin_url() . 'edit.php?post_type=' . LEGULL_CPT;
+					break;
 			}
 		}
 		if( !empty($redirect_to)){
@@ -48,11 +54,6 @@ class Legull extends AdminPageFramework {
 	            'page_slug' => 'legull_dashboard',
 	            'order' => 10
 	    		),
-	    	// array(
-	     //        'title' => __( 'Settings', 'legull' ),
-	     //        'page_slug' => 'legull_settings',
-	     //        'order' => 20
-	     //    ),
 	        array(
 	            'title' => __( 'Generate', 'legull' ),
 	            'page_slug' => 'legull_generate',
@@ -73,36 +74,34 @@ class Legull extends AdminPageFramework {
 	}
 
 	public function load_Legull( $oAdminPage ) {
+
 	    $this->addSettingSections(	
-			// 'legull_dashboard',
+			'legull_dashboard',
 			array(
 				'section_id'	=>	'ownership',
-				'page_slug'     =>  'legull_dashboard',  
 				'section_tab_slug'	=>	'settings_tabbed_sections',
 				'title'			=>	__( 'Ownership', 'legull' ),
 				'description'	=>	__( 'Tell this site\'s users who owns the site, and provide a few basic details.', 'legull' ),
+			),
+			array(
+				'section_id'	=>	'tracking',
+				'title'			=>	__( 'Data &amp; Privacy', 'legull' ),
+				'description'	=>	__( 'Explain how this site monitors its users, and what data it collects.', 'legull' ),
+			),
+			array(
+				'section_id'	=>	'advertising',
+				'title'			=>	__( 'Advertising', 'legull' ),
+				'description'	=>	__( 'Help the site\'s visitors understand its advertising practices.', 'legull' ),
+			),
+			array(
+				'section_id'	=>	'misc',
+				'title'			=>	__( 'Misc', 'legull' ),
+				'description'	=>	__( 'Inform this site\'s users about a few more general topics and terms.', 'legull' ),
 			)
-			// array(
-			// 	'section_id'	=>	'advertising',
-			// 	'page_slug'     =>  'legull_dashboard',  
-			// 	'title'			=>	__( 'Advertising', 'legull' ),
-			// 	'description'	=>	__( 'Help the site\'s visitors understand its advertising practices.', 'legull' ),
-			// ),
-			// array(
-			// 	'section_id'	=>	'tracking',
-			// 	'page_slug'     =>  'legull_dashboard',  
-			// 	'title'			=>	__( 'Tracking & Collection', 'legull' ),
-			// 	'description'	=>	__( 'Explain how this site monitors its users, and what data it collects.', 'legull' ),
-			// ),
-			// array(
-			// 	'section_id'	=>	'misc',
-			// 	'page_slug'     =>  'legull_dashboard',  
-			// 	'title'			=>	__( 'Misc', 'legull' ),
-			// 	'description'	=>	__( 'Inform this site\'s users about a few more general topics and terms.', 'legull' ),
-			// )
 		);
 
 	    $this->addSettingFields(
+	    	'general',
 	    	array(
 				'field_id'	=>	'last_updated',
 				'type'	=>	'hidden',
@@ -246,7 +245,6 @@ class Legull extends AdminPageFramework {
 		$this->addSettingFields(
 	    	'misc',
 			array(
-				'section_id' => 'misc',
 				'field_id'	=>	'has_over18',
 				'title'	=>	__( 'Over 18', 'legull' ),
 				'tip'	=>	__( 'The description key can be omitted though.', 'legull' ),
@@ -277,18 +275,80 @@ class Legull extends AdminPageFramework {
 		);
 	}
 
+	function validation_Legull_ownership_sitename($aNewInput, $aOldOptions){
+		
+          $aErrors = array();
+
+          if ( empty( $aNewInput ) ) {
+              $aErrors['sitename'] = __( 'The site name may not be left blank.', 'legull' );
+          }
+        
+          if ( !empty($aErrors) ) {
+				$this->setFieldErrors( $aErrors );     
+				$this->setSettingNotice( 'There was an error in your site details.' );
+				return $aOldOptions;
+          }
+     
+		return $aNewInput;
+	}
+
+	function validation_Legull_ownership_owner_name($aNewInput, $aOldOptions){
+		
+          $aErrors = array();
+
+          if ( empty( $aNewInput ) ) {
+              $aErrors['owner_name'] = __( 'The site owner may not be left blank.', 'legull' );
+          }
+        
+          if ( !empty($aErrors) ) {
+				$this->setFieldErrors( $aErrors );     
+				$this->setSettingNotice( 'There was an error in your site details.' );
+				return $aOldOptions;
+          }
+     
+		return $aNewInput;
+	}
+/*
+	function validation_legull_dashboard( $submitted_fields ){
+		$do_not_pass_go = false;
+		$required_fields = array(
+			$submitted_fields['ownership']['sitename'],
+			$submitted_fields['ownership']['owner_name']
+			);
+		// print_r($submitted_fields);
+		foreach( $required_fields as $field ){
+			if( empty($field) )
+				$do_not_pass_go=true;
+		}
+		// if( empty( $submitted_fields['ownership']['sitename'] ) ){
+		// 	$do_not_pass_go = true;
+		// }
+		if( $do_not_pass_go ){
+			echo 'failed';
+		}
+		return $submitted_fields;
+	}
+*/
 
 	public function do_form_legull_dashboard() {
 	    include LEGULL_PATH . 'template/dashboard.php';
 	}
 
 	public function do_legull_dashboard() {
-	    submit_button( __('Save and continue', 'legull'));
+	    submit_button( __('Save All Tabs', 'legull'));
 	}
 
 	
-	public function do_legull_generate(){
+	public function do_form_legull_generate(){
 		include LEGULL_PATH . 'template/generate-documents.php';
+	}
+
+	public function do_legull_generate() {
+		if( get_option( 'Legull' ) ){
+		    submit_button( __('Generate Terms', 'legull'));
+		} else {
+			printf('<h2>%s</h2>', __('You must save your site details before generation of terms may occur.', 'legull') );
+		}
 	}
 
 	public function do_legull_addons() {
