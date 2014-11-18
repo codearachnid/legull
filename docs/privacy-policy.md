@@ -17,29 +17,29 @@ By using our site, you consent to our privacy policy.
 
 If we decide to change our privacy policy, we will post those changes on this page. If we have your email address, we may also send an email notifying you of any changes.
 
-
+[legull_condition is="has_collectdata"]
 ##Contact Data and Other Identifiable Information
 
-This site collects certain user information, such as a username and password, contact information, or other data that you type in to the site.  It may also identify your IP address to help identify you on future visits to the site.  The Site will use this data to:
+This site collects certain user information, which may include a username and password, contact information, or any other data that you type in to the site.  It may also identify your IP address to help identify you on future visits to the site.  At our discretion, the Site may use this data to:
 
-* Personalize the user experience and/or customer service <if checked>
-* Improve your site <if checked>
-* To process transactions <if checked>
-* Share or sell it to third parties for marketing or other purposes with user consent. <if checked>
-* Share or sell it to third parties for marketing or other purposes without user consent. <if checked>
-* Administer a contest, promotion, survey or other site feature <if checked>
-* Send email to users for any purpose <if checked>
-* Send email to users to respond to user inquiries and requests. <if checked>
-* Send email to users for order processing and updates. <if checked>
-* Send email to users regarding company news, updates, products or service offerings from the Site Owner <if checked>
-* Send email to users regarding products or service offerings from others <if checked
+* Personalize the user experience and/or customer service
+* Improve the site
+* To process transactions
+* Administer a contest, promotion, survey or other site feature or function
+* Send email to users
+[/legull_condition]
 
 
-##Sharing User Data  <if Yes>
 
-<If Yes selected, and Aggregate selected> The site shares user data only in the aggregate, with <insert all checked types, from the list: third parties who help the site owner operate the Site, advertisers, and entities that buy or rent data for purposes not limited to operating this site>.
+##Sharing User Data
 
-<If Yes selected, and Individual user data selected> The site shares user data only in the aggregate, with <insert all checked types, from the list: third parties who help the site owner operate the Site, advertisers, and entities that buy or rent data for purposes not limited to operating this site>.
+The site shares user data only in the aggregate, with <insert all checked types, from the list: third parties who help the site owner operate the Site, advertisers, and entities that buy or rent data for purposes not limited to operating this site>.
+
+The site shares user data only in the aggregate, with <insert all checked types, from the list: third parties who help the site owner operate the Site, advertisers, and entities that buy or rent data for purposes not limited to operating this site>.
+[legull_condition is="has_sharedata_aggregate"]
+* Share or sell it to third parties for marketing or other purposes with user consent[/legull_condition]
+[legull_condition is="has_sharedata"]
+* Share or sell it to third parties for marketing or other purposes without user consent[/legull_condition]
 
 
 ##California Privacy Rights
