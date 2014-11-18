@@ -1,4 +1,4 @@
-[all ugc sites]
+[legull_condition is="has_usergenerated"]
 ##Content and Conduct
 
 As a registered user, you may submit content and materials to the Service, including data or media files, and/or comments. You understand that we do not guarantee confidentiality with respect to these content or materials, or that the upload or commenting functions will be uninterrupted or error-free.
@@ -14,3 +14,4 @@ Please respect the rights of others, including rights under the U.S. copyright l
 You agree not to submit to the Site any content or other material that is illegal, harassing, or intended merely to offend or shock the conscience of our other users.  We reserve the right to remove content and communications from the Site at any time, in our sole discretion and without notice.
 
 We do not endorse or adopt as our own any content submitted to the Site, or any opinion, recommendation, or advice.  We expressly disclaim any and all liability for all content submitted to the Site.
+[/legull_condition]
