@@ -12,7 +12,7 @@ The following list of fields signify the amount and type of data this plugin tra
 - [ ] `has_california` (true/false)
 - [x] `entity_type` (select) Is the owner an individual person, or business entity?
 
-###Tracking & Collection
+###Data & Privacy
 
 - [ ] `privacy_email` contact email for privacy matters
 - [ ] `privacy_address` contact address for privacy matters
@@ -22,12 +22,19 @@ The following list of fields signify the amount and type of data this plugin tra
 - [x] `has_anonymous` (true/false) Will visitors be able to surf the site anonymously?
 - [x] `has_purchased_data` (true/false) Does this site purchase user data?
 - [x] `has_data_buyer` (true/false) Does this site sell or rent user data?
+- [ ] `has_collectdata` (true/false) Will this site collect any data from its users?
+- [ ] `has_sharedata` (true/false) ask if has_collectdata = true : Will any of the user data (individual data or aggregate data) be shared outside of the site owner itself?
+- [ ] `has_sharedata_aggregate` (true/false) ask if has_sharedata = true : Will all user data be shared only in grouped form, so that individual users are not identified and individual user data is not shared?
+- [ ] `has_sharedata_helpers` (true/false) ask if has_sharedata = true : Will any user data be shared with those who help the site owner operate and manage the site?
+- [ ] `has_sharedata_ads` (true/false) ask if has_sharedata = true : Will any user data be shared with advertisers or marketing partners?
+- [ ] `has_sharedata_unlimited` (true/false) ask if has_sharedata = true : Will any user data be shared with others other than those who help operate and manage the site, and other than advertisers or marketing partners?
+- [ ] `has_no13` (true/false) Will this site allow users or visitors under the age of 13?
 
 ###Ecommerce
 
 - [ ] `has_ecommerce` (true/false) : Will this site sell goods or services to customers?  ADD-ON TRIGGER
-- [ ] `has_ecommerce_digital` (true/false) ask if has_ecommerce = true : Will this goods or services include digital products for download?
-- [ ] `has_ecommerce_physical` (true/false) ask if has_ecommerce = true : Will this sell customers physical products (objects mailed or shipped to them)?
+- [ ] `has_ecommerce_digital` (true/false) ask if has_ecommerce = true : Will the goods or services include digital products for download?
+- [ ] `has_ecommerce_physical` (true/false) ask if has_ecommerce = true : Will this site sell customers physical products (objects mailed or shipped to them)?
 - [ ] `has_subscription` (true/false) : Will this site offer a subscription service (monthly or yearly, etc.) use or access to your product or service)?
 - [ ] `has_3ps` site has third party sellers : Will this site sell products that you do not store and ship?
 - [ ] `has_returns` (true/false) ask if has_ecommerce_physical = true : Will this site allow your customers to return products?
