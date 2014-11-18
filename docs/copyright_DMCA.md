@@ -1,4 +1,4 @@
-
+[legull_condition is="has_usergenerated"]
 ##Copyright Policy
 
 
@@ -26,3 +26,4 @@ Email: [DMCA email]
 
 
 Please Note:  In our discretion, we will disable and/or terminate the accounts of users who repeatedly infringe or are repeatedly charged with infringing the copyrights or other intellectual property rights of others.
+[/legull_condition]
