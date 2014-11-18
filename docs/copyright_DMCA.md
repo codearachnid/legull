@@ -1,6 +1,5 @@
 [legull_condition is="has_DMCA_agent"]
-##Copyright Policy
-
+##Copyright Notice and Takedown (DMCA) Policy
 
 Please respect the rights of others, including rights under the U.S. copyright laws. You should only post content and files on the Site for which you have ownership, a license, or if your use constitutes fair use as that is defined under US. law.
 
@@ -19,11 +18,10 @@ To give an effective DMCA Notice of Alleged Infringement ("Notice”) regarding 
 
 Deliver this Notice, with items 1-4 completed, to our Designated Copyright Agent:
 
-[sitename] Copyright Agent
-[DMCA_address]
-[DMCA_telephone]
-Email: [DMCA_email]
-[/legull_condition]
+Copyright Agent, [legull display="siteurl"]
+[legull display="DMCA_address"]
+[legull display="DMCA_telephone"]
+Email: [legull display="DMCA_email"]
 
 Please Note:  In our discretion, we will disable and/or terminate the accounts of users who repeatedly infringe or are repeatedly charged with infringing the copyrights or other intellectual property rights of others.
 [/legull_condition]
