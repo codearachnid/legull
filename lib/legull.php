@@ -90,6 +90,11 @@ class Legull extends AdminPageFramework {
 				'description' => __( 'Explain how this site monitors its users, and what data it collects.', 'legull' ),
 			),
 			array(
+				'section_id'  => 'usercontent',
+				'title'       => __( 'User-Generated &amp; DMCA', 'legull' ),
+				'description' => __( 'Explain the site\'s policies concerning the DMCA and user-generated content practices.', 'legull' ),
+			),
+			array(
 				'section_id'  => 'advertising',
 				'title'       => __( 'Advertising', 'legull' ),
 				'description' => __( 'Help the site\'s visitors understand its advertising practices.', 'legull' ),
@@ -98,7 +103,16 @@ class Legull extends AdminPageFramework {
 				'section_id'  => 'misc',
 				'title'       => __( 'Misc', 'legull' ),
 				'description' => __( 'Inform this site\'s users about a few more general topics and terms.', 'legull' ),
-			)
+			),
+			// array(
+			// 	'section_id'    => 'DMCAcontact',
+			// 	'tab_slug'      => 'revealer',
+			// 	'title'         => __( 'DMCA Agent', 'legull' ),
+			// 	'hidden'        => true,
+			// 	'class'         => array(
+			// 		'revealer_section_DMCAcontact',
+			// 	),
+			// )
 		);
 
 		$this->addSettingFields(
@@ -171,6 +185,51 @@ class Legull extends AdminPageFramework {
 			)
 		);
 		$this->addSettingFields(
+			'usercontent',
+			array(
+				'field_id'    => 'has_usergenerated',
+				'title'       => __( 'User-generated content', 'legull' ),
+				'description' => __( 'Will this site allow user-generated content of any kind?', 'legull' ),
+				'type'        => 'checkbox',
+				'label'       => __( 'YES', 'legull' ),
+				'default'     => false,
+			),
+			array(
+				'field_id'    => 'has_3p_content',
+				'title'       => __( 'Comments &amp; 3rd Parties', 'legull' ),
+				'description' => __( 'Will this site allow users to add comments or content of any kind?', 'legull' ),
+				'type'        => 'checkbox',
+				'label'       => __( 'YES', 'legull' ),
+				'default'     => false,
+			),
+			array(
+				'field_id'    => 'has_DMCA_agent',
+				'title'       => __( 'Has DMCA Agent?', 'legull' ),
+				'description' => __( 'In the U.S., safe harbor protection from copyright liability for site content added by your users can be had by designating and registering with the Copyright Office a Digital Millenium Copyright Act agent for notice and takedown procedures. Will this site have a designated DMCA agent?', 'legull' ),
+				'type'        => 'checkbox',
+				'label'       => __( 'YES', 'legull' ),
+				'default'     => false,
+			),
+			array(
+				'field_id'    => 'DMCA_address',
+				'title'       => __( 'DMCA Address', 'legull' ),
+				'type'        => 'text',
+				'description' => __( 'What will be the postal mailing address of your DMCA agent?', 'legull' ),
+			),
+			array(
+				'field_id'    => 'DMCA_telephone',
+				'title'       => __( 'DMCA Phone', 'legull' ),
+				'type'        => 'text',
+				'description' => __( 'What will be the telephone number of your DMCA agent?', 'legull' ),
+			),
+			array(
+				'field_id'    => 'DMCA_email',
+				'title'       => __( 'DMCA Email', 'legull' ),
+				'type'        => 'text',
+				'description' => __( 'What will be the email address of your DMCA agent?', 'legull' ),
+			)
+		);
+		$this->addSettingFields(
 			'advertising',
 			array(
 				'field_id'    => 'has_advertising',
@@ -198,9 +257,23 @@ class Legull extends AdminPageFramework {
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
 				'default'     => false,
+			)
+		);
+		$this->addSettingFields(
+			'tracking',
+			array(
+				'field_id'    => 'privacy_name',
+				'title'       => __( 'Privacy Contact', 'legull' ),
+				'type'        => 'text',
+				'description' => __( 'What is the contact name for privacy matters?', 'legull' ),
 			),
 			array(
-				'section_id'  => 'tracking',
+				'field_id'    => 'privacy_email',
+				'title'       => __( 'Privacy Email', 'legull' ),
+				'type'        => 'text',
+				'description' => __( 'What is the contact email for privacy matters?', 'legull' ),
+			),
+			array(
 				'field_id'    => 'has_cookies',
 				'title'       => __( 'Use cookies', 'legull' ),
 				'description' => __( 'Will this site use cookies beyond advertising tools? (i.e. Google Analytics)', 'legull' ),

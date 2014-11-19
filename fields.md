@@ -9,13 +9,13 @@ The following list of fields signify the amount and type of data this plugin tra
 - [x] `owner_name` (text) site owner name
 - [x] `owner_email` (text) site owner contact email
 - [x] `owner_locality` (text) Set the legal physical locality for the site. (i.e. City, State/Provence)
-- [ ] `has_california` (true/false)
+- [x] `has_california` (true/false)
 - [x] `entity_type` (select) Is the owner an individual person, or business entity?
 
 ###Data & Privacy
 
-- [ ] `privacy_email` contact email for privacy matters
-- [ ] `privacy_address` contact address for privacy matters
+- [x] `privacy_email` contact email for privacy matters
+- [x] `privacy_address` contact address for privacy matters
 - [x] `has_cookies` (true/false) Will this site use cookies beyond advertising tools?
 - [x] `has_info_track` (true/false) Will visitors be tracked when surfing the site?
 - [x] `has_personalization` (true/false) Will visitors be able to personalize their expereience when surfing the site?
@@ -44,21 +44,21 @@ The following list of fields signify the amount and type of data this plugin tra
 - [ ] `refunds_limit` (text) ask if has_refunds = true : How many days after the product is shipped to the customer or downloaded by the customer will this site offer a refund?
 
 
+###User-Generated Content and DMCA
+
+- [x] `has_usergenerated` (true/false)  Will this site allow user-generated content of any kind?
+- [x] `has_3p_content` (true/false) Has 3rd party content : Will this site allow users to add comments or content of any kind?
+- [x] `has_DMCA_agent` (true/false) ask if has_3p_content = true : In the U.S., safe harbor protection from copyright liability for site content added by your users can be had by designating and registering with the Copyright Office a Digital Millenium Copyright Act agent for notice and takedown procedures. Will this site have a designated DMCA agent?
+- [x] `DMCA_address` (text) ask if has_DMCA_agent = true : What will be the postal mailing address of your DMCA agent?
+- [x] `DMCA_telephone` (text) ask if has_DMCA_agent = true : What will be the telephone number of your DMCA agent?
+- [x] `DMCA_email` (text) ask if has_DMCA_agent = true : What will be the email address of your DMCA agent?
+
+
 ###Advertising
 
 - [x] `has_advertising` (true/false) Will this site have advertisements?
 - [x] `has_advertising_network` (true/false) ask if has_advertising = true : Will this site use a 3rd party network to supply advertising?
 - [x] `has_advertising_adsense` (true/false) ask if has_advertising_network = true : Will this site use Google AdSense to supply advertising?
-
-
-###User-Generated Content and DMCA
-
-- [ ] `has_usergenerated` (true/false)  Will this site allow user-generated content of any kind?
-- [ ] `has_3p_content` (true/false) Has 3rd party content : Will this site allow users to add comments or content of any kind?
-- [ ] `has_DMCA_agent` (true/false) ask if has_3p_content = true : In the U.S., safe harbor protection from copyright liability for site content added by your users can be had by designating and registering with the Copyright Office a Digital Millenium Copyright Act agent for notice and takedown procedures. Will this site have a designated DMCA agent?
-- [ ] `DMCA_address` (text) ask if has_DMCA_agent = true : What will be the postal mailing address of your DMCA agent?
-- [ ] `DMCA_telephone` (text) ask if has_DMCA_agent = true : What will be the telephone number of your DMCA agent?
-- [ ] `DMCA_email` (text) ask if has_DMCA_agent = true : What will be the email address of your DMCA agent?
 
 
 ###Misc
