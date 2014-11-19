@@ -158,7 +158,7 @@ function legull_get_var( $field_id ) {
 	switch ( $field_id ) {
 		case 'last_updated':
 			// Todo figure out why date isn't processing
-			$value = date( 'F jS, Y', strtotime( legull_get_value( $field_id ) ) );
+			$value = date( 'F jS, Y', strtotime( legull_get_value( $field_id, 'misc' ) ) );
 			break;
 		case 'siteurl':
 			$link  = legull_get_value( $field_id, 'ownership' );
