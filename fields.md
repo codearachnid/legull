@@ -66,14 +66,14 @@ The following list of fields signify the amount and type of data this plugin tra
 - [x] `has_over18` (true/false) Will this site require visitors to be over the age of 18?
 - [x] `has_arbitration` (true/false) Will this site require disputes to be privately arbitrated, as opposed to being litigated in court?
 - [x] `has_SSL` (true/false) Will this site use SSL?
-- [ ] `has_support_email` (true/false) Will this site offer support via email?
-- [ ] `support_email` (text) ask if has_support_email = true : What will be the email address for support?
-- [ ] `has_support_phone` (true/false) Will this site offer support via telephone?
-- [ ] `support_phone` (text) ask if has_support_phone = true : What will be the telephone number for support?
+- [x] `has_support_email` (true/false) Will this site offer support via email?
+- [x] `support_email` (text) ask if has_support_email = true : What will be the email address for support?
+- [x] `has_support_phone` (true/false) Will this site offer support via telephone?
+- [x] `support_phone` (text) ask if has_support_phone = true : What will be the telephone number for support?
 - [x] `last_updated` auto generated date of documents when settings are saved
-- [ ] `has_no_scrape` (true/false) Will this site prohibit the automatic collection of its data by others ("scraping")?
+- [x] `has_no_scrape` (true/false) Will this site prohibit the automatic collection of its data by others ("scraping")?
 - [ ] `has_social` (true/false) Will this site include a social networking function, allowing users to connect with each other? ADD-ON TRIGGER
-- [ ] `has_password` (true/false) Will any part of this site require a password for access?
+- [x] `has_password` (true/false) Will any part of this site require a password for access?
 
 submit data - bool
 	survey - bool

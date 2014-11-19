@@ -103,26 +103,9 @@ class Legull extends AdminPageFramework {
 				'section_id'  => 'misc',
 				'title'       => __( 'Misc', 'legull' ),
 				'description' => __( 'Inform this site\'s users about a few more general topics and terms.', 'legull' ),
-			),
-			// array(
-			// 	'section_id'    => 'DMCAcontact',
-			// 	'tab_slug'      => 'revealer',
-			// 	'title'         => __( 'DMCA Agent', 'legull' ),
-			// 	'hidden'        => true,
-			// 	'class'         => array(
-			// 		'revealer_section_DMCAcontact',
-			// 	),
-			// )
-		);
-
-		$this->addSettingFields(
-			'general',
-			array(
-				'field_id' => 'last_updated',
-				'type'     => 'hidden',
-				'value'    => current_time( 'timestamp' )
 			)
 		);
+
 		$this->addSettingFields(
 			'ownership',
 			array(
@@ -352,8 +335,54 @@ class Legull extends AdminPageFramework {
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
 				'default'     => false,
-			)
-
+			),
+			array(
+				'field_id'    => 'has_support_email',
+				'title'       => __( 'Support Email', 'legull' ),
+				'description' => __( 'Will this site offer support via email?', 'legull' ),
+				'type'        => 'checkbox',
+				'label'       => __( 'YES', 'legull' ),
+				'default'     => false,
+			),
+			array(
+				'field_id'    => 'support_email',
+				'description' => __( 'What will be the email address for support?', 'legull' ),
+				'type'        => 'text'
+			),
+			array(
+				'field_id'    => 'has_support_phone',
+				'title'       => __( 'Support Phone', 'legull' ),
+				'description' => __( 'Will this site offer support via telephone?', 'legull' ),
+				'type'        => 'checkbox',
+				'label'       => __( 'YES', 'legull' ),
+				'default'     => false
+			),
+			array(
+				'field_id'    => 'support_phone',
+				'description' => __( 'What will be the email address for support?', 'legull' ),
+				'type'        => 'text'
+			),
+			array(
+				'field_id' => 'last_updated',
+				'type'     => 'hidden',
+				'value'    => current_time( 'timestamp' )
+			),
+			array(
+				'field_id'    => 'has_no_scrape',
+				'title'       => __( 'Prevent Scraping', 'legull' ),
+				'description' => __( 'Will this site prohibit the automatic collection of its data by others ("scraping")?', 'legull' ),
+				'type'        => 'checkbox',
+				'label'       => __( 'YES', 'legull' ),
+				'default'     => false
+			),
+			array(
+				'field_id'    => 'has_password',
+				'title'       => __( 'Passwords', 'legull' ),
+				'description' => __( 'Will any part of this site require a password for access?', 'legull' ),
+				'type'        => 'checkbox',
+				'label'       => __( 'YES', 'legull' ),
+				'default'     => false
+			),
 		);
 	}
 
