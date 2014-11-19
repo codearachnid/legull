@@ -1,4 +1,5 @@
 [legull_condition is="has_DMCA_agent"]
+[legull_var name="title"]Copyright Notice and Takedown Policy[/legull_var]
 ##Copyright Notice and Takedown (DMCA) Policy
 
 Please respect the rights of others, including rights under the U.S. copyright laws. You should only post content and files on the Site for which you have ownership, a license, or if your use constitutes fair use as that is defined under US. law.

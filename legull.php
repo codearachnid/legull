@@ -35,8 +35,6 @@ function legull_plugin_loaded() {
 	include( LEGULL_PATH . 'lib/legull-cpt.php' );
 	new Legull_CustomPostType( LEGULL_CPT, null, __FILE__ );
 
-	include_once( LEGULL_PATH . 'lib/legull-ajax.php' );
-
 	if ( !class_exists( 'Legull_MetaBox' ) ) {
 		include_once( LEGULL_PATH . 'lib/legull-metabox.php' );
 	}

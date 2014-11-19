@@ -18,13 +18,39 @@ class Legull extends AdminPageFramework {
 		}
 	}
 
-	function onSubmit_redirects() {
+	function remove_admin_notices(){
+		$_sID      = md5( trim( 'The options have been updated.' ) );
+		$_iUserID  = get_current_user_id();
+		$_aNotices = $this->oUtil->getTransient( "apf_notices_{$_iUserID}" );
+		if ( isset( $_aNotices[$_sID] ) ) {
+			// $screen = get_current_screen();
+			$_aNotices[$_sID]['sMessage'] = '';
+			set_transient( "apf_notices_{$_iUserID}", $_aNotices );
+		}	
+	}
+
+	function onSubmit_redirects( $aNewInput ) {
 		$redirect_to = '';
 		if ( !empty( $this->oForm->sCurrentPageSlug ) ) {
 			switch ( $this->oForm->sCurrentPageSlug ) {
 				case 'legull_dashboard': // submitting the site details
-					// validate and redirect
-					// $redirect_to = get_admin_url() . 'admin.php?page=legull_generate';
+					$aErrors = array();
+
+					if ( empty( $aNewInput['ownership']['sitename'] ) ) {
+						$aErrors['sitename'] = __( 'The site name may not be left blank.', 'legull' );
+					}
+					if ( empty( $aNewInput['ownership']['owner_name'] ) ) {
+						$aErrors['owner_name'] = __( 'The site owner may not be left blank.', 'legull' );
+					}
+
+					if ( !empty( $aErrors ) ) {
+						$this->setFieldErrors( $aErrors );
+						$this->setSettingNotice( 'There was an error in your site details.' );
+						$this->remove_admin_notices();
+					} else {
+						// validated and redirect
+						$redirect_to = get_admin_url() . 'admin.php?page=legull_generate';
+					}
 					break;
 				case 'legull_generate': // generate terms
 					$redirect_to = get_admin_url() . 'edit.php?post_type=' . LEGULL_CPT;
@@ -32,8 +58,7 @@ class Legull extends AdminPageFramework {
 			}
 		}
 		if ( !empty( $redirect_to ) ) {
-			wp_redirect( $redirect_to );
-			exit;
+			exit( wp_redirect( $redirect_to ) );
 		}
 	}
 
@@ -382,44 +407,8 @@ class Legull extends AdminPageFramework {
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
 				'default'     => false
-			),
+			)
 		);
-	}
-
-	function validation_Legull_ownership_sitename( $aNewInput, $aOldOptions ) {
-
-		$aErrors = array();
-
-		if ( empty( $aNewInput ) ) {
-			$aErrors['sitename'] = __( 'The site name may not be left blank.', 'legull' );
-		}
-
-		if ( !empty( $aErrors ) ) {
-			$this->setFieldErrors( $aErrors );
-			$this->setSettingNotice( 'There was an error in your site details.' );
-
-			return $aOldOptions;
-		}
-
-		return $aNewInput;
-	}
-
-	function validation_Legull_ownership_owner_name( $aNewInput, $aOldOptions ) {
-
-		$aErrors = array();
-
-		if ( empty( $aNewInput ) ) {
-			$aErrors['owner_name'] = __( 'The site owner may not be left blank.', 'legull' );
-		}
-
-		if ( !empty( $aErrors ) ) {
-			$this->setFieldErrors( $aErrors );
-			$this->setSettingNotice( 'There was an error in your site details.' );
-
-			return $aOldOptions;
-		}
-
-		return $aNewInput;
 	}
 
 	public function do_form_legull_dashboard() {

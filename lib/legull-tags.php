@@ -1,5 +1,10 @@
 <?php
 
+add_shortcode( 'legull', 'legull_shortcode' );
+add_shortcode( 'legull_var', 'legull_shortcode_fake' );
+add_shortcode( 'legull_part', 'legull_shortcode_fake' );
+add_shortcode( 'legull_condition', 'legull_shortcode_fake' );
+
 function legull_enqueue_scripts() {
 	// add_thickbox();
 	wp_enqueue_script( 'jquery-ui-dialog' );
@@ -19,39 +24,7 @@ function  legull_icon( $size = 16, $base64 = false ) {
 	return $file;
 }
 
-/**
- * Remove an anonymous object filter.
- *
- * @param  string $tag    Hook name.
- * @param  string $class  Class name
- * @param  string $method Method name
- *
- * @return void
- */
-function legull_remove_anonymous_object_filter( $tag, $class, $method ) {
-	$filters = $GLOBALS['wp_filter'][$tag];
-
-	if ( empty ( $filters ) ) {
-		return;
-	}
-
-	foreach ( $filters as $priority => $filter ) {
-		foreach ( $filter as $identifier => $function ) {
-			if ( is_array( $function )
-				and is_a( $function['function'][0], $class )
-				and $method === $function['function'][1]
-			) {
-				remove_filter(
-					$tag,
-					array( $function['function'][0], $method ),
-					$priority
-				);
-			}
-		}
-	}
-}
-
-function legull_generate_documents_to_import() {
+function legull_generate_terms_to_import() {
 	global $shortcode_tags;
 	$tagnames        = array_keys( $shortcode_tags );
 	$tagregexp       = join( '|', array_map( 'preg_quote', $tagnames ) );
@@ -214,15 +187,9 @@ function legull_shortcode( $atts, $content = null ) {
 	return legull_get_var( $a['display'] );
 }
 
-add_shortcode( 'legull', 'legull_shortcode' );
-
 function legull_shortcode_fake() {
 	return '';
 }
-
-add_shortcode( 'legull_var', 'legull_shortcode_fake' );
-add_shortcode( 'legull_part', 'legull_shortcode_fake' );
-add_shortcode( 'legull_condition', 'legull_shortcode_fake' );
 
 function legull_strip_shortcode( $content, $shortcode ) {
 	global $shortcode_tags;
