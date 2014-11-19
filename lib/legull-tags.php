@@ -26,6 +26,7 @@ function  legull_icon( $size = 16, $base64 = false ) {
 
 function legull_generate_terms_to_import() {
 	global $shortcode_tags;
+	$status          = false;
 	$tagnames        = array_keys( $shortcode_tags );
 	$tagregexp       = join( '|', array_map( 'preg_quote', $tagnames ) );
 	$shortcode_regex = get_shortcode_regex();
@@ -80,11 +81,14 @@ function legull_generate_terms_to_import() {
 		$import_post['post_title']   = $post_title;
 		$import_post['post_name']    = $post_title;
 		$import_post['post_content'] = $Parsedown->text( $content );
-		$document_id                 = wp_insert_post( $import_post );
-		update_post_meta( $document_id, 'legull_file', $import_file );
+		if( !empty( $import_post['post_title'] ) && !empty( $import_post['post_content'] ) ) {
+			$document_id                 = wp_insert_post( $import_post );
+			update_post_meta( $document_id, 'legull_file', $import_file );
+			$status = true;
+		}
 	}
 
-	return true;
+	return $status;
 }
 
 function legull_shortcode_part_include( $matches ) {
@@ -165,6 +169,10 @@ function legull_get_var( $field_id ) {
 		case 'owner_locality':
 		case 'entity_type':
 			$value = legull_get_value( $field_id, 'ownership' );
+			break;
+		case 'has_DMCA_agent':
+			$boolean = legull_get_value( $field_id, 'usercontent' );
+			$value   = $boolean == 1 ? true : false;
 			break;
 		case 'has_over18':
 		case 'has_arbitration':

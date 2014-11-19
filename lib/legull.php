@@ -18,23 +18,12 @@ class Legull extends AdminPageFramework {
 		}
 	}
 
-	function remove_admin_notices(){
-		$_sID      = md5( trim( 'The options have been updated.' ) );
-		$_iUserID  = get_current_user_id();
-		$_aNotices = $this->oUtil->getTransient( "apf_notices_{$_iUserID}" );
-		if ( isset( $_aNotices[$_sID] ) ) {
-			// $screen = get_current_screen();
-			$_aNotices[$_sID]['sMessage'] = '';
-			set_transient( "apf_notices_{$_iUserID}", $_aNotices );
-		}	
-	}
-
 	function onSubmit_redirects( $aNewInput ) {
 		$redirect_to = '';
+		$aErrors = array();
 		if ( !empty( $this->oForm->sCurrentPageSlug ) ) {
 			switch ( $this->oForm->sCurrentPageSlug ) {
 				case 'legull_dashboard': // submitting the site details
-					$aErrors = array();
 
 					if ( empty( $aNewInput['ownership']['sitename'] ) ) {
 						$aErrors['sitename'] = __( 'The site name may not be left blank.', 'legull' );
@@ -43,22 +32,31 @@ class Legull extends AdminPageFramework {
 						$aErrors['owner_name'] = __( 'The site owner may not be left blank.', 'legull' );
 					}
 
-					if ( !empty( $aErrors ) ) {
-						$this->setFieldErrors( $aErrors );
-						$this->setSettingNotice( 'There was an error in your site details.' );
-						$this->remove_admin_notices();
-					} else {
-						// validated and redirect
+					// validated and redirect
+					if ( empty( $aErrors ) ) {
 						$redirect_to = get_admin_url() . 'admin.php?page=legull_generate';
 					}
 					break;
 				case 'legull_generate': // generate terms
-					$redirect_to = get_admin_url() . 'edit.php?post_type=' . LEGULL_CPT;
+					if( legull_generate_terms_to_import() ){
+						$redirect_to = get_admin_url() . 'edit.php?post_type=' . LEGULL_CPT;
+					} else {
+						$aErrors['legull_generate'] = __( 'The terms were not generated due to errors.', 'legull' );
+					}
 					break;
 			}
 		}
 		if ( !empty( $redirect_to ) ) {
+			// validated and redirect
 			exit( wp_redirect( $redirect_to ) );
+		} else {
+			$this->setFieldErrors( $aErrors );
+			$this->setSettingNotice( 'There was an error in your site details.' );
+			if ( is_network_admin() ) {
+				remove_action( 'network_admin_notices', array( $this, 'custom_admin_notices' ), 5 );
+			} else {
+				remove_action( 'admin_notices', array( $this, 'custom_admin_notices' ), 5 );
+			}
 		}
 	}
 
