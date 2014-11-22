@@ -30,7 +30,7 @@ function legull_generate_terms_to_import() {
 	$tagnames        = array_keys( $shortcode_tags );
 	$tagregexp       = join( '|', array_map( 'preg_quote', $tagnames ) );
 	$shortcode_regex = get_shortcode_regex();
-	$docs            = apply_filters( 'legull_copy_documents_to_uploads/list', glob( LEGULL_PATH . "docs/*.md" ) );
+	$docs            = apply_filters( 'legull_generate_terms_to_import/list', glob( LEGULL_PATH . "docs/*.md" ) );
 	include_once( LEGULL_PATH . 'lib/parsedown.php' );
 	$Parsedown = new Parsedown();
 	foreach ( $docs as $filename ) {

@@ -50,4 +50,4 @@ function legull_plugin_loaded() {
 }
 
 add_action( 'plugins_loaded', 'legull_plugin_loaded' );
-register_activation_hook( __FILE__, 'legull_copy_documents_to_uploads' );
+
