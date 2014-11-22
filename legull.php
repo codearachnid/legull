@@ -49,5 +49,9 @@ function legull_plugin_loaded() {
 	add_action( 'admin_enqueue_scripts', 'legull_enqueue_scripts' );
 }
 
-add_action( 'plugins_loaded', 'legull_plugin_loaded' );
+function legull_custom_activation_message_init(){
+	add_filter( 'gettext', 'legull_custom_activation_message', 99, 3 );
+}
 
+add_action( 'plugins_loaded', 'legull_plugin_loaded' );
+add_action( 'load-plugins.php', 'legull_custom_activation_message_init' );

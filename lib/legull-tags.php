@@ -5,6 +5,24 @@ add_shortcode( 'legull_var', 'legull_shortcode_fake' );
 add_shortcode( 'legull_part', 'legull_shortcode_fake' );
 add_shortcode( 'legull_condition', 'legull_shortcode_fake' );
 
+function legull_custom_activation_message( $translated_text, $untranslated_text, $domain ){
+	$old_activation_message = array(
+        "Plugin <strong>activated</strong>.",
+        "Selected plugins <strong>activated</strong>." 
+    );
+
+    if ( in_array( $untranslated_text, $old_activation_message, true ) ){
+        $translated_text = sprintf( '%s <b><a href="%s">%s</a></b>',
+        		__('Thank you for activating Legull, your legal terms management solution.', 'legull'),
+        		get_admin_url() . 'admin.php?page=legull_dashboard',
+        		__('Get Started', 'legull')
+        		);
+        remove_filter( current_filter(), __FUNCTION__, 99 );
+    }
+
+	return $translated_text;
+}
+
 function legull_enqueue_scripts() {
 	// add_thickbox();
 	wp_enqueue_script( 'jquery-ui-dialog' );
