@@ -103,6 +103,8 @@ function legull_generate_terms_to_import() {
 			$document_id                 = wp_insert_post( $import_post );
 			update_post_meta( $document_id, 'legull_file', $import_file );
 			$status = true;
+		} else if( !empty( $import_post['ID'] ) ) {
+			wp_trash_post( $import_post['ID'] );
 		}
 	}
 

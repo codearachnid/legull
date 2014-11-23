@@ -22,13 +22,12 @@ The following list of fields signify the amount and type of data this plugin tra
 - [x] `has_anonymous` (true/false) Will visitors be able to surf the site anonymously?
 - [x] `has_purchased_data` (true/false) Does this site purchase user data?
 - [x] `has_data_buyer` (true/false) Does this site sell or rent user data?
-- [ ] `has_collectdata` (true/false) Will this site collect any data from its users?
-- [ ] `has_sharedata` (true/false) ask if has_collectdata = true : Will any of the user data (individual data or aggregate data) be shared outside of the site owner itself?
-- [ ] `has_sharedata_aggregate` (true/false) ask if has_sharedata = true : Will all user data be shared only in grouped form, so that individual users are not identified and individual user data is not shared?
-- [ ] `has_sharedata_helpers` (true/false) ask if has_sharedata = true : Will any user data be shared with those who help the site owner operate and manage the site?
-- [ ] `has_sharedata_ads` (true/false) ask if has_sharedata = true : Will any user data be shared with advertisers or marketing partners?
-- [ ] `has_sharedata_unlimited` (true/false) ask if has_sharedata = true : Will any user data be shared with others other than those who help operate and manage the site, and other than advertisers or marketing partners?
-- [ ] `has_no13` (true/false) Will this site allow users or visitors under the age of 13?
+- [x] `has_collectdata` (true/false) Will this site collect any data from its users?
+- [x] `has_sharedata` (true/false) ask if has_collectdata = true : Will any of the user data (individual data or aggregate data) be shared outside of the site owner itself?
+- [x] `has_sharedata_aggregate` (true/false) ask if has_sharedata = true : Will all user data be shared only in grouped form, so that individual users are not identified and individual user data is not shared?
+- [x] `has_sharedata_helpers` (true/false) ask if has_sharedata = true : Will any user data be shared with those who help the site owner operate and manage the site?
+- [x] `has_sharedata_ads` (true/false) ask if has_sharedata = true : Will any user data be shared with advertisers or marketing partners?
+- [x] `has_sharedata_unlimited` (true/false) ask if has_sharedata = true : Will any user data be shared with others other than those who help operate and manage the site, and other than advertisers or marketing partners?
 
 ###Ecommerce
 
@@ -64,6 +63,7 @@ The following list of fields signify the amount and type of data this plugin tra
 ###Misc
 
 - [x] `has_over18` (true/false) Will this site require visitors to be over the age of 18?
+- [x] `has_no13` (true/false) Will this site allow users or visitors under the age of 13?
 - [x] `has_arbitration` (true/false) Will this site require disputes to be privately arbitrated, as opposed to being litigated in court?
 - [x] `has_SSL` (true/false) Will this site use SSL?
 - [x] `has_support_email` (true/false) Will this site offer support via email?
