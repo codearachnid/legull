@@ -62,6 +62,10 @@ class Legull extends AdminPageFramework {
 
 	function setUp() {
 
+		// wire up the revealer fields
+		if( class_exists('RevealerCustomFieldType'))
+			new RevealerCustomFieldType( __CLASS__ );
+
 		// after saving details redirect to generation page
 		add_action( 'submit_after_Legull', array( $this, 'onSubmit_redirects' ) );
 
@@ -99,7 +103,7 @@ class Legull extends AdminPageFramework {
 
 	public function load_Legull( $oAdminPage ) {
 
-		$this->addSettingSections(
+		$oAdminPage->addSettingSections(
 			'legull_dashboard',
 			array(
 				'section_id'       => 'ownership',
@@ -129,7 +133,7 @@ class Legull extends AdminPageFramework {
 			)
 		);
 
-		$this->addSettingFields(
+		$oAdminPage->addSettingFields(
 			'ownership',
 			array(
 				'field_id'    => 'siteurl',
@@ -190,7 +194,7 @@ class Legull extends AdminPageFramework {
 				'description' => __( 'Is the owner an individual person, or business entity?', 'legull' ),
 			)
 		);
-		$this->addSettingFields(
+		$oAdminPage->addSettingFields(
 			'usercontent',
 			array(
 				'field_id'    => 'has_usergenerated',
@@ -210,32 +214,37 @@ class Legull extends AdminPageFramework {
 			),
 			array(
 				'field_id'    => 'has_DMCA_agent',
+				'type'        => 'revealer',
 				'title'       => __( 'Has DMCA Agent?', 'legull' ),
 				'description' => __( 'In the U.S., safe harbor protection from copyright liability for site content added by your users can be had by designating and registering with the Copyright Office a Digital Millenium Copyright Act agent for notice and takedown procedures. Will this site have a designated DMCA agent?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
-				'default'     => false,
+				'select_type'   => 'checkbox',
+				'label'         => array(
+                    '#fieldrow-usercontent_DMCA_address,#fieldrow-usercontent_DMCA_telephone,#fieldrow-usercontent_DMCA_email' => __( 'YES', 'legull' )
+                ),
 			),
 			array(
 				'field_id'    => 'DMCA_address',
 				'title'       => __( 'DMCA Address', 'legull' ),
 				'type'        => 'text',
 				'description' => __( 'What will be the postal mailing address of your DMCA agent?', 'legull' ),
+				'hidden'        => true,
 			),
 			array(
 				'field_id'    => 'DMCA_telephone',
 				'title'       => __( 'DMCA Phone', 'legull' ),
 				'type'        => 'text',
 				'description' => __( 'What will be the telephone number of your DMCA agent?', 'legull' ),
+				'hidden'        => true,
 			),
 			array(
 				'field_id'    => 'DMCA_email',
 				'title'       => __( 'DMCA Email', 'legull' ),
 				'type'        => 'text',
 				'description' => __( 'What will be the email address of your DMCA agent?', 'legull' ),
+				'hidden'        => true,
 			)
 		);
-		$this->addSettingFields(
+		$oAdminPage->addSettingFields(
 			'advertising',
 			array(
 				'field_id'    => 'has_advertising',
@@ -265,7 +274,7 @@ class Legull extends AdminPageFramework {
 				'default'     => false,
 			)
 		);
-		$this->addSettingFields(
+		$oAdminPage->addSettingFields(
 			'tracking',
 			array(
 				'field_id'    => 'privacy_name',
@@ -377,7 +386,7 @@ class Legull extends AdminPageFramework {
 				'default'     => false,
 			)
 		);
-		$this->addSettingFields(
+		$oAdminPage->addSettingFields(
 			'misc',
 			array(
 				'field_id'    => 'has_over18',
