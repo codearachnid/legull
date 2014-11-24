@@ -424,7 +424,7 @@ class Legull extends AdminPageFramework {
 				'default'     => false,
 			),
 			array(
-				'field_id'    => 'has_support_email',
+				'field_id'    => 'has_support_contact',
 				'title'       => __( 'Support Email', 'legull' ),
 				'description' => __( 'Will this site offer support via email?', 'legull' ),
 				'type'        => 'checkbox',
@@ -435,14 +435,6 @@ class Legull extends AdminPageFramework {
 				'field_id'    => 'support_email',
 				'description' => __( 'What will be the email address for support?', 'legull' ),
 				'type'        => 'text'
-			),
-			array(
-				'field_id'    => 'has_support_phone',
-				'title'       => __( 'Support Phone', 'legull' ),
-				'description' => __( 'Will this site offer support via telephone?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
-				'default'     => false
 			),
 			array(
 				'field_id'    => 'support_phone',

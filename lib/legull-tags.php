@@ -175,34 +175,53 @@ function legull_get_value( $field_id, $section = null ) {
 
 function legull_get_var( $field_id ) {
 	$value = null;
+	$section = legull_get_var_section( $field_id );
 	switch ( $field_id ) {
 		case 'last_updated':
 			// Todo figure out why date isn't processing
-			$value = date( 'F jS, Y', strtotime( legull_get_value( $field_id, 'misc' ) ) );
+			$value = date( 'F jS, Y', strtotime( legull_get_value( $field_id, $section ) ) );
 			break;
 		case 'siteurl':
-			$link  = legull_get_value( $field_id, 'ownership' );
+			$link  = legull_get_value( $field_id, $section );
 			$value = sprintf( '<a href="%s">%s</a>', $link, $link );
 			break;
 		case 'owner_name':
 		case 'owner_email':
 		case 'owner_locality':
 		case 'entity_type':
-			$value = legull_get_value( $field_id, 'ownership' );
+			$value = legull_get_value( $field_id, $section );
 			break;
 		case 'has_DMCA_agent':
-			$boolean = legull_get_value( $field_id, 'usercontent' );
-			$value   = $boolean == 1 ? true : false;
+			$boolean = legull_get_value( $field_id, $section );
+			$value = reset($boolean) == 1 ? true : false;
 			break;
+		case 'has_california':
 		case 'has_over18':
 		case 'has_arbitration':
 		case 'has_SSL':
-			$boolean = legull_get_value( $field_id, 'misc' );
+			$boolean = legull_get_value( $field_id, $section );
 			$value   = $boolean == 1 ? true : false;
 			break;
 	}
 
 	return $value;
+}
+
+function legull_get_var_section( $field_id ){
+	$section = null;
+	$sections = array(
+		'ownership' = array('siteurl','sitename','owner_name','owner_email','owner_locality','has_california','entity_type'),
+		'tracking' = array('privacy_name','privacy_email','has_cookies','has_info_track','has_personalization','has_anonymous','has_purchased_data','has_data_buyer','has_collectdata','has_sharedata','has_sharedata_aggregate','has_sharedata_helpers','has_sharedata_ads','has_sharedata_unlimited'),
+		'usercontent' = array('has_usergenerated','has_3p_content','has_DMCA_agent','DMCA_address','DMCA_telephone','DMCA_email'),
+		'advertising' = array('has_advertising','has_advertising_network','has_advertising_adsense'),
+		'misc' = array('has_over18','has_no13','has_arbitration','has_SSL','has_support_contact','support_email','support_phone','last_updated','has_no_scrape','has_password')
+		);
+	foreach( $sections as $key => $fields ){
+		if( in_array($field_id, $fields) ){
+			$section = $key;
+		}
+	}
+	return $section;
 }
 
 function legull_shortcode( $atts, $content = null ) {

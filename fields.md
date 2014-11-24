@@ -66,9 +66,8 @@ The following list of fields signify the amount and type of data this plugin tra
 - [x] `has_no13` (true/false) Will this site allow users or visitors under the age of 13?
 - [x] `has_arbitration` (true/false) Will this site require disputes to be privately arbitrated, as opposed to being litigated in court?
 - [x] `has_SSL` (true/false) Will this site use SSL?
-- [x] `has_support_email` (true/false) Will this site offer support via email?
+- [x] `has_support_contact` (true/false) Will this site offer support via email?
 - [x] `support_email` (text) ask if has_support_email = true : What will be the email address for support?
-- [x] `has_support_phone` (true/false) Will this site offer support via telephone?
 - [x] `support_phone` (text) ask if has_support_phone = true : What will be the telephone number for support?
 - [x] `last_updated` auto generated date of documents when settings are saved
 - [x] `has_no_scrape` (true/false) Will this site prohibit the automatic collection of its data by others ("scraping")?
