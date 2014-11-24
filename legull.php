@@ -9,6 +9,8 @@ Author URI: http://www.legull.com
 Text Domain: legull
 */
 
+/* Background patterns from subtlepatterns.com */
+
 global $legull;
 define( 'LEGULL_PATH', trailingslashit( dirname( __FILE__ ) ) );
 define( 'LEGULL_URL', plugins_url( '/', __FILE__ ) );
