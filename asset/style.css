@@ -1,3 +1,31 @@
+body.legull-admin #adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head, 
+body.legull-admin #adminmenu .wp-menu-arrow, 
+body.legull-admin #adminmenu .wp-menu-arrow div, 
+body.legull-admin #adminmenu li.current a.menu-top, 
+body.legull-admin #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu, 
+body.legull-admin .folded #adminmenu li.current.menu-top, 
+body.legull-admin .folded #adminmenu li.wp-has-current-submenu{
+	background: #F23264;
+}
+body.legull-admin .button{
+	background: #F23264;
+	border-color:#F23264;
+}
+body.legull-admin .button:hover{
+	background: #FD6081;
+	border-color:#F23264;
+}
+body.legull_page_legull_addons .button{
+	float: right;
+	font-size: 10px;
+	line-height: 20px;
+	height: 20px;
+	color: #ffffff;
+}
+body.legull-admin #poststuff h3{
+	background: #5A6570;
+	color:#ffffff;
+}
 body.legull_page_legull_dashboard #admin-page-framework-page-load-stats,
 body.legull_page_legull_generate #admin-page-framework-page-load-stats,
 body.legull_page_legull_addons #admin-page-framework-page-load-stats,

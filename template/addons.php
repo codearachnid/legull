@@ -5,12 +5,11 @@
 		<?php foreach ( Legull_Conf::retrieve()->addons as $addon ) : ?>
 			<div class="postbox addon">
 				<h3 class="hndle">
-					<span><?php echo $addon['name']; ?></span>
+					<span><?php echo $addon['name']; ?> <a href="<?php echo $addon['remote_url']; ?>" target="_blank" class="button"><?php _e( 'More Info' ); ?></a></span>
 				</h3>
 
 				<div class="inside">
 					<p><?php echo $addon['description']; ?></p>
-					<a href="<?php echo $addon['remote_url']; ?>" target="_blank" class="button"><?php _e( 'More Info' ); ?></a>
 				</div>
 			</div>
 		<?php endforeach; ?>

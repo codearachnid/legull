@@ -1,9 +1,18 @@
 <?php
 
+add_filter( 'admin_body_class', 'legull_admin_body_class' );
 add_shortcode( 'legull', 'legull_shortcode' );
 add_shortcode( 'legull_var', 'legull_shortcode_fake' );
 add_shortcode( 'legull_part', 'legull_shortcode_fake' );
 add_shortcode( 'legull_condition', 'legull_shortcode_fake' );
+
+function legull_admin_body_class( $classes ){
+	global $current_screen;
+	if ( is_admin() && strpos( $current_screen->id, 'legull' ) !== false ){
+		$classes .= ' legull-admin '; 
+	}
+	return $classes;
+}
 
 function legull_custom_activation_message( $translated_text, $untranslated_text, $domain ){
 	$old_activation_message = array(
