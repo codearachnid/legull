@@ -185,10 +185,18 @@ function legull_get_var( $field_id ) {
 			$link  = legull_get_value( $field_id, $section );
 			$value = sprintf( '<a href="%s">%s</a>', $link, $link );
 			break;
+		case 'sitename':
 		case 'owner_name':
 		case 'owner_email':
 		case 'owner_locality':
 		case 'entity_type':
+		case 'privacy_name':
+		case 'privacy_email':
+		case 'DMCA_address':
+		case 'DMCA_telephone':
+		case 'DMCA_email':
+		case 'support_email':
+		case 'support_phone':
 			$value = legull_get_value( $field_id, $section );
 			break;
 		case 'has_DMCA_agent':
@@ -198,9 +206,28 @@ function legull_get_var( $field_id ) {
 			$value = reset($boolean) == 1 ? true : false;
 			break;
 		case 'has_california':
+		case 'has_cookies':
+		case 'has_info_track':
+		case 'has_personalization':
+		case 'has_anonymous':
+		case 'has_purchased_data':
+		case 'has_data_buyer':
+		case 'has_collectdata':
+		case 'has_sharedata':
+		case 'has_sharedata_aggregate':
+		case 'has_sharedata_helpers':
+		case 'has_sharedata_ads':
+		case 'has_sharedata_unlimited':
+		case 'has_usergenerated':
+		case 'has_3p_content':
+		case 'has_advertising_network':
+		case 'has_advertising_adsense':
 		case 'has_over18':
+		case 'has_no13':
 		case 'has_arbitration':
 		case 'has_SSL':
+		case 'has_no_scrape':
+		case 'has_password':
 			$boolean = legull_get_value( $field_id, $section );
 			$value   = $boolean == 1 ? true : false;
 			break;
