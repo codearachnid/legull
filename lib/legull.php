@@ -215,9 +215,9 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_DMCA_agent',
 				'type'        => 'revealer',
+				'select_type'   => 'checkbox',
 				'title'       => __( 'Has DMCA Agent?', 'legull' ),
 				'description' => __( 'In the U.S., safe harbor protection from copyright liability for site content added by your users can be had by designating and registering with the Copyright Office a Digital Millenium Copyright Act agent for notice and takedown procedures. Will this site have a designated DMCA agent?', 'legull' ),
-				'select_type'   => 'checkbox',
 				'label'         => array(
                     '#fieldrow-usercontent_DMCA_address,#fieldrow-usercontent_DMCA_telephone,#fieldrow-usercontent_DMCA_email' => __( 'YES', 'legull' )
                 ),
@@ -248,17 +248,17 @@ class Legull extends AdminPageFramework {
 			'advertising',
 			array(
 				'field_id'    => 'has_advertising',
+				'type'        => 'revealer',
+				'select_type'   => 'checkbox',
 				'title'       => __( 'Site contains advertising', 'legull' ),
-				'tip'         => __( 'The description key can be omitted though.', 'legull' ),
 				'description' => __( 'Does this site use advertising?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
-				'default'     => false,
+				'label'         => array(
+                    '#fieldrow-advertising_has_advertising_network,#fieldrow-advertising_has_advertising_adsense' => __( 'YES', 'legull' )
+                ),
 			),
 			array(
 				'field_id'    => 'has_advertising_network',
 				'title'       => __( '3rd party advertising', 'legull' ),
-				'tip'         => __( 'The description key can be omitted though.', 'legull' ),
 				'description' => __( 'Will this site use a 3rd party network to supply advertising?', 'legull' ),
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
@@ -267,7 +267,6 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_advertising_adsense',
 				'title'       => __( 'Google AdSense', 'legull' ),
-				'tip'         => __( 'The description key can be omitted though.', 'legull' ),
 				'description' => __( 'Will this site use Google AdSense to supply advertising?', 'legull' ),
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
