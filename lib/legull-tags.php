@@ -192,6 +192,7 @@ function legull_get_var( $field_id ) {
 			$value = legull_get_value( $field_id, $section );
 			break;
 		case 'has_DMCA_agent':
+		case 'has_support_contact':
 			$boolean = legull_get_value( $field_id, $section );
 			$value = reset($boolean) == 1 ? true : false;
 			break;
@@ -210,11 +211,11 @@ function legull_get_var( $field_id ) {
 function legull_get_var_section( $field_id ){
 	$section = null;
 	$sections = array(
-		'ownership' = array('siteurl','sitename','owner_name','owner_email','owner_locality','has_california','entity_type'),
-		'tracking' = array('privacy_name','privacy_email','has_cookies','has_info_track','has_personalization','has_anonymous','has_purchased_data','has_data_buyer','has_collectdata','has_sharedata','has_sharedata_aggregate','has_sharedata_helpers','has_sharedata_ads','has_sharedata_unlimited'),
-		'usercontent' = array('has_usergenerated','has_3p_content','has_DMCA_agent','DMCA_address','DMCA_telephone','DMCA_email'),
-		'advertising' = array('has_advertising','has_advertising_network','has_advertising_adsense'),
-		'misc' = array('has_over18','has_no13','has_arbitration','has_SSL','has_support_contact','support_email','support_phone','last_updated','has_no_scrape','has_password')
+		'ownership' => array('siteurl','sitename','owner_name','owner_email','owner_locality','has_california','entity_type'),
+		'tracking' => array('privacy_name','privacy_email','has_cookies','has_info_track','has_personalization','has_anonymous','has_purchased_data','has_data_buyer','has_collectdata','has_sharedata','has_sharedata_aggregate','has_sharedata_helpers','has_sharedata_ads','has_sharedata_unlimited'),
+		'usercontent' => array('has_usergenerated','has_3p_content','has_DMCA_agent','DMCA_address','DMCA_telephone','DMCA_email'),
+		'advertising' => array('has_advertising','has_advertising_network','has_advertising_adsense'),
+		'misc' => array('has_over18','has_no13','has_arbitration','has_SSL','has_support_contact','support_email','support_phone','last_updated','has_no_scrape','has_password')
 		);
 	foreach( $sections as $key => $fields ){
 		if( in_array($field_id, $fields) ){

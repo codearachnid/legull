@@ -425,21 +425,25 @@ class Legull extends AdminPageFramework {
 			),
 			array(
 				'field_id'    => 'has_support_contact',
-				'title'       => __( 'Support Email', 'legull' ),
-				'description' => __( 'Will this site offer support via email?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
-				'default'     => false,
+				'title'       => __( 'Support Contact', 'legull' ),
+				'description' => __( 'Will this site offer support via phone or email?', 'legull' ),
+				'type'        => 'revealer',
+				'select_type'   => 'checkbox',
+				'label'         => array(
+                    '#fieldrow-misc_support_email,#fieldrow-misc_support_phone' => __( 'YES', 'legull' )
+                ),
 			),
 			array(
 				'field_id'    => 'support_email',
 				'description' => __( 'What will be the email address for support?', 'legull' ),
-				'type'        => 'text'
+				'type'        => 'text',
+				'hidden' => true
 			),
 			array(
 				'field_id'    => 'support_phone',
-				'description' => __( 'What will be the email address for support?', 'legull' ),
-				'type'        => 'text'
+				'description' => __( 'What will be the phone number for support?', 'legull' ),
+				'type'        => 'text',
+				'hidden'      => true
 			),
 			array(
 				'field_id' => 'last_updated',
