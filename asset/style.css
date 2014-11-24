@@ -10,6 +10,7 @@ body.legull-admin .folded #adminmenu li.wp-has-current-submenu{
 body.legull-admin .button{
 	background: #F23264;
 	border-color:#F23264;
+	color:#ffffff;
 }
 body.legull-admin .button:hover{
 	background: #FD6081;
@@ -20,7 +21,6 @@ body.legull_page_legull_addons .button{
 	font-size: 10px;
 	line-height: 20px;
 	height: 20px;
-	color: #ffffff;
 }
 body.legull-admin #poststuff h3{
 	background: #5A6570;

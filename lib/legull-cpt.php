@@ -35,7 +35,6 @@ class Legull_CustomPostType extends AdminPageFramework_PostType {
 			)
 		);
 
-		add_action( 'admin_head', array( $this, 'admin_head' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menue' ) );
 
 		$this->addTaxonomy(
@@ -57,24 +56,7 @@ class Legull_CustomPostType extends AdminPageFramework_PostType {
 		);
 
 	}
-
-	function admin_head() {
-		// show submenue and clear unneeded filters
-		$screen = get_current_screen();
-		if ( in_array( $screen->id, array( 'edit-' . LEGULL_CPT, LEGULL_CPT ) ) ) {
-			?>
-			<script>
-				jQuery(document).ready(function () {
-					var legullMenu = jQuery('li#toplevel_page_Legull');
-					legullMenu.addClass('wp-menu-open wp-has-current-submenu').removeClass('wp-not-current-submenu');
-					legullMenu.find('> a.menu-top-last').addClass('wp-menu-open wp-has-current-submenu').removeClass('wp-not-current-submenu');
-					legullMenu.find('.wp-submenu li').removeClass('current').eq(2).addClass('current');
-				});
-			</script><?php
-		}
-		// print_r($screen);
-	}
-
+	
 	function admin_menue() {
 		add_submenu_page( 'admin.php?page=legull_dashboard', 'Documents', 'Documents', 'manage_options', "edit.php?post_type={$this->oProp->sPostType}" );
 		remove_menu_page( "edit.php?post_type={$this->oProp->sPostType}" );
