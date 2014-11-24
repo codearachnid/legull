@@ -322,7 +322,6 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_purchased_data',
 				'title'       => __( 'Purchase User Data', 'legull' ),
-				'tip'         => __( 'The description key can be omitted though.', 'legull' ),
 				'description' => __( 'Does this site purchase user data?', 'legull' ),
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
@@ -390,7 +389,6 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_over18',
 				'title'       => __( 'Over 18', 'legull' ),
-				'tip'         => __( 'The description key can be omitted though.', 'legull' ),
 				'description' => __( 'Does this site require visitors to be over the age of 18?', 'legull' ),
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
@@ -407,7 +405,6 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_arbitration',
 				'title'       => __( 'Arbitration', 'legull' ),
-				'tip'         => __( 'The description key can be omitted though.', 'legull' ),
 				'description' => __( 'Does this site require an arbitration clause?', 'legull' ),
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
@@ -416,7 +413,6 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_SSL',
 				'title'       => __( 'SSL', 'legull' ),
-				'tip'         => __( 'The description key can be omitted though.', 'legull' ),
 				'description' => __( 'Does this site use SSL? (https://)', 'legull' ),
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
