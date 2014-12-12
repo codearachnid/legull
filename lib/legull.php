@@ -8,9 +8,9 @@ class Legull extends AdminPageFramework {
 		$_aNotices = $this->oUtil->getTransient( "apf_notices_{$_iUserID}" );
 		if ( isset( $_aNotices[$_sID] ) ) {
 			$screen = get_current_screen();
-			// is edit list notify user docs have been generated
+			// is edit list notify user docs have been published
 			if ( $screen->id == 'edit-' . LEGULL_CPT ) {
-				$_aNotices[$_sID]['sMessage'] = __( 'Your site terms have been generated.', 'legull' );
+				$_aNotices[$_sID]['sMessage'] = __( 'Your site terms have been published. Review below.', 'legull' );
 			} else {
 				$_aNotices[$_sID]['sMessage'] = __( 'Your site details have been saved.', 'legull' );
 			}
@@ -34,14 +34,15 @@ class Legull extends AdminPageFramework {
 
 					// validated and redirect
 					if ( empty( $aErrors ) ) {
-						$redirect_to = get_admin_url() . 'admin.php?page=legull_generate';
+						$redirect_to = get_admin_url() . 'admin.php?page=legull_publish';
 					}
 					break;
-				case 'legull_generate': // generate terms
-					if( legull_generate_terms_to_import() ){
-						$redirect_to = get_admin_url() . 'edit.php?post_type=' . LEGULL_CPT;
+				case 'legull_publish': // publish terms
+					if( legull_publish_terms_to_import() ){
+						$redirect_to = get_admin_url() . 'admin.php?page=legull_terms';
+						// $redirect_to = get_admin_url() . 'edit.php?post_type=' . LEGULL_CPT;
 					} else {
-						$aErrors['legull_generate'] = __( 'The terms were not generated due to errors.', 'legull' );
+						$aErrors['legull_publish'] = __( 'The terms were not published due to errors.', 'legull' );
 					}
 					break;
 			}
@@ -83,13 +84,14 @@ class Legull extends AdminPageFramework {
 				'order'     => 10
 			),
 			array(
-				'title'     => __( 'Generate', 'legull' ),
-				'page_slug' => 'legull_generate',
+				'title'     => __( 'Publish', 'legull' ),
+				'page_slug' => 'legull_publish',
 				'order'     => 20,
 			),
 			array(
 				'title' => __( 'Terms', 'legull' ),
-				'href'  => get_admin_url() . 'edit.php?post_type=' . LEGULL_CPT,
+				// 'href'  => get_admin_url() . 'edit.php?post_type=' . LEGULL_CPT,
+				'page_slug'  => 'legull_terms',
 				'order' => 30
 			),
 			array(
@@ -472,16 +474,28 @@ class Legull extends AdminPageFramework {
 		submit_button( __( 'Save All Tabs', 'legull' ) );
 	}
 
+	public function do_legull_terms(){
+		include_once( LEGULL_PATH . 'lib/wp-legull-terms-list-table.php' );
+	
+		$wp_list_table = new WP_Legull_Terms_List_Table();
+		$wp_list_table->prepare_items();
+		// echo '<pre>';
+		// print_r($wp_list_table);
+		// echo '</pre>';
 
-	public function do_form_legull_generate() {
-		include LEGULL_PATH . 'template/generate-documents.php';
+		include LEGULL_PATH . 'template/terms.php';
 	}
 
-	public function do_legull_generate() {
+
+	public function do_form_legull_publish() {
+		include LEGULL_PATH . 'template/publish-documents.php';
+	}
+
+	public function do_legull_publish() {
 		if ( get_option( 'Legull' ) ) {
-			submit_button( __( 'Generate Terms', 'legull' ) );
+			submit_button( __( 'Publish Terms', 'legull' ) );
 		} else {
-			printf( '<h2>%s</h2>', __( 'You must save your site details before generation of terms may occur.', 'legull' ) );
+			printf( '<h2>%s</h2>', __( 'You must save your site details before publishing of terms may occur.', 'legull' ) );
 		}
 	}
 

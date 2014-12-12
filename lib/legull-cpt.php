@@ -18,49 +18,23 @@ class Legull_CustomPostType extends AdminPageFramework_PostType {
 					'view'                                 => __( 'View', 'legull' ),
 					'view_item'                            => __( 'View Terms', 'legull' ),
 					'search_items'                         => __( 'Search Terms', 'legull' ),
-					'not_found'                            => __( 'No terms exist. Please complete the <a href="admin.php?page=legull_dashboard">setup</a> and generate terms first.', 'legull' ),
+					'not_found'                            => __( 'No terms exist. Please complete the <a href="admin.php?page=legull_dashboard">setup</a> and publish terms first.', 'legull' ),
 					'not_found_in_trash'                   => __( 'No terms found in Trash', 'legull' ),
 					'parent'                               => __( 'Parent Terms', 'legull' ),
 					'plugin_listing_table_title_cell_link' => __( 'Terms', 'legull' ),
 				),
 				'public'            => true,
+				'show_in_menu' 		=> false, //'admin.php?page=legull_terms',
 				'rewrite'           => array( 'slug' => 'legal' ),
 				'menu_position'     => 110,
 				'supports'          => array( 'title', 'editor' ),
-				'taxonomies'        => array( '' ),
 				'has_archive'       => true,
 				'show_admin_column' => true,
-				'menu_icon'         => LEGULL_URL . '/asset/icon-32.png',
-				'screen_icon'       => LEGULL_URL . '/asset/icon-32.png',
-			)
-		);
-
-		add_action( 'admin_menu', array( $this, 'admin_menue' ) );
-
-		$this->addTaxonomy(
-			'legull_packages',
-			array(
-				'labels'                => array(
-					'name'          => 'Packages',
-					'add_new_item'  => 'Add New Package',
-					'new_item_name' => "New Package"
-				),
-				'show_ui'               => true,
-				'show_tagcloud'         => false,
-				'hierarchical'          => true,
-				'show_admin_column'     => true,
-				'show_in_nav_menus'     => false,
-				'show_table_filter'     => true,
-				'show_in_sidebar_menus' => false,
 			)
 		);
 
 	}
 	
-	function admin_menue() {
-		add_submenu_page( 'admin.php?page=legull_dashboard', 'Documents', 'Documents', 'manage_options', "edit.php?post_type={$this->oProp->sPostType}" );
-		remove_menu_page( "edit.php?post_type={$this->oProp->sPostType}" );
-	}
 
 	/**
 	 * Automatically called with the 'wp_loaded' hook.
@@ -68,7 +42,6 @@ class Legull_CustomPostType extends AdminPageFramework_PostType {
 	public function setUp() {
 
 		if ( $this->oProp->bIsAdmin ) {
-
 			$this->setAutoSave( false );
 			$this->setAuthorTableFilter( true );
 			$this->setFooterInfoLeft( '<br />Custom Text on the left hand side.' );

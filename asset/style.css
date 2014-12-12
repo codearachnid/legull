@@ -27,7 +27,7 @@ body.legull-admin #poststuff h3{
 	color:#ffffff;
 }
 body.legull_page_legull_dashboard #admin-page-framework-page-load-stats,
-body.legull_page_legull_generate #admin-page-framework-page-load-stats,
+body.legull_page_legull_publish #admin-page-framework-page-load-stats,
 body.legull_page_legull_addons #admin-page-framework-page-load-stats,
 body.post-type-legull_terms #admin-page-framework-page-load-stats,
 body.post-type-legull_terms .tablenav .actions #author,

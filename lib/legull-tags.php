@@ -51,13 +51,13 @@ function  legull_icon( $size = 16, $base64 = false ) {
 	return $file;
 }
 
-function legull_generate_terms_to_import() {
+function legull_publish_terms_to_import() {
 	global $shortcode_tags;
 	$status          = false;
 	$tagnames        = array_keys( $shortcode_tags );
 	$tagregexp       = join( '|', array_map( 'preg_quote', $tagnames ) );
 	$shortcode_regex = get_shortcode_regex();
-	$docs            = apply_filters( 'legull_generate_terms_to_import/list', glob( LEGULL_PATH . "docs/*.md" ) );
+	$docs            = apply_filters( 'legull_publish_terms_to_import/list', glob( LEGULL_PATH . "docs/*.md" ) );
 	include_once( LEGULL_PATH . 'lib/parsedown.php' );
 	$Parsedown = new Parsedown();
 	foreach ( $docs as $filename ) {
@@ -113,7 +113,8 @@ function legull_generate_terms_to_import() {
 			update_post_meta( $document_id, 'legull_file', $import_file );
 			$status = true;
 		} else if( !empty( $import_post['ID'] ) ) {
-			wp_trash_post( $import_post['ID'] );
+			// bypass the trash
+			wp_delete_post( $import_post['ID'], true );
 		}
 	}
 

@@ -59,6 +59,8 @@ The names and logos used by the Site, and all other trademarks, service marks, a
 
 All rights not expressly granted in these Terms are reserved by the Site.
 
+[legull_part]dmca[/legull_part]
+
 <!-- Privacy mention and reference within the ToS (show for all uses) -->
 ##Privacy
 Any information that you provide to the Site is subject to the Site’s Privacy Policy, which governs our collection and use of User information. User understands that through his or her use of the Site and its Services, User consents to the collection and use (as set forth in the Privacy Policy) of the information, including the transfer of this information to the United States and/or other countries for storage, processing and use by the Site. The Site may make certain communications to some or all Users, such as service announcements and administrative messages. These communications are considered part of the Services and a User’s account with the Site, and Users are not able to opt out of all of them.

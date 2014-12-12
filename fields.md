@@ -1,5 +1,5 @@
 #Plugin field list
-The following list of fields signify the amount and type of data this plugin tracks in order to generate the legal documents.
+The following list of fields signify the amount and type of data this plugin tracks in order to publish the legal documents.
 
 
 ###Ownership
