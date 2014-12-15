@@ -64,10 +64,6 @@ class Legull extends AdminPageFramework {
 
 	function setUp() {
 
-		// wire up the revealer fields
-		if( class_exists('RevealerCustomFieldType'))
-			new RevealerCustomFieldType( __CLASS__ );
-
 		// after saving details redirect to generation page
 		add_action( 'submit_after_Legull', array( $this, 'onSubmit_redirects' ) );
 
@@ -105,6 +101,12 @@ class Legull extends AdminPageFramework {
 	}
 
 	public function load_Legull( $oAdminPage ) {
+
+
+		// wire up the revealer fields
+		if( class_exists('RevealerCustomFieldType') )
+			new RevealerCustomFieldType( __CLASS__ );
+
 
 		$oAdminPage->addSettingSections(
 			'legull_dashboard',
