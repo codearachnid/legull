@@ -19,6 +19,7 @@ define( 'LEGULL_CPT', 'legull_terms' );
 
 if ( !class_exists( 'AdminPageFramework' ) ) {
 	include_once( LEGULL_PATH . 'lib/admin-page-framework.min.php' );
+	include_once( LEGULL_PATH . 'lib/admin-page-framework.revealer.php' );
 }
 
 function legull_plugin_loaded() {

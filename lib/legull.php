@@ -8,8 +8,9 @@ class Legull extends AdminPageFramework {
 		$_aNotices = $this->oUtil->getTransient( "apf_notices_{$_iUserID}" );
 		if ( isset( $_aNotices[$_sID] ) ) {
 			$screen = get_current_screen();
+			
 			// is edit list notify user docs have been published
-			if ( $screen->id == 'edit-' . LEGULL_CPT ) {
+			if ( $screen->id == 'legull_page_legull_terms' ) {
 				$_aNotices[$_sID]['sMessage'] = __( 'Your site terms have been published. Review below.', 'legull' );
 			} else {
 				$_aNotices[$_sID]['sMessage'] = __( 'Your site details have been saved.', 'legull' );
@@ -217,11 +218,13 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_DMCA_agent',
 				'type'        => 'revealer',
-				'select_type'   => 'checkbox',
+				'is_multiple' => true,
+				'select_type'   => 'radio',
 				'title'       => __( 'Has DMCA Agent?', 'legull' ),
 				'description' => __( 'In the U.S., safe harbor protection from copyright liability for site content added by your users can be had by designating and registering with the Copyright Office a Digital Millenium Copyright Act agent for notice and takedown procedures. Will this site have a designated DMCA agent?', 'legull' ),
 				'label'         => array(
-                    '#fieldrow-usercontent_DMCA_address,#fieldrow-usercontent_DMCA_telephone,#fieldrow-usercontent_DMCA_email' => __( 'YES', 'legull' )
+                    '#fieldrow-usercontent_DMCA_address,#fieldrow-usercontent_DMCA_telephone,#fieldrow-usercontent_DMCA_email' => __( 'YES', 'legull' ),
+                    'NO' => __( 'NO', 'legull' )
                 ),
 			),
 			array(
@@ -292,7 +295,7 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_cookies',
 				'title'       => __( 'Use cookies', 'legull' ),
-				'description' => __( 'Will this site use cookies beyond advertising tools? (i.e. Google Analytics)', 'legull' ),
+				'description' => __( 'Will this site use cookies (apart from cookies that the site has as part of advertising tools like Google Analytics)?', 'legull' ),
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
 				'default'     => false,
@@ -407,7 +410,7 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_arbitration',
 				'title'       => __( 'Arbitration', 'legull' ),
-				'description' => __( 'Does this site require an arbitration clause?', 'legull' ),
+				'description' => __( 'Do you want to require all of the site\'s users to arbitrate (rather than litigate) any claims against the site?', 'legull' ),
 				'type'        => 'checkbox',
 				'label'       => __( 'YES', 'legull' ),
 				'default'     => false,

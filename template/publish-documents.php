@@ -10,9 +10,7 @@
 
 				<p><?php _e( '"Publish Terms" will create or update your terms based on all of your choices.', 'legull' ); ?></p>
 
-				<p>
-					<b><?php _e( 'If you have made manual changes to your terms, "Publish Terms" will overwrite those.', 'legull' ); ?></b>
-				</p>
+				<p><b><?php _e( 'If you have made manual changes to your terms after publishing them previously with Legull, "Publish Terms" will overwrite those manual changes.', 'legull' ); ?></b></p>
 			</div>
 		</div>
 	</div>
