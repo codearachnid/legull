@@ -209,12 +209,12 @@ function legull_get_var( $field_id ) {
 		case 'support_phone':
 			$value = legull_get_value( $field_id, $section );
 			break;
-		case 'has_DMCA_agent':
-		case 'has_advertising':
 		case 'has_support_contact':
 			$boolean = legull_get_value( $field_id, $section );
 			$value = reset($boolean) == 1 ? true : false;
 			break;
+		case 'has_DMCA_agent':
+		case 'has_advertising':
 		case 'has_california':
 		case 'has_cookies':
 		case 'has_info_track':
