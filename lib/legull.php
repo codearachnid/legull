@@ -172,7 +172,7 @@ class Legull extends AdminPageFramework {
 			),
 			array(
 				'field_id'    => 'owner_locality',
-				'title'       => __( 'Physical Address', 'legull' ),
+				'title'       => __( 'Physical Locality', 'legull' ),
 				'type'        => 'text',
 				'description' => __( 'Set the legal physical locality for the site. (i.e. City, State/Provence)', 'legull' ),
 			),
@@ -180,8 +180,11 @@ class Legull extends AdminPageFramework {
 				'field_id'    => 'has_california',
 				'title'       => __( 'In California?', 'legull' ),
 				'description' => __( 'Is site locality within the state of California?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
@@ -205,16 +208,22 @@ class Legull extends AdminPageFramework {
 				'field_id'    => 'has_usergenerated',
 				'title'       => __( 'User-generated content', 'legull' ),
 				'description' => __( 'Will this site allow user-generated content of any kind?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_3p_content',
 				'title'       => __( 'Comments &amp; 3rd Parties', 'legull' ),
 				'description' => __( 'Will this site allow users to add comments or content of any kind?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
@@ -256,27 +265,34 @@ class Legull extends AdminPageFramework {
 			array(
 				'field_id'    => 'has_advertising',
 				'type'        => 'revealer',
-				'select_type'   => 'checkbox',
+				'select_type'   => 'radio',
 				'title'       => __( 'Site contains advertising', 'legull' ),
 				'description' => __( 'Does this site use advertising?', 'legull' ),
 				'label'         => array(
-                    '#fieldrow-advertising_has_advertising_network,#fieldrow-advertising_has_advertising_adsense' => __( 'YES', 'legull' )
+                    '#fieldrow-advertising_has_advertising_network,#fieldrow-advertising_has_advertising_adsense' => __( 'YES', 'legull' ),
+                    'NO' => __('NO','legull')
                 ),
 			),
 			array(
 				'field_id'    => 'has_advertising_network',
 				'title'       => __( '3rd party advertising', 'legull' ),
 				'description' => __( 'Will this site use a 3rd party network to supply advertising?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_advertising_adsense',
 				'title'       => __( 'Google AdSense', 'legull' ),
 				'description' => __( 'Will this site use Google AdSense to supply advertising?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			)
 		);
@@ -298,96 +314,132 @@ class Legull extends AdminPageFramework {
 				'field_id'    => 'has_cookies',
 				'title'       => __( 'Use cookies', 'legull' ),
 				'description' => __( 'Will this site use cookies (apart from cookies that the site has as part of advertising tools like Google Analytics)?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_info_track',
 				'title'       => __( 'Information Tracking', 'legull' ),
 				'description' => __( 'Will visitors be tracked when surfing the site? (i.e. Google Analytics)', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_personalization',
 				'title'       => __( 'User Personalization', 'legull' ),
 				'description' => __( 'Will visitors be able to personalize their expereience when surfing the site?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_anonymous',
 				'title'       => __( 'Anonymous Surfing', 'legull' ),
 				'description' => __( 'Will visitors be able to surf the site anonymously?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_purchased_data',
 				'title'       => __( 'Purchase User Data', 'legull' ),
 				'description' => __( 'Does this site purchase user data?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_data_buyer',
 				'title'       => __( 'Sell User Data', 'legull' ),
 				'description' => __( 'Does this site sell or rent user data?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_collectdata',
 				'title'       => __( 'Collect User Data', 'legull' ),
 				'description' => __( 'Will this site collect any data from its users?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_sharedata',
 				'title'       => __( 'Sharing User Data', 'legull' ),
 				'description' => __( 'Will any of the user data (individual data or aggregate data) be shared outside of the site owner itself?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_sharedata_aggregate',
 				'title'       => __( 'Share User Data Aggregated', 'legull' ),
 				'description' => __( 'Will all user data be shared only in grouped form, so that individual users are not identified and individual user data is not shared?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_sharedata_helpers',
 				'title'       => __( 'Share User Data with Partners', 'legull' ),
 				'description' => __( 'Will any user data be shared with those who help the site owner operate and manage the site?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_sharedata_ads',
 				'title'       => __( 'Share User Data with Advertisers', 'legull' ),
 				'description' => __( 'Will any user data be shared with advertisers or marketing partners?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_sharedata_unlimited',
 				'title'       => __( 'Share User Data Unlimited', 'legull' ),
 				'description' => __( 'Will any user data be shared with others other than those who help operate and manage the site, and other than advertisers or marketing partners?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			)
 		);
@@ -397,32 +449,44 @@ class Legull extends AdminPageFramework {
 				'field_id'    => 'has_over18',
 				'title'       => __( 'Over 18', 'legull' ),
 				'description' => __( 'Does this site require visitors to be over the age of 18?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_no13',
 				'title'       => __( 'Under 13', 'legull' ),
 				'description' => __( 'Will this site allow users or visitors under the age of 13?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_arbitration',
 				'title'       => __( 'Arbitration', 'legull' ),
 				'description' => __( 'Do you want to require all of the site\'s users to arbitrate (rather than litigate) any claims against the site?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
 				'field_id'    => 'has_SSL',
 				'title'       => __( 'SSL', 'legull' ),
 				'description' => __( 'Does this site use SSL? (https://)', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false,
 			),
 			array(
@@ -430,9 +494,10 @@ class Legull extends AdminPageFramework {
 				'title'       => __( 'Support Contact', 'legull' ),
 				'description' => __( 'Will this site offer support via phone or email?', 'legull' ),
 				'type'        => 'revealer',
-				'select_type'   => 'checkbox',
+				'select_type'   => 'radio',
 				'label'         => array(
-                    '#fieldrow-misc_support_email,#fieldrow-misc_support_phone' => __( 'YES', 'legull' )
+                    '#fieldrow-misc_support_email,#fieldrow-misc_support_phone' => __( 'YES', 'legull' ),
+                    'NO' => __('NO','legull')
                 ),
 			),
 			array(
@@ -456,16 +521,22 @@ class Legull extends AdminPageFramework {
 				'field_id'    => 'has_no_scrape',
 				'title'       => __( 'Prevent Scraping', 'legull' ),
 				'description' => __( 'Will this site prohibit the automatic collection of its data by others ("scraping")?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false
 			),
 			array(
 				'field_id'    => 'has_password',
 				'title'       => __( 'Passwords', 'legull' ),
 				'description' => __( 'Will any part of this site require a password for access?', 'legull' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'YES', 'legull' ),
+				'type'        => 'radio',
+				'label'       => array( 
+					'YES' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
 				'default'     => false
 			)
 		);
