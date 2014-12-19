@@ -2,7 +2,7 @@
 Contributors: codearachnid, gatewood3000
 Tags: legal,document,page,generator
 Requires at least: 3.7
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.0.0
 License: GPL v3
 
