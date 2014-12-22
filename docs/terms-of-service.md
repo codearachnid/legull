@@ -10,11 +10,9 @@ These Terms of Service and our privacy policy (together the “Terms”) govern 
 
 The owners and contributors to the Site will be referred to as “we,” “us,” or “our” in these Terms.  By using the Site or its Services, and/or by clicking anywhere on this Site to agree to these Terms, you are deemed to be a “user” for purposes of the Terms.  You and every other user (“you” or “User” as applicable) are bound by these Terms.  You and each user also agree to the Terms by using the Services.  If any User does not agree to the Terms or the Privacy Policy, such User may not access the Site or use the Services.  In these Terms, the word “Site” includes the site referenced above, its owner(s), contributors, suppliers, licensors, and other related parties.
 
-<!-- Prohibitions (show for all uses) -->
 ##User Prohibited From Illegal Uses
 User shall not use, and shall not allow any person to use, the Site or Services in any way that violates a federal, state, or local law, regulation, or ordinance, or for any disruptive, tortious, or illegal purpose, including but not limited to harassment, slander, defamation, data theft or inappropriate dissemination, or improper surveillance of any person.
 
-<!-- User Representations (show for all uses) -->
 ##User represents and warrants that:
 
 -	User will use the Services only as provided in these Terms;
@@ -22,7 +20,6 @@ User shall not use, and shall not allow any person to use, the Site or Services 
 -	User will provide accurate, complete, and current information to the Site and its owner(s);
 -	User will notify the Site and its owner(s) regarding any material change to information User provides, either by updating and correcting the information, or by alerting the Site and its owner(s) via the functions of the Site or the email address provided below.
 
-<!-- Disclaimer (show for all uses) -->
 ##Disclaimer of Warranties.
 TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SITE PROVIDES THE SERVICES “AS IS,” WITH ALL FAULTS.  THE SITE DOES NOT WARRANT UNINTERRUPTED USE OR OPERATION OF THE SERVICES, OR THAT ANY DATA WILL BE TRANSMITTED IN A MANNER THAT IS TIMELY, UNCORRUPTED, FREE OF INTERFERENCE, OR SECURE.  THE SITE DISCLAIMS REPRESENTATIONS, WARRANTIES, AND CONDITIONS OF ANY KIND, WHETHER EXPRESS, IMPLIED, WRITTEN, ORAL, CONTRACTUAL, COMMON LAW, OR STATUTORY, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES, DUTIES, OR CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, OR THAT MAY ARISE FROM A COURSE OF DEALING OR USAGE OF TRADE.
 
@@ -39,15 +36,12 @@ The Site may include or offer third party products or services.  The Site may al
 
 [legull_part]subscriptions[/legull_part]
 
-<!-- Changes (show for all uses) -->
 ##Changes to the Site and the Services
 The owners and contributors to the Site will work to improve the Site for our users, and to further our business interests in the Site. We reserve the right to add, change, and remove features, content, and data, including the right to add or change any pricing terms.  You agree that we will not be liable for any such changes.  Neither your use of the Site nor these terms give you any right, title, or protectable legal interest in the Site or its content.
 
-<!-- Indemnity (show for all uses) -->
 ##Indemnity.
 If your activity or any activity on your behalf creates potential or actual liability for us, or for any of our users, partners, or contributors, you agree to indemnify and hold us and any such user, partner, contributor, or any agent harmless from and against all claims, costs of defense and judgment, liabilities, legal fees, damages, losses, and other expenses in relation to any claims or actions arising out of or relating to your use of the Site, or any breach by you of these Terms of Use.
 
-<!-- Intellectual Property (show for all uses) -->
 ##Intellectual Property
 This site and some delivery modes of our product are built on the WordPress platform.  For information about intellectual property rights, including General Public License (“GPL”) terms under which the WordPress software is licensed, see here  http://wordpress.org/about/gpl/
 
@@ -61,25 +55,23 @@ All rights not expressly granted in these Terms are reserved by the Site.
 
 [legull_part]dmca[/legull_part]
 
-<!-- Privacy mention and reference within the ToS (show for all uses) -->
 ##Privacy
 Any information that you provide to the Site is subject to the Site’s Privacy Policy, which governs our collection and use of User information. User understands that through his or her use of the Site and its Services, User consents to the collection and use (as set forth in the Privacy Policy) of the information, including the transfer of this information to the United States and/or other countries for storage, processing and use by the Site. The Site may make certain communications to some or all Users, such as service announcements and administrative messages. These communications are considered part of the Services and a User’s account with the Site, and Users are not able to opt out of all of them.
 
-<!-- Registration, Usernames, and Security (show for all uses) -->
 ##Usernames, Passwords, and Profiles
 If prompted, Users must provide a valid email address to the Site, at which email address the User can receive messages. User must also update the Site if that email address changes. The Site reserves the right to terminate any User account and/or User access to the Site if a valid email is requested but is not provided by the User.
 
 If the Site prompts or allows a User to create a username or profile, Users agree not to pick a username or provide any profile information that would impersonate someone else or that is likely to cause confusion with any other person or entity.  The Site reserves the right to cancel a User account or to change a username or profile data at any time.  Similarly, if the Site allows comments or user input, or prompts or allows a User to create an avatar or upload a picture, User agrees not to use any image that impersonates some other person or entity, or that is otherwise likely to cause confusion.
 
-You are responsible for protecting your username and password for the Site, and you agree not to disclose it to any third party. We recommend that you use a password that is more than eight characters long.  You are responsible for all activity on your account, whether or not you authorized it.  You agree to inform us of unauthorized use of your account, by email to <emailfield>.  You acknowledge that if you wish to protect your interactions with the Site, it is your responsibility to use a secure encrypted connection, virtual private network, or other appropriate measures.  The Site’s own security measures are reasonable in terms of their level of protection, but are not helpful if the interactions of you or any other User with Site are not secure or private.
+You are responsible for protecting your username and password for the Site, and you agree not to disclose it to any third party. We recommend that you use a password that is more than eight characters long.  You are responsible for all activity on your account, whether or not you authorized it.  You agree to inform us of unauthorized use of your account, by email to [legull display="owner_email"].  You acknowledge that if you wish to protect your interactions with the Site, it is your responsibility to use a secure encrypted connection, virtual private network, or other appropriate measures.  The Site’s own security measures are reasonable in terms of their level of protection, but are not helpful if the interactions of you or any other User with Site are not secure or private.
 
 <!-- Disputes (show for all uses) -->
 ##Disputes
-We are based in [legull display="owner_locality"] and you are contracting to use our Site.  These Terms and all matters arising from your use of the Site are governed by and will be construed according to the laws of <sitestatefield>, without regard to any choice of laws rules of any jurisdiction.  The federal courts and state courts that have geographical jurisdiction over disputes arising at our office location in the <siteZIPfield> zip code will be the only permissible venues for any and all disputes arising out of or in connection with these Terms or the Site and Service.
+We are based in [legull display="owner_locality"] and you are contracting to use our Site.  These Terms and all matters arising from your use of the Site are governed by and will be construed according to the laws of [legull display="owner_locality"], without regard to any choice of laws rules of any jurisdiction.  The federal courts and state courts that have geographical jurisdiction over disputes arising at our office location in the [legull display="owner_locality"] will be the only permissible venues for any and all disputes arising out of or in connection with these Terms or the Site and Service.
 
 [legull_condition is="has_arbitration"]
 ### ARBITRATION
-Notwithstanding anything that may be contrary within the “Disputes” provisions above, all matters, and all arbitrable claims within a multi-claim matter, including all claims for monetary damages, shall be decided by a single arbitrator to be selected by us, which arbitrator shall hold hearings in or near [legull field="owner_locality"], under the rules of the American Arbitration Association.
+Notwithstanding anything that may be contrary within the “Disputes” provisions above, all matters, and all arbitrable claims within a multi-claim matter, including all claims for monetary damages, shall be decided by a single arbitrator to be selected by us, which arbitrator shall hold hearings in or near [legull display="owner_locality"], under the rules of the American Arbitration Association.
 [/legull_condition]
 
 [legull_condition is="has_advertising"]
@@ -105,7 +97,7 @@ Use of the Site and its Services is unauthorized in any jurisdiction that does n
 The failure of the Site to exercise or enforce any right or provision of these Terms shall not constitute a waiver of that right or provision.
 
 ##Terms Contact
-If you have any questions about these Terms, please address them to <emailfield>
+If you have any questions about these Terms, please address them to [legull display="owner_email"].
 
 ###Last Updated
 These terms were last updated on *[legull display="last_updated"]*
