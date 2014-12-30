@@ -61,7 +61,7 @@ The Site also protects your account data by using HTTPS transfer protocol.  This
 ###Advertising Network
 We use one or more third party vendors to serve ads on the Site. To serve ads and determine how our users use the Site, these services use cookies, or small pieces of code to serve ads to Site users based on users’ visits to the Site and others. Users may adjust their browser settings to disallow the use of cookies.  With cookies turned off, certain features of the Site may work less efficiently or not at all.[/legull_condition]
 
-[legull_condition is="has_adsense"]
+[legull_condition is="has_advertising_adsense"]
 We use Google as an advertising services provider for the Site. Users may opt out of Google’s use of the DART use-tracking cookie by visiting the Google advertising Policies & Principles page.  If you opt out of ad tailoring, you will still see ads, but they will not be based on your browsing history, and they may appear in other languages.[/legull_condition]
 
 [legull_condition is="has_cookies"]

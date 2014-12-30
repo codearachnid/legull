@@ -238,7 +238,7 @@ function legull_get_var( $field_id ) {
 		case 'has_no_scrape':
 		case 'has_password':
 			$boolean_value = legull_get_value( $field_id, $section );
-			$value = legull_check_if_really_true( $boolean, $field_id );
+			$value = legull_check_if_really_true( $boolean_value, $field_id );
 			break;
 	}
 
@@ -249,11 +249,11 @@ function legull_check_if_really_true( $value_check = null, $field_id = null ){
 	$status = false;
 	
 	if( $value_check == 1 ){
-		$status == true;
+		$status = true;
 	}
 
-	if( $field_id != null && strpos( $field_id, 'has_' ) !== false && $value_check != 'NO' && $value_check != '' ){
-		$status == true;
+	if( !$status && $field_id != null && strpos( $field_id, 'has_' ) !== false && $value_check != 'NO' && $value_check != '' ){
+		$status = true;
 	}
 
 	return $status;
