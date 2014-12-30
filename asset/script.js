@@ -6,9 +6,6 @@ jQuery(document).ready(function ($) {
 				legullMenu.find('> a.menu-top-last').addClass('wp-menu-open wp-has-current-submenu').removeClass('wp-not-current-submenu');
 				legullMenu.find('.wp-submenu li').removeClass('current').eq(3).addClass('current');
 		}
-		$('.postbox-container .postbox .inside p').readmore({
-			speed    : 75,
-			maxHeight: 55
-		});
+		$('.postbox-container .postbox .inside p').readmore({speed: 75,maxHeight: 55});
 	}
 });
