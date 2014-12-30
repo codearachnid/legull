@@ -201,6 +201,7 @@ function legull_get_var( $field_id ) {
 		case 'entity_type':
 		case 'privacy_name':
 		case 'privacy_email':
+		case 'privacy_address':
 		case 'DMCA_address':
 		case 'DMCA_telephone':
 		case 'DMCA_email':
@@ -263,7 +264,7 @@ function legull_get_var_section( $field_id ){
 	$section = null;
 	$sections = array(
 		'ownership' => array('siteurl','sitename','owner_name','owner_email','owner_locality','entity_type'),
-		'tracking' => array('has_california','privacy_name','privacy_email','has_cookies','has_info_track','has_personalization','has_anonymous','has_purchased_data','has_data_buyer','has_collectdata','has_sharedata','has_sharedata_aggregate','has_sharedata_helpers','has_sharedata_ads','has_sharedata_unlimited'),
+		'tracking' => array('has_california','privacy_name','privacy_email','privacy_address','has_cookies','has_info_track','has_personalization','has_anonymous','has_purchased_data','has_data_buyer','has_collectdata','has_sharedata','has_sharedata_aggregate','has_sharedata_helpers','has_sharedata_ads','has_sharedata_unlimited'),
 		'usercontent' => array('has_usergenerated','has_3p_content','has_DMCA_agent','DMCA_address','DMCA_telephone','DMCA_email'),
 		'advertising' => array('has_advertising','has_advertising_network','has_advertising_adsense'),
 		'misc' => array('has_over18','has_no13','has_arbitration','has_SSL','has_support_contact','support_email','support_phone','last_updated','has_no_scrape','has_password')

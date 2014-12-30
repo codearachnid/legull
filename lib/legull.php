@@ -300,7 +300,7 @@ class Legull extends AdminPageFramework {
 				'type'        => 'revealer',
 				'select_type'   => 'radio',
 				'label'       => array( 
-					'#fieldrow-tracking_privacy_name,#fieldrow-tracking_privacy_email' => __( 'YES', 'legull' ),
+					'#fieldrow-tracking_privacy_name,#fieldrow-tracking_privacy_email,#fieldrow-tracking_privacy_address' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
 				'default'     => false,
@@ -316,6 +316,12 @@ class Legull extends AdminPageFramework {
 				'title'       => __( 'Privacy Email', 'legull' ),
 				'type'        => 'text',
 				'description' => __( 'What is the contact email for privacy matters?', 'legull' ),
+			),
+			array(
+				'field_id'    => 'privacy_address',
+				'title'       => __( 'Privacy Address', 'legull' ),
+				'type'        => 'text',
+				'description' => __( 'What is the physical mailing address for privacy matters?', 'legull' ),
 			),
 			array(
 				'field_id'    => 'has_cookies',
