@@ -66,6 +66,8 @@ echo "Ignoring github specific files and deployment script"
 svn propset svn:ignore "deploy.sh
 README.md
 banner-772x250.png
+color-scheme.png
+README.md
 .git
 .gitignore" "$SVNPATH/trunk/"
  
