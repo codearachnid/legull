@@ -1,6 +1,4 @@
 [legull_var name="title"]Privacy Policy[/legull_var]
-#Privacy Policy
-
 ##Introduction
 
 This privacy policy (“Policy”) and this site’s Terms of Service (together the “Terms”) govern all use of [legull display="siteurl"] and that site’s services (together the “Site” or “Services”).  The owners and contributors to the Site will be referred to as “we,” “us,” or “our” in this Policy.  By using the Site or its Services, and/or by clicking anywhere on this Site to agree to the Terms and this Policy, you are deemed to be a “user” for purposes of this Policy.  You and every other user (“you” or “User” as applicable) are subject to this Policy.  You and each user also agree to the Terms by using the Services.  In these Terms, the word “Site” includes the site referenced above, its owner(s), contributors, suppliers, licensors, and other related parties.
@@ -40,9 +38,10 @@ The site may share user data with third parties that [/legull_condition]
 [legull_condition is="has_sharedata_aggregate"]
 The site will only share such user data with these third parties in the aggregate, using collected data reporting on user activity and data that the site collects, but not identifying individual users. Information limited to or identifying individual site users will not be shared.[/legull_condition]
 
+[legull_condition is="has_california"]
 ##California Privacy Rights
 
-California Civil Code Section 1798.83 permits Site users who are residents of California to request and receive once a year a list of any third parties to whom we disclosed any of that user's personal information for direct marketing purposes in the preceding calendar year, as well as the categories of personal information disclosed. If you are a California resident and you wish to make such a request or have any questions about the Site's information sharing, you may send an email to [legull display="privacy_email"], or write to [legull display="privacy_address"].
+California Civil Code Section 1798.83 permits Site users who are residents of California to request and receive once a year a list of any third parties to whom we disclosed any of that user's personal information for direct marketing purposes in the preceding calendar year, as well as the categories of personal information disclosed. If you are a California resident and you wish to make such a request or have any questions about the Site's information sharing, you may send an email to [legull display="privacy_email"], or write to [legull display="privacy_address"].[/legull_condition]
 
 ##Mobile Device Privacy
 
@@ -59,12 +58,15 @@ We work to protect the security of your information during transmission by using
 The Site also protects your account data by using HTTPS transfer protocol.  This is a widely used and more secure communications protocol. [/legull_condition]
 
 [legull_condition is="has_advertising_network"]
+###Advertising Network
 We use one or more third party vendors to serve ads on the Site. To serve ads and determine how our users use the Site, these services use cookies, or small pieces of code to serve ads to Site users based on users’ visits to the Site and others. Users may adjust their browser settings to disallow the use of cookies.  With cookies turned off, certain features of the Site may work less efficiently or not at all.[/legull_condition]
 
 [legull_condition is="has_adsense"]
 We use Google as an advertising services provider for the Site. Users may opt out of Google’s use of the DART use-tracking cookie by visiting the Google advertising Policies & Principles page.  If you opt out of ad tailoring, you will still see ads, but they will not be based on your browsing history, and they may appear in other languages.[/legull_condition]
 
-[legull condition="has_cookies"]
+[legull_condition is="has_cookies"]
+###Cookies
+
 This site uses cookies.  Cookies are small pieces of code that the Site or a service provider will put on your computer if your Web browser allows it.  The Site uses cookies to recognize and keep certain information.  On the Site, that information may be used to recognize your computer and browser from current or past visits to the Site or related sites.  We may use this cookie-captured information to improve our service to you, to aggregate information about visitors to the Site and their behavior, to remember and process items in your shopping cart, to understand and save user preferences, or to keep track of advertising.  We may contract with third-party service providers to assist us in better understanding our site visitors.
 In most Internet browsers, you can change your settings so that you will be warned each time a cookie is being sent, or so that cookies will be turned off. With cookies blocked, some fucntions of the Site may not operate properly.[/legull_condition]
 
@@ -78,11 +80,22 @@ You are responsible for protecting your username and password for the Site, and 
 
 ##Disputes
 
-We are based in [legull display="owner_locality"] and you are contracting to use our Site.  This Policy and all matters arising from your use of the Site are governed by and will be construed according to the laws of [legull display="owner_locality"], without regard to any choice of laws rules of any jurisdiction.  The federal courts and state courts that have geographical jurisdiction over disputes arising at our office location in the <siteZIPfield> zip code will be the only permissible venues for any and all disputes arising out of or in connection with this Policy or the Site and Service.
+We are based in [legull display="owner_locality"] and you are contracting to use our Site.  This Policy and all matters arising from your use of the Site are governed by and will be construed according to the laws of [legull display="owner_locality"], without regard to any choice of laws rules of any jurisdiction.  The federal courts and state courts that have geographical jurisdiction over disputes arising at our office location in [legull display="owner_locality"] will be the only permissible venues for any and all disputes arising out of or in connection with this Policy or the Site and Service.
 
 [legull_condition is="has_arbitration"]
 ##ARBITRATION
+
 Notwithstanding anything that may be contrary within the “Disputes” provisions above, all matters, and all claims within a multi-claim matter, that are arbitrable, including all claims for monetary damages, shall be decided by a single arbitrator to be selected by us, who shall hold hearings in or near [legull display="owner_locality"], under the rules of the American Arbitration Association.[/legull_condition]
 
-[legull_condition is="has_no13"] No Users Under the Age of 13
+[legull_condition is="has_no13"]
+##No Users Under the Age of 13
+
 The Site is not intended for children under the age of 13.  Children under the age of 13 should not use the Site at any time.  We do not knowingly collect personal information from children under the age of 13.  If we obtain actual knowledge that we have collected information from anyone under the age of 13, we will erase that information from our servers. It is a violation of our Terms of Service for children under the age of 13 to use the Site. [/legull_condition]
+
+##Terms Contact
+
+If you have any questions about these Terms, please address them to [legull display="owner_email"].
+
+##Last Updated
+
+These terms were last updated on *[legull display="last_updated"]*

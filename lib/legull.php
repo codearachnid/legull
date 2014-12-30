@@ -32,6 +32,12 @@ class Legull extends AdminPageFramework {
 					if ( empty( $aNewInput['ownership']['owner_name'] ) ) {
 						$aErrors['owner_name'] = __( 'The site owner may not be left blank.', 'legull' );
 					}
+					if ( empty( $aNewInput['ownership']['owner_email'] ) ) {
+						$aErrors['owner_email'] = __( 'The site owner email address may not be left blank.', 'legull' );
+					}
+					if ( empty( $aNewInput['ownership']['owner_locality'] ) ) {
+						$aErrors['owner_locality'] = __( 'The site locality may not be left blank.', 'legull' );
+					}
 
 					// validated and redirect
 					if ( empty( $aErrors ) ) {
@@ -177,17 +183,6 @@ class Legull extends AdminPageFramework {
 				'description' => __( 'Set the legal physical locality for the site. (i.e. City, State/Provence)', 'legull' ),
 			),
 			array(
-				'field_id'    => 'has_california',
-				'title'       => __( 'In California?', 'legull' ),
-				'description' => __( 'Is site locality within the state of California?', 'legull' ),
-				'type'        => 'radio',
-				'label'       => array( 
-					'YES' => __( 'YES', 'legull' ),
-					'NO' => __( 'NO', 'legull' )
-					),
-				'default'     => false,
-			),
-			array(
 				'field_id'    => 'entity_type',
 				'title'       => __( 'Entity Type', 'legull' ),
 				'type'        => 'select',
@@ -298,6 +293,18 @@ class Legull extends AdminPageFramework {
 		);
 		$oAdminPage->addSettingFields(
 			'tracking',
+			array(
+				'field_id'    => 'has_california',
+				'title'       => __( 'In California?', 'legull' ),
+				'description' => __( 'Is site locality within the state of California?', 'legull' ),
+				'type'        => 'revealer',
+				'select_type'   => 'radio',
+				'label'       => array( 
+					'#fieldrow-tracking_privacy_name,#fieldrow-tracking_privacy_email' => __( 'YES', 'legull' ),
+					'NO' => __( 'NO', 'legull' )
+					),
+				'default'     => false,
+			),
 			array(
 				'field_id'    => 'privacy_name',
 				'title'       => __( 'Privacy Contact', 'legull' ),

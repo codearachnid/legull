@@ -237,19 +237,33 @@ function legull_get_var( $field_id ) {
 		case 'has_SSL':
 		case 'has_no_scrape':
 		case 'has_password':
-			$boolean = legull_get_value( $field_id, $section );
-			$value   = $boolean == 1 ? true : false;
+			$boolean_value = legull_get_value( $field_id, $section );
+			$value = legull_check_if_really_true( $boolean, $field_id );
 			break;
 	}
 
 	return $value;
 }
 
+function legull_check_if_really_true( $value_check = null, $field_id = null ){
+	$status = false;
+	
+	if( $value_check == 1 ){
+		$status == true;
+	}
+
+	if( $field_id != null && strpos( $field_id, 'has_' ) !== false && $value_check != 'NO' && $value_check != '' ){
+		$status == true;
+	}
+
+	return $status;
+}
+
 function legull_get_var_section( $field_id ){
 	$section = null;
 	$sections = array(
-		'ownership' => array('siteurl','sitename','owner_name','owner_email','owner_locality','has_california','entity_type'),
-		'tracking' => array('privacy_name','privacy_email','has_cookies','has_info_track','has_personalization','has_anonymous','has_purchased_data','has_data_buyer','has_collectdata','has_sharedata','has_sharedata_aggregate','has_sharedata_helpers','has_sharedata_ads','has_sharedata_unlimited'),
+		'ownership' => array('siteurl','sitename','owner_name','owner_email','owner_locality','entity_type'),
+		'tracking' => array('has_california','privacy_name','privacy_email','has_cookies','has_info_track','has_personalization','has_anonymous','has_purchased_data','has_data_buyer','has_collectdata','has_sharedata','has_sharedata_aggregate','has_sharedata_helpers','has_sharedata_ads','has_sharedata_unlimited'),
 		'usercontent' => array('has_usergenerated','has_3p_content','has_DMCA_agent','DMCA_address','DMCA_telephone','DMCA_email'),
 		'advertising' => array('has_advertising','has_advertising_network','has_advertising_adsense'),
 		'misc' => array('has_over18','has_no13','has_arbitration','has_SSL','has_support_contact','support_email','support_phone','last_updated','has_no_scrape','has_password')
