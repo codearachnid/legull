@@ -5,7 +5,7 @@ Legull is Terms of Service and Privacy Policy for your WordPress site, generated
 
 ###Additional Details
 
-* This plugin is actively supported and we will do our best to help you. If you have a code suggestion or request please submit directly via our repository at https://github.com/codearachnid/legull
+* This plugin is actively supported and we will do our best to help you. If you have a code suggestion or request please submit directly via our repository at https://github.com/codearachnid/legull/issues
 * This plugin has been tested on PHP 5.2.17, 5.3.14, 5.4.4 and WP 3.4, 4.0, and 4.1.
 * UI field framework by Admin Page Framework https://github.com/michaeluno/admin-page-framework
 * Background patterns used in the WordPress.org banner were created by http://subtlepatterns.com
