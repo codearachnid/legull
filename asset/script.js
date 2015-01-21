@@ -7,5 +7,11 @@ jQuery(document).ready(function ($) {
 				legullMenu.find('.wp-submenu li').removeClass('current').eq(3).addClass('current');
 		}
 		$('.postbox-container .postbox .inside p').readmore({speed: 75,maxHeight: 55});
+		$('#legull_hide_dashboard_message').on('click',function(e){
+			$(this).parentsUntil('#poststuff.dashboard').hide();
+			$.post(ajaxurl, {'action':'legull_hide_dashboard_message'}, function(response) {
+				alert('Got this from the server: ' + response);
+			});
+		});
 	}
 });

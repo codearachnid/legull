@@ -26,6 +26,12 @@ body.legull-admin #poststuff h3{
 	background: #5A6570;
 	color:#ffffff;
 }
+body.legull-admin #legull_hide_dashboard_message{
+	float:right;
+}
+body.legull-admin #legull_hide_dashboard_message:after{
+	clear:both;
+}
 body.legull_page_legull_dashboard #admin-page-framework-page-load-stats,
 body.legull_page_legull_publish #admin-page-framework-page-load-stats,
 body.legull_page_legull_addons #admin-page-framework-page-load-stats,

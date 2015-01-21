@@ -1,4 +1,4 @@
-<div id="poststuff">
+<div id="poststuff" class="dashboard">
 	<div class="postbox-container">
 		<div class="postbox addon">
 			<h3 class="hndle">
@@ -6,7 +6,10 @@
 			</h3>
 
 			<div class="inside">
-				<p><?php _e( 'Answering the questions on each of these topic tabs will provide the data for publishing your site\'s terms.', 'legull' ); ?></p>
+				<p>
+					<?php _e( 'Answering the questions on each of these topic tabs will provide the data for publishing your site\'s terms.', 'legull' ); ?>
+					<a id="legull_hide_dashboard_message"><?php _e('Dismiss [X]', 'legull'); ?></a>
+				</p>
 			</div>
 		</div>
 	</div>

@@ -1,10 +1,17 @@
 <?php
 
+add_action( 'wp_ajax_legull_hide_dashboard_message', 'legull_ajax_hide_dashboard_message' );
 add_filter( 'admin_body_class', 'legull_admin_body_class' );
 add_shortcode( 'legull', 'legull_shortcode' );
 add_shortcode( 'legull_var', 'legull_shortcode_fake' );
 add_shortcode( 'legull_part', 'legull_shortcode_fake' );
 add_shortcode( 'legull_condition', 'legull_shortcode_fake' );
+
+function legull_ajax_hide_dashboard_message(){
+	update_option( 'Legull_Hide_Dashboard_Message', 'yes' );
+	echo 'yes';
+	wp_die();
+}
 
 function legull_admin_body_class( $classes ){
 	global $current_screen;
@@ -275,6 +282,15 @@ function legull_get_var_section( $field_id ){
 		}
 	}
 	return $section;
+}
+
+function legull_integrated_plugins(){
+	$plugins = array();
+	// check if gravity forms is active
+	if( class_exists( 'GFCommon' ) ){
+		$plugins[] = 'gravityforms';
+	}
+	return $plugins;
 }
 
 function legull_shortcode( $atts, $content = null ) {

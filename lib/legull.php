@@ -556,7 +556,9 @@ class Legull extends AdminPageFramework {
 	}
 
 	public function do_form_legull_dashboard() {
-		include LEGULL_PATH . 'template/dashboard.php';
+		if( get_option('Legull_Hide_Dashboard_Message') != 'yes' ){
+			include LEGULL_PATH . 'template/dashboard.php';
+		}
 	}
 
 	public function do_legull_dashboard() {
@@ -574,7 +576,6 @@ class Legull extends AdminPageFramework {
 
 		include LEGULL_PATH . 'template/terms.php';
 	}
-
 
 	public function do_form_legull_publish() {
 		include LEGULL_PATH . 'template/publish-documents.php';
