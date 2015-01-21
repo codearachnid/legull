@@ -51,6 +51,11 @@ function legull_plugin_loaded() {
 	);
 
 	if( legull_integrated_plugins() ) {
+		// ensure plugins have the appropriate integration points
+		if( class_exists( 'GFCommon' ) ){
+			include_once( LEGULL_PATH . 'lib/legull-gravityforms.php' );
+			new Legull_GravityForms();
+		}
 		include_once( LEGULL_PATH . 'lib/legull-metabox-integrated-plugins.php' );
 		new Legull_MetaBox_Integrated_Plugins(
 			'legull_integrated_plugins',
