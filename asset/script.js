@@ -8,9 +8,9 @@ jQuery(document).ready(function ($) {
 		}
 		$('.postbox-container .postbox .inside p').readmore({speed: 75,maxHeight: 55});
 		$('#legull_hide_dashboard_message').on('click',function(e){
-			$(this).parentsUntil('#poststuff.dashboard').hide();
+			var introMessage = $(this);
 			$.post(ajaxurl, {'action':'legull_hide_dashboard_message'}, function(response) {
-				alert('Got this from the server: ' + response);
+				introMessage.parentsUntil('#poststuff.dashboard').hide();
 			});
 		});
 	}

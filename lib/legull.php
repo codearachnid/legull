@@ -570,9 +570,6 @@ class Legull extends AdminPageFramework {
 	
 		$wp_list_table = new WP_Legull_Terms_List_Table();
 		$wp_list_table->prepare_items();
-		// echo '<pre>';
-		// print_r($wp_list_table);
-		// echo '</pre>';
 
 		include LEGULL_PATH . 'template/terms.php';
 	}
