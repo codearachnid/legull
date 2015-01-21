@@ -7,7 +7,7 @@ if ( !class_exists( 'Legull_Conf' ) ) {
 		public $addons = array(
 			array(
 				'name'        => 'Digital Ecommerce',
-				'remote_url'  => 'http://www.legull.com/addons/',
+				'remote_url'  => 'http://www.legull.com/addon/digital-ecommerce/',
 				'description' => 'Do you sell downloads? For your apps, software, or content downloads, set a firm foundation for your sales with Legull’s simple Q&A that will generate the terms for your site.  Change your policies?  Change your answers to the questions and change your terms. This add-on provides terms of service for your sales transactions, as well as downloading, rights management, product descriptions, copyright notices, limitations of liability for you, and sharing limitations for your users.  It also will guide your buyers on what to do if they have a complaint, question, or need help.',
 				'active'      => false
 			),

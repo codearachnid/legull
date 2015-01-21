@@ -50,6 +50,17 @@ function legull_plugin_loaded() {
 		'default'
 	);
 
+	if( legull_integrated_plugins() ) {
+		include_once( LEGULL_PATH . 'lib/legull-metabox-integrated-plugins.php' );
+		new Legull_MetaBox_Integrated_Plugins(
+			'legull_integrated_plugins',
+			__( 'Integrated Plugins', 'legull' ),
+			array( 'legull_dashboard' ),
+			'side',
+			'default'
+		);
+	}
+
 	add_action( 'admin_enqueue_scripts', 'legull_enqueue_scripts' );
 }
 
