@@ -66,7 +66,8 @@ function legull_plugin_loaded() {
 		);
 	}
 
-	add_action( 'admin_enqueue_scripts', 'legull_enqueue_scripts' );
+	add_action( 'admin_enqueue_scripts', 'legull_enqueue_admin_scripts' );
+	add_action( 'wp_enqueue_scripts', 'legull_enqueue_scripts' );
 }
 
 function legull_custom_activation_message_init(){

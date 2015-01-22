@@ -39,12 +39,16 @@ function legull_custom_activation_message( $translated_text, $untranslated_text,
 	return $translated_text;
 }
 
-function legull_enqueue_scripts() {
+function legull_enqueue_scripts(){
+	wp_enqueue_script( 'legull', LEGULL_URL . 'asset/legull-scripts.js', array( 'jquery' ), '1.0', true );
+}
+
+function legull_enqueue_admin_scripts() {
 	// add_thickbox();
 	wp_enqueue_script( 'jquery-ui-dialog' );
 	wp_enqueue_style( "wp-jquery-ui-dialog" );
 	wp_enqueue_script( 'jquery-readmore', LEGULL_URL . 'asset/readmore.min.js', array( 'jquery' ), '1.0', true );
-	wp_enqueue_script( 'legull', LEGULL_URL . 'asset/script.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'legull', LEGULL_URL . 'asset/legull-admin-scripts.js', array( 'jquery' ), '1.0', true );
 	wp_enqueue_style( 'legull', LEGULL_URL . 'asset/style.css' );
 }
 
@@ -316,4 +320,15 @@ function legull_strip_shortcode( $content, $shortcode ) {
 	$shortcode_tags = $stack;
 
 	return $content;
+}
+
+// conditional to check whether Gravity Forms shortcode is on a page
+function legull_has_gform() {
+     global $post;
+     $all_content = get_the_content();
+	if (strpos($all_content,'[gravityform') !== false) {
+		return true;
+	} else {
+		return false;
+	}
 }
