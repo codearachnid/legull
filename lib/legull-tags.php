@@ -332,3 +332,7 @@ function legull_has_gform() {
 		return false;
 	}
 }
+
+function legull_get_terms_link(){
+	return sprintf( "<a href='%s' target='_blank'>%s</a>", '#', __( 'Terms & Conditions', 'legull' ) );
+}

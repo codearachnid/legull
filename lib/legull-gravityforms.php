@@ -22,10 +22,10 @@ class Legull_GravityForms {
 		add_filter( 'gform_add_field_buttons', array( $this, 'add_field_button' ) );
 		add_filter( 'gform_field_type_title', array( $this, 'field_type_title' ) );
 		add_filter( 'gform_field_content', array( $this, 'field_content' ), 10, 5);
-		add_action( 'gform_field_standard_settings' , array( $this, 'field_standard_settings' ), 10, 5 );
+		add_action( 'gform_field_standard_settings' , array( $this, 'field_standard_settings' ), 10, 2 );
 		add_filter( 'gform_tooltips', array( $this, 'tooltips' ) );
 		add_action( 'gform_editor_js', array( $this, 'editor_js' ) );
-		add_filter("gform_pre_render", array( $this, "pre_render" ) );
+		add_filter( "gform_pre_render", array( $this, "pre_render" ) );
 
 	
 	}
@@ -55,18 +55,25 @@ class Legull_GravityForms {
 	function field_content($field_content, $field, $value, $lead_id, $form_id){
 		$labels = wp_list_pluck( $this->fields, 'label', 'id' );
 		if( array_key_exists( $field['type'], $labels ) ){
-			$field_display = sprintf( "<label class='gfield_label' for='input_{$field["id"]}'>%s<span class='gfield_required'></span></label><div class='ginput_container'>%s</div><div class='gfield_description'>%s</div>",
+			$required_div = IS_ADMIN || rgar($field, "isRequired") ? sprintf("<span class='gfield_required'>%s</span>", $field["isRequired"] ? "*" : "") : "";
+			$field_display = sprintf( "<label class='gfield_label' for='input_{$field["id"]}'>%s%s</label><div class='ginput_container'>%s</div><div class='gfield_description'>%s</div>",
 				$this->field_label( $field, $form_id ),
+				$required_div,
 				$this->field_container( $field, $form_id ),
 				$this->field_description( $field, $form_id ));
+
 			if( is_admin() ){
-				$field_content = sprintf("<div class='gfield_admin_icons'><div class='gfield_admin_header_title'>%s</div><a class='field_delete_icon' id='gfield_delete_{$field["id"]}' title='%s' href='#' onclick='StartDeleteField(this); return false;'><i class='fa fa-times fa-lg'></i></a><a class='field_duplicate_icon' id='gfield_duplicate_{$field["id"]}' title='%s' href='#' onclick='StartDuplicateField(this); return false;'><i class='fa fa-files-o fa-lg'></i></a><a class='field_edit_icon edit_icon_collapsed' title='%s'><i class='fa fa-caret-down fa-lg'></i></a></div>%s",
-					$labels[ $field['type'] ] . ' : ' . __( 'Field ID', 'legull' ) . ' ' . $field["id"],
-					__( 'Click to delete this field', 'legull' ),
-					__( 'Click to duplicate this field', 'legull' ),
-					__( 'Click to expand and edit the options for this field', 'legull' ),
-					$field_display
-					);
+				if( RGForms::get("view") == 'entry' ){
+
+				} else {
+					$field_content = sprintf("<div class='gfield_admin_icons'><div class='gfield_admin_header_title'>%s</div><a class='field_delete_icon' id='gfield_delete_{$field["id"]}' title='%s' href='#' onclick='StartDeleteField(this); return false;'><i class='fa fa-times fa-lg'></i></a><a class='field_duplicate_icon' id='gfield_duplicate_{$field["id"]}' title='%s' href='#' onclick='StartDuplicateField(this); return false;'><i class='fa fa-files-o fa-lg'></i></a><a class='field_edit_icon edit_icon_collapsed' title='%s'><i class='fa fa-caret-down fa-lg'></i></a></div>%s",
+						$labels[ $field['type'] ] . ' : ' . __( 'Field ID', 'legull' ) . ' ' . $field["id"],
+						__( 'Click to delete this field', 'legull' ),
+						__( 'Click to duplicate this field', 'legull' ),
+						__( 'Click to expand and edit the options for this field', 'legull' ),
+						$field_display
+						);
+				}
 			} else {
 				$field_content = sprintf( "<li id='field_%s' class='gfield'>%s</li>", 
 					$form_id . '_' . $field['id'],
@@ -82,10 +89,10 @@ class Legull_GravityForms {
 		if( $position == 50 ){
 		?>
 		<li class="legull_tos_disable_submit field_setting">
-			<input type="checkbox" id="field_legull_tos_accept" onclick="SetFieldProperty('legull_tos_accept', this.checked);" />
+			<input type="checkbox" id="field_legull_tos_accept" value="accepted" onclick="SetFieldProperty('legull_tos_accept', this.checked);" />
 			<label for="field_legull_tos_accept" class="inline">
 				<?php _e("Disable submit button unless checked", "legull"); ?>
-				<?php gform_tooltip("form_field_tos"); ?>
+				<?php gform_tooltip("form_field_legull_tos_accept"); ?>
 			</label>
 		</li>
 		<?php
@@ -94,7 +101,6 @@ class Legull_GravityForms {
 
 	function tooltips($tooltips){
 		$tooltips["form_field_legull_tos_accept"] = "<h6>Disable Submit Button</h6>Check the box if you would like to disable the submit button.";
-		$tooltips["form_field_default_value"] = "<h6>Default Value</h6>Enter the Terms of Service here.";
 		return $tooltips;
 	}
 
@@ -102,7 +108,7 @@ class Legull_GravityForms {
 		?>
 <script type='text/javascript'>
 jQuery(document).ready(function() {
-	fieldSettings["legull_tos_accept"] = ".legull_tos_disable_submit,.admin_label_setting, .error_message_setting, .css_class_setting, .visibility_setting";
+	fieldSettings["legull_tos_accept"] = ".legull_tos_disable_submit,.rules_setting,.admin_label_setting, .error_message_setting, .css_class_setting, .visibility_setting";
 	jQuery(document).bind("gform_load_field_settings", function(event, field, form){
 		jQuery("#field_legull_tos_accept").attr("checked", field["legull_tos_accept"] == true);
 		jQuery("#field_legull_tos_accept_value").val(field["legull_tos_accept"]);
@@ -140,23 +146,23 @@ jQuery(document).ready(function() {
 							$field['type'] . '-' . $field['id'] , 
 							$field["type"] . ' ' . esc_attr($css), 
 							$attestation,
-							$this->link_to_terms() );
+							legull_get_terms_link() );
 				} else {
 					$tab_index = GFCommon::get_tabindex();
-					if( !empty( $field["legull_tos_accept"] ) && $field['legull_tos_accept'] == 1 )
+					if( !empty( $field["legull_tos_accept"] ) && $field['legull_tos_accept'] == 'accepted' )
 						$cssClasses .= ' legull_disable_submit';
 					$field_content = sprintf( "<label><input type='checkbox' name='input_%s' id='%s' class='%s' $tab_index /> %s %s.</label>", 
 							$field["id"], 
 							$field['type'] . '-' . $field['id'] , 
 							$cssClasses, 
 							$attestation,
-							$this->link_to_terms() );
+							legull_get_terms_link() );
 				}
 				break;
 			case 'legull_link':
 				$field_content = sprintf( "%s %s.", 
 					__( 'Read the site', 'legull' ), 
-					$this->link_to_terms() );
+					legull_get_terms_link() );
 				break;
 		}
 		return $field_content;
@@ -166,9 +172,6 @@ jQuery(document).ready(function() {
 		return $field_content;
 	}
 
-	function link_to_terms(){
-		return sprintf( "<a href='%s' target='_blank'>%s</a>", '#', __( 'Terms & Conditions', 'legull' ) );
-	}
 
 	function pre_render( $form ){
 // 		if( !is_admin() ){
