@@ -91,7 +91,7 @@ class Legull_GravityForms {
 		<li class="legull_tos_disable_submit field_setting">
 			<input type="checkbox" id="field_legull_tos_accept" value="accepted" onclick="SetFieldProperty('legull_tos_accept', this.checked);" />
 			<label for="field_legull_tos_accept" class="inline">
-				<?php _e("Disable submit button unless checked", "legull"); ?>
+				<?php _e("Disable submit button unless terms are accepted", "legull"); ?>
 				<?php gform_tooltip("form_field_legull_tos_accept"); ?>
 			</label>
 		</li>
@@ -105,17 +105,7 @@ class Legull_GravityForms {
 	}
 
 	function editor_js(){
-		?>
-<script type='text/javascript'>
-jQuery(document).ready(function() {
-	fieldSettings["legull_tos_accept"] = ".legull_tos_disable_submit,.rules_setting,.admin_label_setting, .error_message_setting, .css_class_setting, .visibility_setting";
-	jQuery(document).bind("gform_load_field_settings", function(event, field, form){
-		jQuery("#field_legull_tos_accept").attr("checked", field["legull_tos_accept"] == true);
-		jQuery("#field_legull_tos_accept_value").val(field["legull_tos_accept"]);
-	});
-});
-</script>
-<?php
+		wp_enqueue_script( 'legull-admin-gravityforms', LEGULL_URL . 'asset/legull-admin-gravityforms.js', array( 'jquery' ), '1.0', true );
 	}
 
 	function field_label( $field, $form_id, $field_content = '' ){

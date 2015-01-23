@@ -333,6 +333,22 @@ function legull_has_gform() {
 	}
 }
 
+function legull_get_terms_content( $strip_tags = false ){
+	$terms_args = array(
+		'post_type' => LEGULL_CPT,
+		'post_status' => 'publish',
+		'posts_per_page'         => 1,
+		'meta_key'       => 'legull_file',
+		'meta_value'     => 'terms-of-service.md',
+	);
+	
+	$terms = new WP_Query( $terms_args );
+	
+	if( count( $terms->posts ) > 0 ){
+
+	}
+}
+
 function legull_get_terms_link(){
 	return sprintf( "<a href='%s' target='_blank'>%s</a>", '#', __( 'Terms & Conditions', 'legull' ) );
 }
