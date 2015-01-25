@@ -1,7 +1,7 @@
 <?php
 
-if ( ! class_exists( 'RevealerCustomFieldType' ) ) :
-class RevealerCustomFieldType extends AdminPageFramework_FieldType {
+if ( ! class_exists( 'Legull_APF_Revealer' ) ) :
+class Legull_APF_Revealer extends Legull_AdminPageFramework_FieldType {
         
     /**
      * Defines the field type slugs used for this field type.

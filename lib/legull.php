@@ -110,8 +110,10 @@ class Legull extends AdminPageFramework {
 
 
 		// wire up the revealer fields
-		if( class_exists('RevealerCustomFieldType') )
-			new RevealerCustomFieldType( __CLASS__ );
+		if( !class_exists('Legull_APF_Revealer') ){
+			include_once( LEGULL_PATH . 'lib/admin-page-framework.revealer.php' );
+		}
+		new Legull_APF_Revealer( __CLASS__ );
 
 
 		$oAdminPage->addSettingSections(
