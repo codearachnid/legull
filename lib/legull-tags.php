@@ -334,6 +334,9 @@ function legull_has_gform() {
 }
 
 function legull_get_terms_content( $strip_tags = false ){
+
+	$content = '';
+
 	$terms_args = array(
 		'post_type' => LEGULL_CPT,
 		'post_status' => 'publish',
@@ -345,8 +348,12 @@ function legull_get_terms_content( $strip_tags = false ){
 	$terms = new WP_Query( $terms_args );
 	
 	if( count( $terms->posts ) > 0 ){
-
+		$content = apply_filters( 'the_content', $terms->posts[0]->post_content );
+		if( $strip_tags )
+			$content = wp_strip_all_tags( $content );
 	}
+
+	return $content;
 }
 
 function legull_get_terms_link(){

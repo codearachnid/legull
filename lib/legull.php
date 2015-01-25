@@ -2,6 +2,7 @@
 
 class Legull extends AdminPageFramework {
 
+
 	function custom_admin_notices() {
 		$_sID      = md5( trim( 'The options have been updated.' ) );
 		$_iUserID  = get_current_user_id();
@@ -104,6 +105,19 @@ class Legull extends AdminPageFramework {
 			)
 		);
 
+		$this->_setPreferences();
+
+	}
+
+	private function _setPreferences() {
+		add_filter( "content_top_legull_dashboard", array( $this, 'replyToFilterContentTop' ) );
+	}
+
+	public function replyToFilterContentTop( $content ) {
+        return sprintf( "<h1>%s</h1><p>%s</p>%s", 
+        	__( 'Legull', 'legull' ),
+        	__( 'Terms of Service as a service, for your WordPress site', 'legull' ),
+        	$content );
 	}
 
 	public function load_Legull( $oAdminPage ) {

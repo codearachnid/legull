@@ -125,7 +125,7 @@ class Legull_GravityForms {
 				$tab_index = GFCommon::get_tabindex();
 				$field_content = sprintf( "<textarea readonly class='%s' $tab_index  cols='50' rows='10'>%s</textarea>", 
 						$field["type"] . ' ' . esc_attr($css),
-						'legull content goes here');
+						legull_get_terms_content( true ) );
 				break;
 			case 'legull_tos_accept':
 				$attestation = __( 'I have read and agree to the', 'legull' );
