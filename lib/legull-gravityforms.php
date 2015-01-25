@@ -119,21 +119,22 @@ class Legull_GravityForms {
 	}
 
 	function field_container( $field, $form_id, $field_content = '' ){
-		$css = isset( $field['cssClass'] ) ? $field['cssClass'] : '';
+		$cssClasses = 'textarea ' . 
+			$field["type"] . ' ' . 
+			esc_attr($field['cssClass']) . ' ' . 
+			$field['size'];
+		if( !empty( $field["legull_disable_submit"] ) && $field['legull_disable_submit'] == 'accepted' )
+			$cssClasses .= ' legull_disable_submit';
 		$input_name = $form_id .'_' . $field["id"];
 		switch( $field['type'] ){
 			case 'legull_tos_display':
 				$tab_index = GFCommon::get_tabindex();
-				$cssClasses = $field["type"] . ' ' . esc_attr($css);
-				if( !empty( $field["legull_disable_submit"] ) && $field['legull_disable_submit'] == 'accepted' )
-						$cssClasses .= ' legull_disable_submit';
 				$field_content = sprintf( "<textarea readonly class='%s' $tab_index  cols='50' rows='10'>%s</textarea>", 
 						$cssClasses,
 						legull_get_terms_content( true ) );
 				break;
 			case 'legull_tos_accept':
 				$attestation = __( 'I have read and agree to the', 'legull' );
-				$cssClasses = $field["type"] . ' ' . esc_attr($css);
 				if( is_admin() ){
 					$field_content = sprintf( "<input disabled='disabled' type='checkbox' name='input_%s' id='%s' class='%s' /> %s %s.", 
 							$field["id"], 
@@ -143,8 +144,6 @@ class Legull_GravityForms {
 							legull_get_terms_link() );
 				} else {
 					$tab_index = GFCommon::get_tabindex();
-					if( !empty( $field["legull_disable_submit"] ) && $field['legull_disable_submit'] == 'accepted' )
-						$cssClasses .= ' legull_disable_submit';
 					$field_content = sprintf( "<label><input type='checkbox' name='input_%s' id='%s' class='%s' $tab_index /> %s %s.</label>", 
 							$field["id"], 
 							$field['type'] . '-' . $field['id'] , 
@@ -163,6 +162,13 @@ class Legull_GravityForms {
 	}
 
 	function field_description( $field, $form_id, $field_content = '' ){
+		switch( $field['type'] ){
+			case 'legull_tos_display':
+				if( $field['legull_disable_submit'] ) {
+					$field_content = __('In order to accept, you must read the entire Terms & Conditions.','legull');	
+				}
+				break;
+		}
 		return $field_content;
 	}
 
