@@ -5,7 +5,7 @@ class Legull_GravityForms {
 
 	function __construct(){
 		$this->fields[] = (object) array(
-			'id' => 'legull_tos',
+			'id' => 'legull_tos_display',
 			'label' => __('Display Terms', 'legull'),
 			'class' => 'button'
 			);
@@ -88,11 +88,11 @@ class Legull_GravityForms {
 		// Create settings on position 50 (right after Field Label)
 		if( $position == 50 ){
 		?>
-		<li class="legull_tos_disable_submit field_setting">
-			<input type="checkbox" id="field_legull_tos_accept" value="accepted" onclick="SetFieldProperty('legull_tos_accept', this.checked);" />
-			<label for="field_legull_tos_accept" class="inline">
+		<li class="legull_disable_submit field_setting">
+			<input type="checkbox" id="field_legull_disable_submit" value="accepted" onclick="SetFieldProperty('legull_disable_submit', this.checked);" />
+			<label for="field_legull_disable_submit" class="inline">
 				<?php _e("Disable submit button unless terms are accepted", "legull"); ?>
-				<?php gform_tooltip("form_field_legull_tos_accept"); ?>
+				<?php gform_tooltip("form_field_legull_disable_submit"); ?>
 			</label>
 		</li>
 		<?php
@@ -100,7 +100,7 @@ class Legull_GravityForms {
 	}
 
 	function tooltips($tooltips){
-		$tooltips["form_field_legull_tos_accept"] = "<h6>Disable Submit Button</h6>Check the box if you would like to disable the submit button.";
+		$tooltips["form_field_legull_disable_submit"] = "<h6>Disable Submit Button</h6>Check the box if you would like to disable the submit button.";
 		return $tooltips;
 	}
 
@@ -109,8 +109,9 @@ class Legull_GravityForms {
 	}
 
 	function field_label( $field, $form_id, $field_content = '' ){
+		// print_r($field);
 		switch( $field['type'] ){
-			case 'legull_tos':
+			case 'legull_tos_display':
 				$field_content = __( 'Terms & Conditions.', 'legull' );
 				break;
 		}
@@ -121,10 +122,13 @@ class Legull_GravityForms {
 		$css = isset( $field['cssClass'] ) ? $field['cssClass'] : '';
 		$input_name = $form_id .'_' . $field["id"];
 		switch( $field['type'] ){
-			case 'legull_tos':
+			case 'legull_tos_display':
 				$tab_index = GFCommon::get_tabindex();
+				$cssClasses = $field["type"] . ' ' . esc_attr($css);
+				if( !empty( $field["legull_disable_submit"] ) && $field['legull_disable_submit'] == 'accepted' )
+						$cssClasses .= ' legull_disable_submit';
 				$field_content = sprintf( "<textarea readonly class='%s' $tab_index  cols='50' rows='10'>%s</textarea>", 
-						$field["type"] . ' ' . esc_attr($css),
+						$cssClasses,
 						legull_get_terms_content( true ) );
 				break;
 			case 'legull_tos_accept':
@@ -139,7 +143,7 @@ class Legull_GravityForms {
 							legull_get_terms_link() );
 				} else {
 					$tab_index = GFCommon::get_tabindex();
-					if( !empty( $field["legull_tos_accept"] ) && $field['legull_tos_accept'] == 'accepted' )
+					if( !empty( $field["legull_disable_submit"] ) && $field['legull_disable_submit'] == 'accepted' )
 						$cssClasses .= ' legull_disable_submit';
 					$field_content = sprintf( "<label><input type='checkbox' name='input_%s' id='%s' class='%s' $tab_index /> %s %s.</label>", 
 							$field["id"], 

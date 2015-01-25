@@ -4,11 +4,15 @@ jQuery(document).ready(function ($) {
 		$('.legull_tos_accept').on('click',function(){
 			legull_disable_submit( !$(this).is(":checked") );
 		});
-		// $(".gform_body textarea.gform_tos").scroll(function(){
-		// 	if($(this).scrollTop()+$(this).height() >= $(this)[0].scrollHeight-10){
-		// 		legull_disable_submit( false );
-		// 	}
-		// });
+	}
+	if( $('.legull_tos_display').hasClass('legull_disable_submit') ){
+		legull_disable_submit( true );
+		$(".gform_body textarea.legull_tos_display").scroll(function(){
+			if($(this).scrollTop()+$(this).height() >= $(this)[0].scrollHeight-10){
+				legull_disable_submit( false );
+			}
+		});
+		// todo add alert to submit button prior to submit if not accepted
 		// .on('click',function(){
 		// 	alert('please accept the terms before submitting.');
 		// });
