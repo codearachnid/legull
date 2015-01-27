@@ -119,9 +119,7 @@ class Legull_GravityForms {
 	}
 
 	function field_container( $field, $form_id, $field_content = '' ){
-		$cssClasses = 'textarea ' . 
-			$field["type"] . ' ' . 
-			$field['size'];
+		$cssClasses = $field["type"];
 		if( isset( $field['cssClass'] ) ){
 			$cssClasses .= ' ' . esc_attr($field['cssClass']);
 		}
@@ -132,6 +130,7 @@ class Legull_GravityForms {
 		switch( $field['type'] ){
 			case 'legull_tos_display':
 				$tab_index = GFCommon::get_tabindex();
+				$cssClasses .= $field['size'] . ' textarea';
 				$field_content = sprintf( "<textarea readonly class='%s' $tab_index  cols='50' rows='10'>%s</textarea>", 
 						$cssClasses,
 						legull_get_terms_content( true ) );
@@ -142,7 +141,7 @@ class Legull_GravityForms {
 					$field_content = sprintf( "<input disabled='disabled' type='checkbox' name='input_%s' id='%s' class='%s' /> %s %s.", 
 							$field["id"], 
 							$field['type'] . '-' . $field['id'] , 
-							$field["type"] . ' ' . esc_attr($css), 
+							$cssClasses, 
 							$attestation,
 							legull_get_terms_link() );
 				} else {
@@ -167,7 +166,7 @@ class Legull_GravityForms {
 	function field_description( $field, $form_id, $field_content = '' ){
 		switch( $field['type'] ){
 			case 'legull_tos_display':
-				if( $field['legull_disable_submit'] ) {
+				if( !empty( $field['legull_disable_submit'] ) && $field['legull_disable_submit'] ) {
 					$field_content = __('In order to accept, you must read the entire Terms & Conditions.','legull');	
 				}
 				break;
