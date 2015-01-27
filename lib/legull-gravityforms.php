@@ -121,10 +121,13 @@ class Legull_GravityForms {
 	function field_container( $field, $form_id, $field_content = '' ){
 		$cssClasses = 'textarea ' . 
 			$field["type"] . ' ' . 
-			esc_attr($field['cssClass']) . ' ' . 
 			$field['size'];
-		if( !empty( $field["legull_disable_submit"] ) && $field['legull_disable_submit'] == 'accepted' )
+		if( isset( $field['cssClass'] ) ){
+			$cssClasses .= ' ' . esc_attr($field['cssClass']);
+		}
+		if( !empty( $field["legull_disable_submit"] ) && $field['legull_disable_submit'] == 'accepted' ){
 			$cssClasses .= ' legull_disable_submit';
+		}
 		$input_name = $form_id .'_' . $field["id"];
 		switch( $field['type'] ){
 			case 'legull_tos_display':
