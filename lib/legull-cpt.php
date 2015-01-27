@@ -1,6 +1,6 @@
 <?php
 
-class Legull_CustomPostType extends AdminPageFramework_PostType {
+class Legull_CustomPostType extends Legull_AdminPageFramework_PostType {
 
 	public function start() {
 

@@ -3,7 +3,7 @@ Contributors: codearachnid, gatewood5000
 Tags: legal, agreement, law, lawyer, privacy policy, refund, disclosure, business, disclaimer, statement, info, policy, privacy, terms, conditions, terms and conditions,document,page,generator
 Requires at least: 3.4
 Tested up to: 4.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPL v3
 
 

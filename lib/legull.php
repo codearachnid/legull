@@ -1,6 +1,6 @@
 <?php
 
-class Legull extends AdminPageFramework {
+class Legull extends Legull_AdminPageFramework {
 
 
 	function custom_admin_notices() {
