@@ -3,7 +3,7 @@ Contributors: codearachnid, gatewood5000
 Tags: legal, agreement, law, lawyer, privacy policy, refund, disclosure, business, disclaimer, statement, info, policy, privacy, terms, conditions, terms and conditions,document,page,generator
 Requires at least: 3.4
 Tested up to: 4.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPL v3
 
 
@@ -35,6 +35,12 @@ Installing the plugin is easy. Just follow these steps:
 
 
 == Changelog ==
+= 1.1.2 =
+* improved Gravity Form styling of fields
+
+= 1.1.1 =
+* fixed a fatal error during updates
+
 = 1.1.0 =
 * Gravity Forms integration!
 * readme updates
