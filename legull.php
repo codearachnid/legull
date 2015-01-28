@@ -7,6 +7,7 @@ Version: 1.1.2
 Author: Legull LLC, Timothy Wood (@codearachnid), Chris Gatewood (@gatewood5000)
 Author URI: http://www.legull.com
 Text Domain: legull
+Domain Path: /languages
 Credits: 
 	* UI field framework by Admin Page Framework
 	* Background patterns from subtlepatterns.com
