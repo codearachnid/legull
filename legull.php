@@ -8,7 +8,7 @@ Author: Legull LLC, Timothy Wood (@codearachnid), Chris Gatewood (@gatewood5000)
 Author URI: http://www.legull.com
 Text Domain: legull
 Domain Path: /languages
-Credits: 
+Credits:
 	* UI field framework by Admin Page Framework
 	* Background patterns from subtlepatterns.com
 */
@@ -73,10 +73,19 @@ function legull_plugin_loaded() {
 	add_action( 'admin_enqueue_scripts', 'legull_enqueue_admin_scripts' );
 	add_action( 'wp_enqueue_scripts', 'legull_enqueue_scripts' );
 }
-
-function legull_custom_activation_message_init(){
-	add_filter( 'gettext', 'legull_custom_activation_message', 99, 3 );
+function legull_activate(){
+	update_option( 'Legull_activation_status', 'activated' );
 }
-
+function legull_deactivate(){
+	delete_option( 'Legull_activation_status' );
+}
+function legull_custom_activation_message_init(){
+	if( 'activated' == get_option( 'Legull_activation_status' ) ){
+		add_filter( 'gettext', 'legull_custom_activation_message', 99, 3 );
+		update_option( 'Legull_activation_status', 'active' );
+	}
+}
 add_action( 'plugins_loaded', 'legull_plugin_loaded' );
 add_action( 'load-plugins.php', 'legull_custom_activation_message_init' );
+register_activation_hook( __FILE__, 'legull_activate' );
+register_deactivation_hook( __FILE__, 'legull_deactivate' );

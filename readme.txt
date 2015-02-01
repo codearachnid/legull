@@ -38,6 +38,9 @@ Installing the plugin is easy. Just follow these steps:
 
 
 == Changelog ==
+= 1.1.3 =
+* fixed activation message confusion
+
 = 1.1.2 =
 * improved Gravity Form styling of fields
 
