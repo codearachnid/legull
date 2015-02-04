@@ -9,10 +9,12 @@ class Legull extends Legull_AdminPageFramework {
 		$_aNotices = $this->oUtil->getTransient( "apf_notices_{$_iUserID}" );
 		if ( isset( $_aNotices[$_sID] ) ) {
 			$screen = get_current_screen();
-			
+
 			// is edit list notify user docs have been published
 			if ( $screen->id == 'legull_page_legull_terms' ) {
 				$_aNotices[$_sID]['sMessage'] = __( 'Your site terms have been published. Review below.', 'legull' );
+			} else if( $screen->id == 'legull_page_legull_dashboard' && !empty( $_aNotices ) ){
+				unset( $_aNotices[$_sID]['sMessage'] );
 			} else {
 				$_aNotices[$_sID]['sMessage'] = __( 'Your site details have been saved.', 'legull' );
 			}
@@ -23,8 +25,9 @@ class Legull extends Legull_AdminPageFramework {
 	function onSubmit_redirects( $aNewInput ) {
 		$redirect_to = '';
 		$aErrors = array();
-		if ( !empty( $this->oForm->sCurrentPageSlug ) ) {
-			switch ( $this->oForm->sCurrentPageSlug ) {
+		$_sCurrentPageSlug = isset($_GET['page']) && $_GET['page'] ? $_GET['page'] : '';
+		if ( !empty( $_sCurrentPageSlug ) ) {
+			switch ( $_sCurrentPageSlug ) {
 				case 'legull_dashboard': // submitting the site details
 
 					if ( empty( $aNewInput['ownership']['sitename'] ) ) {
@@ -55,6 +58,7 @@ class Legull extends Legull_AdminPageFramework {
 					break;
 			}
 		}
+
 		if ( !empty( $redirect_to ) ) {
 			// validated and redirect
 			exit( wp_redirect( $redirect_to ) );
@@ -114,7 +118,7 @@ class Legull extends Legull_AdminPageFramework {
 	}
 
 	public function replyToFilterContentTop( $content ) {
-        return sprintf( "<h1>%s</h1><p>%s</p>%s", 
+        return sprintf( "<h1>%s</h1><p>%s</p>%s",
         	__( 'Legull', 'legull' ),
         	__( 'Terms of Service as a service, for your WordPress site', 'legull' ),
         	$content );
@@ -220,7 +224,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'User-generated content', 'legull' ),
 				'description' => __( 'Will this site allow user-generated content of any kind?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -231,7 +235,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Comments &amp; 3rd Parties', 'legull' ),
 				'description' => __( 'Will this site allow users to add comments or content of any kind?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -289,7 +293,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( '3rd party advertising', 'legull' ),
 				'description' => __( 'Will this site use a 3rd party network to supply advertising?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -300,7 +304,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Google AdSense', 'legull' ),
 				'description' => __( 'Will this site use Google AdSense to supply advertising?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -315,7 +319,7 @@ class Legull extends Legull_AdminPageFramework {
 				'description' => __( 'Is site locality within the state of California?', 'legull' ),
 				'type'        => 'revealer',
 				'select_type'   => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'#fieldrow-tracking_privacy_name,#fieldrow-tracking_privacy_email,#fieldrow-tracking_privacy_address' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -344,7 +348,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Use cookies', 'legull' ),
 				'description' => __( 'Will this site use cookies (apart from cookies that the site has as part of advertising tools like Google Analytics)?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -355,7 +359,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Information Tracking', 'legull' ),
 				'description' => __( 'Will visitors be tracked when surfing the site? (i.e. Google Analytics)', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -366,7 +370,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'User Personalization', 'legull' ),
 				'description' => __( 'Will visitors be able to personalize their expereience when surfing the site?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -377,7 +381,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Anonymous Surfing', 'legull' ),
 				'description' => __( 'Will visitors be able to surf the site anonymously?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -388,7 +392,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Purchase User Data', 'legull' ),
 				'description' => __( 'Does this site purchase user data?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -399,7 +403,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Sell User Data', 'legull' ),
 				'description' => __( 'Does this site sell or rent user data?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -410,7 +414,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Collect User Data', 'legull' ),
 				'description' => __( 'Will this site collect any data from its users?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -421,7 +425,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Sharing User Data', 'legull' ),
 				'description' => __( 'Will any of the user data (individual data or aggregate data) be shared outside of the site owner itself?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -432,7 +436,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Share User Data Aggregated', 'legull' ),
 				'description' => __( 'Will all user data be shared only in grouped form, so that individual users are not identified and individual user data is not shared?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -443,7 +447,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Share User Data with Partners', 'legull' ),
 				'description' => __( 'Will any user data be shared with those who help the site owner operate and manage the site?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -454,7 +458,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Share User Data with Advertisers', 'legull' ),
 				'description' => __( 'Will any user data be shared with advertisers or marketing partners?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -465,7 +469,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Share User Data Unlimited', 'legull' ),
 				'description' => __( 'Will any user data be shared with others other than those who help operate and manage the site, and other than advertisers or marketing partners?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -479,7 +483,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Over 18', 'legull' ),
 				'description' => __( 'Does this site require visitors to be over the age of 18?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -490,7 +494,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Under 13', 'legull' ),
 				'description' => __( 'Will this site allow users or visitors under the age of 13?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -501,7 +505,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Arbitration', 'legull' ),
 				'description' => __( 'Do you want to require all of the site\'s users to arbitrate (rather than litigate) any claims against the site?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -512,7 +516,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'SSL', 'legull' ),
 				'description' => __( 'Does this site use SSL? (https://)', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -551,7 +555,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Prevent Scraping', 'legull' ),
 				'description' => __( 'Will this site prohibit the automatic collection of its data by others ("scraping")?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -562,7 +566,7 @@ class Legull extends Legull_AdminPageFramework {
 				'title'       => __( 'Passwords', 'legull' ),
 				'description' => __( 'Will any part of this site require a password for access?', 'legull' ),
 				'type'        => 'radio',
-				'label'       => array( 
+				'label'       => array(
 					'YES' => __( 'YES', 'legull' ),
 					'NO' => __( 'NO', 'legull' )
 					),
@@ -583,7 +587,7 @@ class Legull extends Legull_AdminPageFramework {
 
 	public function do_legull_terms(){
 		include_once( LEGULL_PATH . 'lib/wp-legull-terms-list-table.php' );
-	
+
 		$wp_list_table = new WP_Legull_Terms_List_Table();
 		$wp_list_table->prepare_items();
 
