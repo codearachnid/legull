@@ -27,6 +27,10 @@ Additional Details:
 * UI field framework by Admin Page Framework https://github.com/michaeluno/admin-page-framework
 * Background patterns used in the WordPress.org banner were created by http://subtlepatterns.com
 
+Thanks to the following users for making the plugin better!
+* Gordon@CopperLeafCreative
+* @dayacurley
+
 == Installation ==
 Installing the plugin is easy. Just follow these steps:
 
@@ -39,6 +43,7 @@ Installing the plugin is easy. Just follow these steps:
 
 == Changelog ==
 = 1.1.3 =
+* fixed wrong confirmation message when saving options (thanks Gordon@CopperLeafCreative & @dayacurley)
 * fixed activation message confusion
 
 = 1.1.2 =
