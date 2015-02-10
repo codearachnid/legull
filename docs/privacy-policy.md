@@ -87,7 +87,7 @@ We are based in [legull display="owner_locality"] and you are contracting to use
 
 Notwithstanding anything that may be contrary within the “Disputes” provisions above, all matters, and all claims within a multi-claim matter, that are arbitrable, including all claims for monetary damages, shall be decided by a single arbitrator to be selected by us, who shall hold hearings in or near [legull display="owner_locality"], under the rules of the American Arbitration Association.[/legull_condition]
 
-[legull_condition is="has_no13"]
+[legull_condition isnot="has_no13"]
 ##No Users Under the Age of 13
 
 The Site is not intended for children under the age of 13.  Children under the age of 13 should not use the Site at any time.  We do not knowingly collect personal information from children under the age of 13.  If we obtain actual knowledge that we have collected information from anyone under the age of 13, we will erase that information from our servers. It is a violation of our Terms of Service for children under the age of 13 to use the Site. [/legull_condition]
