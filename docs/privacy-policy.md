@@ -68,7 +68,7 @@ We use Google as an advertising services provider for the Site. Users may opt ou
 ###Cookies
 
 This site uses cookies.  Cookies are small pieces of code that the Site or a service provider will put on your computer if your Web browser allows it.  The Site uses cookies to recognize and keep certain information.  On the Site, that information may be used to recognize your computer and browser from current or past visits to the Site or related sites.  We may use this cookie-captured information to improve our service to you, to aggregate information about visitors to the Site and their behavior, to remember and process items in your shopping cart, to understand and save user preferences, or to keep track of advertising.  We may contract with third-party service providers to assist us in better understanding our site visitors.
-In most Internet browsers, you can change your settings so that you will be warned each time a cookie is being sent, or so that cookies will be turned off. With cookies blocked, some fucntions of the Site may not operate properly.[/legull_condition]
+In most Internet browsers, you can change your settings so that you will be warned each time a cookie is being sent, or so that cookies will be turned off. With cookies blocked, some functions of the Site may not operate properly.[/legull_condition]
 
 [legull_condition is="has_password"]
 ##Usernames, Passwords, and Profiles
