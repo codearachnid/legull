@@ -16,7 +16,7 @@ Or you can cut and paste the terms from some other web site.  But who knows if t
 
 Instead, use Legull.  Spend about five minutes answering some simple questions about your site, hit the button, and you have your terms.  If you need to fine-tune them, or have a lawyer help with that, go ahead. Once generated, the Legull terms are fully editable.  And when you change your site, you can update your answers to the Legull Q&A and re-publish your new terms.
 
-Now with support for Gravity Forms! Adding 3 new advanced fields to give your users ways to accept your site's terms of service prior to form submission. Compatible with Gravity Forms up to version 1.9.
+Now with support for Gravity Forms! Adding 3 new advanced fields to give your users ways to accept your site's terms of service prior to form submission. Compatible with Gravity Forms up through version 1.9.
 
 Developers:  Solve your clients’ problem without playing lawyer.  Give them Legull, and give them an easy and affordable solution to the Terms of Service and Privacy Policy dilemmas.  Developer or per-site licensing is available for our add-on packs, to use with your sites that have e-commerce, social, digital downloads, and other functions.
 
