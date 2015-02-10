@@ -3,7 +3,7 @@ Contributors: codearachnid, gatewood5000
 Tags: legal, agreement, law, lawyer, privacy policy, refund, disclosure, business, disclaimer, statement, info, policy, privacy, terms, conditions, terms and conditions,document,page,generator
 Requires at least: 3.4
 Tested up to: 4.1
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPL v3
 
 Easily generate Terms of Service and a Privacy Policy for your site.
@@ -28,6 +28,7 @@ Additional Details:
 * Background patterns used in the WordPress.org banner were created by http://subtlepatterns.com
 
 Thanks to the following users for making the plugin better!
+* @eggplant_casserole
 * Gordon@CopperLeafCreative
 * @dayacurley
 
@@ -42,6 +43,10 @@ Installing the plugin is easy. Just follow these steps:
 
 
 == Changelog ==
+= 1.1.4 =
+* fixed wrong conditional for under 13 users thanks @eggplant_casserole
+* fixed mispelling in privacy policy thanks @eggplant_casserole
+
 = 1.1.3 =
 * fixed wrong confirmation message when saving options (thanks Gordon@CopperLeafCreative & @dayacurley)
 * fixed activation message confusion
