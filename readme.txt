@@ -28,6 +28,7 @@ Additional Details:
 * Background patterns used in the WordPress.org banner were created by http://subtlepatterns.com
 
 Thanks to the following users for making the plugin better!
+
 * @eggplant_casserole
 * Gordon@CopperLeafCreative
 * @dayacurley
