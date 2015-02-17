@@ -45,9 +45,9 @@ California Civil Code Section 1798.83 permits Site users who are residents of Ca
 
 ##Mobile Device Privacy
 
-The following applies to our mobile apps and the site itself, when viewed on a mobile device:
-Our mobile apps may collect information automatically, such as the type of mobile device you have, device identifiers, and information about your use of the applications. Like our site itself, the apps also collect information you provide, as well as information about your interaction with the app and its content.
-If location services are activated on your mobile device, our apps may collect information about the location of your device. Your mobile network service providers may collect device-specific information, such as a device identifier, when you use our website or one of our mobile applications. This information collected by your mobile network service will not be associated with your user account with us, or with your personally identifiable information.
+The following applies to our site, when viewed on a mobile device:
+When accessed with a mobile deivce, our site may collect information automatically, such as the type of mobile device you have, device identifiers, and information about your use of the site. Regardless of the device you use to access the site, it will also collect information you provide, as well as information about your interaction with the site and its content.
+If location services are activated on your mobile device, our site may collect information about the location of your device. Your mobile network service providers may collect device-specific information, such as a device identifier, when you use our website or one of our mobile applications. This information collected by your mobile network service will not be associated with your user account with us, or with your personally identifiable information.
 
 [legull_condition is="has_SSL"]
 ##Protection of user information
