@@ -49,7 +49,7 @@ This site and some delivery modes of our product are built on the WordPress plat
 
 The Site grants User a revocable, non-transferable, and non-exclusive license to use the Site solely in connection with the Site and the Services, under these Terms.
 
-User shall not sublicense or otherwise transfer any rights or access to the Site or related Services to any other person.  User shall not copy any text, images, video or audio recording, or any other content from the Site.
+Copyright in all content and works of authorship included in the Site are the property of the Site or its licensors.  Apart from links which lead to the Site, accurately attributed social media references, and de minimus text excerpts with links returning to the Site, no text, images, video or audio recording, or any other content from the Site shall be copied without explicit and detailed, written permission from the Site's owner.  User shall not sublicense or otherwise transfer any rights or access to the Site or related Services to any other person.
 
 The names and logos used by the Site, and all other trademarks, service marks, and trade names used in connection with the Services are owned by the Site or its licensors and may not be used by User without written consent of the rights owners.  Use of the Site does not in itself give any user any license, consent, or permission, unless and then only to the extent granted explicitly in these Terms.
 
