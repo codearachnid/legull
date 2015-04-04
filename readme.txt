@@ -32,6 +32,9 @@ Thanks to the following users for making the plugin better!
 * @eggplant_casserole
 * Gordon@CopperLeafCreative
 * @dayacurley
+* @RMgreen
+* @splundbohm
+* @TheOffHander
 
 == Installation ==
 Installing the plugin is easy. Just follow these steps:
@@ -44,6 +47,14 @@ Installing the plugin is easy. Just follow these steps:
 
 
 == Changelog ==
+= 1.2.0 =
+* MAJOR FIX: publishing of terms does not resolve permalinks thanks @eggplant_casserole, @RMgreen, @splundbohm, @TheOffHander for identifying
+* fixed date format to conform with WordPress standards thanks @eggplant_casserole
+* protected files from direct access
+* version bump for UI form builder
+* added data logging for plugin stats to improve usage (anticipation of php 5.3+ migration)
+* fix copyright limitations
+
 = 1.1.4 =
 * fixed wrong conditional for under 13 users thanks @eggplant_casserole
 * fixed mispelling in privacy policy thanks @eggplant_casserole
