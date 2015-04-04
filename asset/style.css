@@ -7,12 +7,13 @@ body.legull-admin .folded #adminmenu li.current.menu-top,
 body.legull-admin .folded #adminmenu li.wp-has-current-submenu{
 	background: #F23264;
 }
-body.legull-admin .button{
+body.legull-admin:not(.post-type-legull_terms) .button,
+body.post-type-legull_terms #publishing-action .button-primary{
 	background: #F23264;
 	border-color:#F23264;
 	color:#ffffff;
 }
-body.legull-admin .button:hover{
+body.legull-admin:not(.post-type-legull_terms) .button:hover{
 	background: #FD6081;
 	border-color:#F23264;
 }

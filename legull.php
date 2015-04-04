@@ -26,8 +26,7 @@ define( 'LEGULL_CPT', 'legull_terms' );
 function legull_plugin_loaded() {
 	global $legull;
 
-	include_once( LEGULL_PATH . '/lib/admin-page-framework.php' );
-
+	include_once( LEGULL_PATH . '/lib/legull-admin-page-framework/admin-page-framework.php' );
 
 	include_once( LEGULL_PATH . 'lib/legull-tags.php' );
 
@@ -70,20 +69,29 @@ function legull_plugin_loaded() {
 		);
 	}
 
+	add_action( 'admin_init', 'legull_rewrite_rules' );
 	add_action( 'admin_enqueue_scripts', 'legull_enqueue_admin_scripts' );
 	add_action( 'wp_enqueue_scripts', 'legull_enqueue_scripts' );
 }
 function legull_activate(){
 	update_option( 'Legull_activation_status', 'activated' );
+	legull_rewrite_rules( true );
 }
 function legull_deactivate(){
 	delete_option( 'Legull_activation_status' );
+	legull_rewrite_rules( true );
 }
 function legull_custom_activation_message_init(){
 	if( 'activated' == get_option( 'Legull_activation_status' ) ){
 		add_filter( 'gettext', 'legull_custom_activation_message', 99, 3 );
 		update_option( 'Legull_activation_status', 'active' );
 	}
+}
+function legull_rewrite_rules( $force_flush = false ) {
+	if ( !empty($_GET['page']) && $_GET['page'] == 'legull_dashboard' && 'flushed' != get_option('Legull_rewrites_status') ) {
+        flush_rewrite_rules();
+        update_option('Legull_flush_rewrites', 'flushed');
+    }
 }
 add_action( 'plugins_loaded', 'legull_plugin_loaded' );
 add_action( 'load-plugins.php', 'legull_custom_activation_message_init' );
