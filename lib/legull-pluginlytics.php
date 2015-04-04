@@ -6,6 +6,7 @@ if( !class_exists( 'Pluginlytics' ) ) {
 	class Pluginlytics {
 
 		public static function send_tracking_data( $api_url = '', $override = false ) {
+
 			if ( ! apply_filters( 'pluginlytics_send_override', $override ) ) {
 				// Send a maximum of once per week by default.
 				$last_send = self::get_last_sent();
@@ -14,12 +15,12 @@ if( !class_exists( 'Pluginlytics' ) ) {
 				}
 			}
 
-			$api_url = apply_filters( 'pluginlytics_api_url' );
+			$api_url = apply_filters( 'pluginlytics_api_url', $api_url );
 
 			if( empty( $api_url ) )
 				return;
 
-			$params   = self::get_tracking_data();
+			$tracking_data   = self::get_tracking_data();
 			$response = wp_remote_post( $api_url, array(
 					'method'      => 'POST',
 					'timeout'     => 45,
@@ -27,7 +28,7 @@ if( !class_exists( 'Pluginlytics' ) ) {
 					'httpversion' => '1.0',
 					'blocking'    => true,
 					'headers'     => array( 'user-agent' => 'pluginlytics/' . md5( esc_url( home_url( '/' ) ) ) . ';' ),
-					'body'        => json_encode( $params ),
+					'body'        => json_encode( $tracking_data ),
 					'cookies'     => array()
 				)
 			);
@@ -90,7 +91,6 @@ if( !class_exists( 'Pluginlytics' ) ) {
 			}
 
 			if ( function_exists( 'ini_get' ) ) {
-				$server_data['php_post_max_size'] = size_format( wc_let_to_num( ini_get( 'post_max_size' ) ) );
 				$server_data['php_time_limt'] = ini_get( 'max_execution_time' );
 				$server_data['php_max_input_vars'] = ini_get( 'max_input_vars' );
 				$server_data['php_suhosin'] = extension_loaded( 'suhosin' ) ? 'Yes' : 'No';
