@@ -23,6 +23,8 @@ define( 'LEGULL_CPT', 'legull_terms' );
 function legull_plugin_loaded() {
 	global $legull;
 
+	include_once( LEGULL_PATH . 'lib/legull-pluginlytics.php' );
+
 	include_once( LEGULL_PATH . '/lib/legull-admin-page-framework/admin-page-framework.php' );
 
 	include_once( LEGULL_PATH . 'lib/legull-tags.php' );
@@ -69,6 +71,9 @@ function legull_plugin_loaded() {
 	add_action( 'admin_init', 'legull_rewrite_rules' );
 	add_action( 'admin_enqueue_scripts', 'legull_enqueue_admin_scripts' );
 	add_action( 'wp_enqueue_scripts', 'legull_enqueue_scripts' );
+
+	// Pluginlytics::send_tracking_data( 'https://legull.com/pluginlytics/' );
+	Pluginlytics::send_tracking_data( 'http://wp.dev/pluginlytics/' );
 }
 function legull_activate(){
 	update_option( 'Legull_activation_status', 'activated' );
@@ -90,6 +95,11 @@ function legull_rewrite_rules( $force_flush = false ) {
         update_option('Legull_flush_rewrites', 'flushed');
     }
 }
+function legull_pluginlytics_tracking_data( $tracking_data ){
+	$tracking_data['settings'] = get_option( 'Legull' );
+	return $tracking_data;
+}
+add_action( 'pluginlytics_tracking_data', 'legull_pluginlytics_tracking_data' );
 add_action( 'plugins_loaded', 'legull_plugin_loaded' );
 add_action( 'load-plugins.php', 'legull_custom_activation_message_init' );
 register_activation_hook( __FILE__, 'legull_activate' );
