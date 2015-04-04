@@ -581,6 +581,9 @@ class Legull extends Legull_AdminPageFramework {
 		if( get_option('Legull_Hide_Dashboard_Message') != 'yes' ){
 			include LEGULL_PATH . 'template/dashboard.php';
 		}
+		if( !get_option('pluginlytics_allow_tracking') ){
+			include LEGULL_PATH . 'template/tracking.php';
+		}
 	}
 
 	public function do_legull_dashboard() {

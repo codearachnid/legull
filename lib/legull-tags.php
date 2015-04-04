@@ -3,6 +3,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 add_action( 'wp_ajax_legull_hide_dashboard_message', 'legull_ajax_hide_dashboard_message' );
+add_action( 'wp_ajax_legull_tracking_disallow', 'legull_pluginlytics_hide_tracking_notice' );
+add_action( 'wp_ajax_legull_tracking_allow', 'legull_pluginlytics_hide_tracking_notice' );
 add_filter( 'admin_body_class', 'legull_admin_body_class' );
 add_shortcode( 'legull', 'legull_shortcode' );
 add_shortcode( 'legull_var', 'legull_shortcode_fake' );
@@ -14,6 +16,16 @@ function legull_ajax_hide_dashboard_message(){
 	echo 'yes';
 	wp_die();
 }
+
+function legull_pluginlytics_hide_tracking_notice( $allow_tracking = 'no' ) {
+	if( !empty( $_POST['allow'] ) ){
+		$allow_tracking = $_POST['allow'];
+	}
+	update_option( 'pluginlytics_allow_tracking', $allow_tracking );
+	echo 'yes';
+	wp_die();
+}
+
 
 function legull_admin_body_class( $classes ){
 	global $current_screen;

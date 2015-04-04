@@ -13,5 +13,18 @@ jQuery(document).ready(function ($) {
 				introMessage.parentsUntil('#poststuff.dashboard').hide();
 			});
 		});
+		$('#legull_tracking_disallow').on('click',function(e){
+			var introMessage = $(this);
+			$.post(ajaxurl, {'action':'legull_tracking_disallow', 'allow': 'no'}, function(response) {
+				introMessage.parentsUntil('#poststuff.dashboard').hide();
+			});
+		});
+		$('#legull_tracking_allow').on('click',function(e){
+			var introMessage = $(this);
+			$.post(ajaxurl, {'action':'legull_tracking_allow', 'allow': 'yes'}, function(response) {
+				introMessage.parentsUntil('#poststuff.dashboard').hide();
+			});
+		});
+
 	}
 });

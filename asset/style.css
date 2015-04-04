@@ -27,10 +27,14 @@ body.legull-admin #poststuff h3{
 	background: #5A6570;
 	color:#ffffff;
 }
-body.legull-admin #legull_hide_dashboard_message{
+body.legull-admin #legull_hide_dashboard_message,
+body.legull-admin #legull_tracking_disallow,
+body.legull-admin #legull_tracking_allow{
 	float:right;
 }
-body.legull-admin #legull_hide_dashboard_message:after{
+body.legull-admin #legull_hide_dashboard_message:after,
+body.legull-admin #legull_tracking_disallow:after,
+body.legull-admin #legull_tracking_allow:after{
 	clear:both;
 }
 body.legull_page_legull_dashboard #admin-page-framework-page-load-stats,

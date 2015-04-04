@@ -72,7 +72,9 @@ function legull_plugin_loaded() {
 	add_action( 'admin_enqueue_scripts', 'legull_enqueue_admin_scripts' );
 	add_action( 'wp_enqueue_scripts', 'legull_enqueue_scripts' );
 
-	Pluginlytics::send_tracking_data( 'https://legull.com/pluginlytics/' );
+	if( get_option( 'pluginlytics_allow_tracking', false ) == 'yes' ){
+		Pluginlytics::send_tracking_data( 'https://legull.com/pluginlytics/' );
+	}
 }
 function legull_activate(){
 	update_option( 'Legull_activation_status', 'activated' );
