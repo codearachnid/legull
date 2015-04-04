@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 add_action( 'wp_ajax_legull_hide_dashboard_message', 'legull_ajax_hide_dashboard_message' );
 add_filter( 'admin_body_class', 'legull_admin_body_class' );
 add_shortcode( 'legull', 'legull_shortcode' );

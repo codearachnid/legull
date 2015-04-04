@@ -1,5 +1,7 @@
 <?php 
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class WP_Legull_Terms_List_Table extends WP_List_Table {
 
 	public function __construct( $args = array() ) {

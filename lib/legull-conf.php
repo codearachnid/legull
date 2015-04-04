@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 if ( !class_exists( 'Legull_Conf' ) ) {
 	class Legull_Conf {
 		private static $_this;

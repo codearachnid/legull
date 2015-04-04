@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Legull_CustomPostType extends Legull_AdminPageFramework_PostType {
 
 	public function start() {

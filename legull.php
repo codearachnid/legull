@@ -13,15 +13,12 @@ Credits:
 	* Background patterns from subtlepatterns.com
 */
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 global $legull;
 define( 'LEGULL_PATH', trailingslashit( dirname( __FILE__ ) ) );
 define( 'LEGULL_URL', plugins_url( '/', __FILE__ ) );
 define( 'LEGULL_CPT', 'legull_terms' );
-
-// if ( !class_exists( 'AdminPageFramework' ) ) {
-// 	include_once( LEGULL_PATH . 'apf/admin-page-framework.php' );
-// 	include_once( LEGULL_PATH . 'lib/admin-page-framework.revealer.php' );
-// }
 
 function legull_plugin_loaded() {
 	global $legull;
