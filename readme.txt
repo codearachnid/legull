@@ -3,7 +3,7 @@ Contributors: codearachnid, gatewood5000
 Tags: legal, agreement, law, lawyer, privacy policy, refund, disclosure, business, disclaimer, statement, info, policy, privacy, terms, conditions, terms and conditions,document,page,generator
 Requires at least: 3.4
 Tested up to: 4.1
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPL v3
 
 Easily generate Terms of Service and a Privacy Policy for your site.
@@ -47,6 +47,9 @@ Installing the plugin is easy. Just follow these steps:
 
 
 == Changelog ==
+= 1.2.1 = 
+* fixed misnamed variable name for tracking
+
 = 1.2.0 =
 * MAJOR FIX: publishing of terms does not resolve permalinks thanks @eggplant_casserole, @RMgreen, @splundbohm, @TheOffHander for identifying
 * fixed date format to conform with WordPress standards thanks @eggplant_casserole
