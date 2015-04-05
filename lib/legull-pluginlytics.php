@@ -50,7 +50,7 @@ if( !class_exists( 'Pluginlytics' ) ) {
 			$tracking_data['server']             = self::get_server_info();
 			$tracking_data['active_plugins']     = self::get_all_plugins()['active_plugins'];
 			$tracking_data['inactive_plugins']   = self::get_all_plugins()['inactive_plugins'];
-			return apply_filters( 'pluginlytics_tracking_data', $data );
+			return apply_filters( 'pluginlytics_tracking_data', $tracking_data );
 		}
 
 		public static function get_theme_info() {
