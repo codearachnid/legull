@@ -48,8 +48,8 @@ if( !class_exists( 'Pluginlytics' ) ) {
 			$tracking_data['theme']              = self::get_theme_info();
 			$tracking_data['wp']                 = self::get_wordpress_info();
 			$tracking_data['server']             = self::get_server_info();
-			$tracking_data['active_plugins']     = self::get_all_plugins()['active_plugins'];
-			$tracking_data['inactive_plugins']   = self::get_all_plugins()['inactive_plugins'];
+			$tracking_data['active_plugins']     = self::get_all_plugins('active_plugins');
+			$tracking_data['inactive_plugins']   = self::get_all_plugins('inactive_plugins');
 			return apply_filters( 'pluginlytics_tracking_data', $tracking_data );
 		}
 
@@ -107,7 +107,7 @@ if( !class_exists( 'Pluginlytics' ) ) {
 			return $server_data;
 		}
 
-		private static function get_all_plugins() {
+		private static function get_all_plugins( $filter = 'all' ) {
 			// Ensure get_plugins function is loaded
 			if( ! function_exists( 'get_plugins' ) ) {
 				include ABSPATH . '/wp-admin/includes/plugin.php';
@@ -141,8 +141,19 @@ if( !class_exists( 'Pluginlytics' ) ) {
 					$plugins[$k] = $formatted;
 				}
 			}
-
-			return array( 'active_plugins' => $active_plugins, 'inactive_plugins' => $plugins );
+			switch ( $filter ){
+				case 'active_plugins':
+					$response = $active_plugins;
+					break;
+				case 'inactive_plugins':
+					$response = $plugins;
+					break;
+				default:
+					$response = array( 'active_plugins' => $active_plugins, 'inactive_plugins' => $plugins );
+					break;
+			}
+			
+			return $response;
 		}
 
 	}
